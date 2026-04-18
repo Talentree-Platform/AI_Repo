@@ -18,3 +18,5 @@ models/*.pkl
 
 # Training data CSVs
 data/csv/*.csv
+
+models/*.pkl
