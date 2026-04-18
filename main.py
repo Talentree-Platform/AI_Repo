@@ -7,7 +7,7 @@ Run: uvicorn main:app --reload --port 8000
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, RedirectResponse
 import io
 
 from db.connection import get_conn
@@ -51,7 +51,14 @@ async def shutdown_scheduler():
         app.state.scheduler.shutdown()
         print("[OK] Scheduler stopped")
 
-# ── Health ─────────────────────────────────────────────────────────────────
+# ── Root ────────────────────────────────────────────────────────────────────
+
+@app.get("/", include_in_schema=False)
+def root():
+    """Redirect root URL to Swagger docs."""
+    return RedirectResponse(url="/docs")
+
+# ── Health ──────────────────────────────────────────────────────────────────
 
 @app.get("/ai/status")
 def status():
