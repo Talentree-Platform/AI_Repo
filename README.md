@@ -1,3 +1,14 @@
+---
+title: Talentree AI Service
+emoji: 🌳
+colorFrom: green
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+short_description: AI microservice for the Talentree Business Owner Dashboard
+---
+
 # 🌳 Talentree AI Service — Business Owner Dashboard
 
 > **AI-powered microservice for real-time predictions, analytics, and smart notifications**  
