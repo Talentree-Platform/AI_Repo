@@ -33,9 +33,9 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 
 | Document | Who It's For | What's Inside |
 |---|---|---|
-| [**AI Models Explained**](AI_Models_Explained.md) | Everyone (PM, Dev, Design) | Plain-English explanation of every model and insight |
-| [**AI Integration Guide**](AI_Integration_Guide.md) | Angular + .NET teams | Endpoints, TypeScript interfaces, chart code examples |
-| [**AI Master Plan**](AI_Master_Plan.md) | AI Engineer / Tech Lead | Full technical strategy, DB schema, training pipeline |
+| [**AI Models Explained**](docs/AI_Models_Explained.md) | Everyone (PM, Dev, Design) | Plain-English explanation of every model and insight |
+| [**AI Integration Guide**](docs/AI_Integration_Guide.md) | Angular + .NET teams | Endpoints, TypeScript interfaces, chart code examples |
+| [**AI Master Plan**](docs/AI_Master_Plan.md) | AI Engineer / Tech Lead | Full technical strategy, DB schema, training pipeline |
 
 ---
 
@@ -251,7 +251,7 @@ talentree-ai/
 
 ## 🔗 For the Angular Frontend Team
 
-👉 Read the **[AI Integration Guide](AI_Integration_Guide.md)** — it has:
+👉 Read the **[AI Integration Guide](docs/AI_Integration_Guide.md)** — it has:
 - Exact JSON response formats
 - TypeScript interfaces you can copy-paste
 - ApexCharts code for revenue, sentiment, and benchmark charts
@@ -271,7 +271,7 @@ GET  /ai/export/financial/{bo_id}?format=pdf             → Download
 
 ## 🔗 For the .NET Backend Team
 
-👉 Read the **[AI Integration Guide](AI_Integration_Guide.md)** — it has C# HTTP client examples.
+👉 Read the **[AI Integration Guide](docs/AI_Integration_Guide.md)** — it has C# HTTP client examples.
 
 ### When to call the AI service:
 | Your Event | Call AI Endpoint |
