@@ -33,9 +33,31 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Auto-train models if pkl files are missing (e.g. first boot on HF Spaces)
+def _ensure_models():
+    import os, subprocess, sys
+    models_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
+    required = ["churn_model.pkl", "fraud_model.pkl", "anomaly_model.pkl", "demand_model.pkl"]
+    missing  = [m for m in required if not os.path.exists(os.path.join(models_dir, m))]
+    if missing:
+        print(f"[STARTUP] Missing models: {missing} — running train_models.py ...")
+        train_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "train", "train_models.py")
+        result = subprocess.run([sys.executable, train_script], capture_output=True, text=True)
+        print(result.stdout[-2000:] if result.stdout else "[STARTUP] No stdout")
+        if result.returncode == 0:
+            print("[STARTUP] Models trained successfully.")
+        else:
+            print(f"[STARTUP] Training failed: {result.stderr[-500:]}")
+    else:
+        print("[STARTUP] All model files present.")
+
 # Start nightly/weekly scheduler on app startup
 @app.on_event("startup")
 async def startup_scheduler():
+    import asyncio
+    # Run model check in background thread to not block startup
+    loop = asyncio.get_event_loop()
+    loop.run_in_executor(None, _ensure_models)
     try:
         from scheduler import create_scheduler
         _scheduler = create_scheduler()
