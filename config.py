@@ -4,19 +4,18 @@
 # ============================================================
 import os
 
-_server   = os.getenv("DB_SERVER",     "db39807.public.databaseasp.net")
-_name     = os.getenv("DB_NAME",       "db39807")
-_user     = os.getenv("DB_USER",       "db39807")
-_password = os.getenv("DB_PASSWORD",   "Ya8@_Dt4o9N=")
-_encrypt  = os.getenv("DB_ENCRYPT",    "yes")
-_trust    = os.getenv("DB_TRUST_CERT", "yes")
+_server   = os.getenv("DB_SERVER",     "db52715.public.databaseasp.net")
+_name     = os.getenv("DB_NAME",       "db52715")
+_user     = os.getenv("DB_USER",       "db52715")
+_password = os.getenv("DB_PASSWORD",   "Kg4+5#hGcH=8")
 
 DB_CONNECTION = (
     f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-    f"SERVER={_server};"
-    f"DATABASE={_name};"
+    f"Server={_server};"
+    f"Database={_name};"
     f"UID={_user};"
     f"PWD={_password};"
-    f"Encrypt={_encrypt};"
-    f"TrustServerCertificate={_trust};"
+    f"Encrypt=yes;"
+    f"TrustServerCertificate=yes;"
+    f"MultipleActiveResultSets=True;"
 )
