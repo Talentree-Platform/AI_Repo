@@ -47,7 +47,7 @@ def predict_churn_for_user(cursor, user_id: str) -> float:
 
     cursor.execute("""
         SELECT COUNT(*) FROM SupportTickets
-        WHERE UserId = ? AND Status IN ('Open','InProgress')
+        WHERE BusinessOwnerUserId = ? AND Status IN (0, 1)
     """, (user_id,))
     open_tickets = (cursor.fetchone() or [0])[0]
 

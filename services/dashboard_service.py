@@ -82,9 +82,9 @@ def get_dashboard_summary(cursor, bo_user_id: str) -> dict:
     avg_sentiment = round(float(sent_row[0] or 0), 4) if sent_row else 0.0
     negative_reviews = int(sent_row[1] or 0) if sent_row else 0
 
-    # Open tickets
+    # Open tickets  (Status: 0=Open, 1=InProgress in new schema)
     cursor.execute("""
-        SELECT COUNT(*) FROM SupportTickets WHERE UserId=? AND Status IN ('Open','InProgress')
+        SELECT COUNT(*) FROM SupportTickets WHERE BusinessOwnerUserId=? AND Status IN (0, 1)
     """, (bo_user_id,))
     open_tickets = (cursor.fetchone() or [0])[0]
 

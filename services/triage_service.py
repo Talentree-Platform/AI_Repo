@@ -57,6 +57,7 @@ def triage_ticket(cursor, ticket_id: int) -> dict:
         WHERE Id = ?
     """, (best_cat, round(priority_score, 2), ticket_id))
 
+
     return {
         "ticket_id": ticket_id,
         "auto_category": best_cat,
