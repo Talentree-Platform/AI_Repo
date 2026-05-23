@@ -1,1402 +1,1402 @@
 [
   {
     "product_id": 1,
-    "product_name": "Almond Butter Model B1",
-    "category": "grocery",
-    "price": 11.25,
-    "description": "Premium Almond Butter Model B1 in grocery category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model B1",
+    "category": "Handmade & Crafts",
+    "price": 140.73,
+    "description": "Premium Artisanal Wall Hanging Model B1 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 2,
-    "product_name": "Lip Balm Model C2",
-    "category": "beauty",
-    "price": 62.3,
-    "description": "Premium Lip Balm Model C2 in beauty category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model C2",
+    "category": "Natural & Beauty Products",
+    "price": 62.81,
+    "description": "Premium Pure Essential Oil Blend Model C2 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 3,
-    "product_name": "Cap Model D3",
-    "category": "clothing",
-    "price": 54.21,
-    "description": "Premium Cap Model D3 in clothing category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model D3",
+    "category": "Fashion & Accessories",
+    "price": 321.93,
+    "description": "Premium Designer Leather Bag Model D3 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 4,
-    "product_name": "Smartphone Model E4",
-    "category": "electronics",
-    "price": 488.67,
-    "description": "Premium Smartphone Model E4 in electronics category. High-quality build, popular selection."
+    "product_name": "Organic Lavender Soap Model E4",
+    "category": "Natural & Beauty Products",
+    "price": 12.81,
+    "description": "Premium Organic Lavender Soap Model E4 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 5,
-    "product_name": "Cap Model F5",
-    "category": "clothing",
-    "price": 68.3,
-    "description": "Premium Cap Model F5 in clothing category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model F5",
+    "category": "Fashion & Accessories",
+    "price": 37.13,
+    "description": "Premium Handwoven Woolen Scarf Model F5 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 6,
-    "product_name": "Lip Balm Model G6",
-    "category": "beauty",
-    "price": 68.19,
-    "description": "Premium Lip Balm Model G6 in beauty category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model G6",
+    "category": "Fashion & Accessories",
+    "price": 117.28,
+    "description": "Premium Designer Leather Bag Model G6 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 7,
-    "product_name": "Scented Candle Model H7",
-    "category": "home_decor",
-    "price": 148.86,
-    "description": "Premium Scented Candle Model H7 in home_decor category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model H7",
+    "category": "Handmade & Crafts",
+    "price": 120.47,
+    "description": "Premium Woven Reed Basket Model H7 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 8,
-    "product_name": "Running Shorts Model I8",
-    "category": "clothing",
-    "price": 16.44,
-    "description": "Premium Running Shorts Model I8 in clothing category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model I8",
+    "category": "Fashion & Accessories",
+    "price": 44.7,
+    "description": "Premium Handwoven Woolen Scarf Model I8 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 9,
-    "product_name": "Charger Cable Model J9",
-    "category": "electronics",
-    "price": 115.29,
-    "description": "Premium Charger Cable Model J9 in electronics category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model J9",
+    "category": "Fashion & Accessories",
+    "price": 170.91,
+    "description": "Premium Designer Leather Bag Model J9 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 10,
-    "product_name": "Jacket Model K10",
-    "category": "clothing",
-    "price": 84.17,
-    "description": "Premium Jacket Model K10 in clothing category. High-quality build, popular selection."
+    "product_name": "Handcrafted Silver Ring Model K10",
+    "category": "Fashion & Accessories",
+    "price": 274.37,
+    "description": "Premium Handcrafted Silver Ring Model K10 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 11,
-    "product_name": "Socks Model L11",
-    "category": "clothing",
-    "price": 107.47,
-    "description": "Premium Socks Model L11 in clothing category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model L11",
+    "category": "Fashion & Accessories",
+    "price": 224.3,
+    "description": "Premium Designer Leather Bag Model L11 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 12,
-    "product_name": "Jacket Model M12",
-    "category": "clothing",
-    "price": 145.97,
-    "description": "Premium Jacket Model M12 in clothing category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model M12",
+    "category": "Handmade & Crafts",
+    "price": 72.73,
+    "description": "Premium Hand-painted Clay Vase Model M12 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 13,
-    "product_name": "Running Shorts Model N13",
-    "category": "clothing",
-    "price": 57.28,
-    "description": "Premium Running Shorts Model N13 in clothing category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model N13",
+    "category": "Fashion & Accessories",
+    "price": 175.57,
+    "description": "Premium Organic Canvas Sneakers Model N13 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 14,
-    "product_name": "Olive Oil Model O14",
-    "category": "grocery",
-    "price": 27.24,
-    "description": "Premium Olive Oil Model O14 in grocery category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model O14",
+    "category": "Natural & Beauty Products",
+    "price": 23.28,
+    "description": "Premium Herbal Aloe Shampoo Model O14 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 15,
-    "product_name": "Granola Bars Model P15",
-    "category": "grocery",
-    "price": 11.03,
-    "description": "Premium Granola Bars Model P15 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model P15",
+    "category": "Natural & Beauty Products",
+    "price": 12.07,
+    "description": "Premium Coconut Hair Treatment Model P15 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 16,
-    "product_name": "Perfume Model Q16",
-    "category": "beauty",
-    "price": 42.44,
-    "description": "Premium Perfume Model Q16 in beauty category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model Q16",
+    "category": "Handmade & Crafts",
+    "price": 88.12,
+    "description": "Premium Hand-painted Clay Vase Model Q16 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 17,
-    "product_name": "Bonsai Tree Model R17",
-    "category": "home_decor",
-    "price": 12.05,
-    "description": "Premium Bonsai Tree Model R17 in home_decor category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model R17",
+    "category": "Handmade & Crafts",
+    "price": 150.71,
+    "description": "Premium Woven Reed Basket Model R17 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 18,
-    "product_name": "Scented Candle Model S18",
-    "category": "home_decor",
-    "price": 74.28,
-    "description": "Premium Scented Candle Model S18 in home_decor category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model S18",
+    "category": "Fashion & Accessories",
+    "price": 220.26,
+    "description": "Premium Handwoven Woolen Scarf Model S18 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 19,
-    "product_name": "Picture Frame Model T19",
-    "category": "home_decor",
-    "price": 195.34,
-    "description": "Premium Picture Frame Model T19 in home_decor category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model T19",
+    "category": "Handmade & Crafts",
+    "price": 175.85,
+    "description": "Premium Woven Reed Basket Model T19 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 20,
-    "product_name": "Bluetooth Speaker Model U20",
-    "category": "electronics",
-    "price": 475.39,
-    "description": "Premium Bluetooth Speaker Model U20 in electronics category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model U20",
+    "category": "Fashion & Accessories",
+    "price": 116.25,
+    "description": "Premium Classic Leather Wallet Model U20 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 21,
-    "product_name": "Running Shorts Model V21",
-    "category": "clothing",
-    "price": 28.08,
-    "description": "Premium Running Shorts Model V21 in clothing category. High-quality build, popular selection."
+    "product_name": "Natural Shea Butter Cream Model V21",
+    "category": "Natural & Beauty Products",
+    "price": 39.63,
+    "description": "Premium Natural Shea Butter Cream Model V21 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 22,
-    "product_name": "Curtains Model W22",
-    "category": "home_decor",
-    "price": 163.23,
-    "description": "Premium Curtains Model W22 in home_decor category. High-quality build, popular selection."
+    "product_name": "Natural Shea Butter Cream Model W22",
+    "category": "Natural & Beauty Products",
+    "price": 71.46,
+    "description": "Premium Natural Shea Butter Cream Model W22 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 23,
-    "product_name": "Sunscreen Model X23",
-    "category": "beauty",
-    "price": 41.27,
-    "description": "Premium Sunscreen Model X23 in beauty category. High-quality build, popular selection."
+    "product_name": "Rose Water Facial Mist Model X23",
+    "category": "Natural & Beauty Products",
+    "price": 43.23,
+    "description": "Premium Rose Water Facial Mist Model X23 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 24,
-    "product_name": "Perfume Model Y24",
-    "category": "beauty",
-    "price": 19.55,
-    "description": "Premium Perfume Model Y24 in beauty category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model Y24",
+    "category": "Natural & Beauty Products",
+    "price": 66.61,
+    "description": "Premium Herbal Aloe Shampoo Model Y24 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 25,
-    "product_name": "Sneakers Model Z25",
-    "category": "clothing",
-    "price": 133.16,
-    "description": "Premium Sneakers Model Z25 in clothing category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model Z25",
+    "category": "Natural & Beauty Products",
+    "price": 44.84,
+    "description": "Premium Herbal Aloe Shampoo Model Z25 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 26,
-    "product_name": "Lip Balm Model A26",
-    "category": "beauty",
-    "price": 17.86,
-    "description": "Premium Lip Balm Model A26 in beauty category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model A26",
+    "category": "Handmade & Crafts",
+    "price": 166.94,
+    "description": "Premium Artisanal Wall Hanging Model A26 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 27,
-    "product_name": "Almond Butter Model B27",
-    "category": "grocery",
-    "price": 17.07,
-    "description": "Premium Almond Butter Model B27 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model B27",
+    "category": "Natural & Beauty Products",
+    "price": 68.56,
+    "description": "Premium Coconut Hair Treatment Model B27 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 28,
-    "product_name": "Throw Pillow Model C28",
-    "category": "home_decor",
-    "price": 51.01,
-    "description": "Premium Throw Pillow Model C28 in home_decor category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model C28",
+    "category": "Handmade & Crafts",
+    "price": 24.05,
+    "description": "Premium Handmade Journal notebook Model C28 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 29,
-    "product_name": "Oat Milk Model D29",
-    "category": "grocery",
-    "price": 20.43,
-    "description": "Premium Oat Milk Model D29 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model D29",
+    "category": "Natural & Beauty Products",
+    "price": 20.16,
+    "description": "Premium Coconut Hair Treatment Model D29 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 30,
-    "product_name": "Smart Watch Model E30",
-    "category": "electronics",
-    "price": 231.43,
-    "description": "Premium Smart Watch Model E30 in electronics category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model E30",
+    "category": "Natural & Beauty Products",
+    "price": 18.84,
+    "description": "Premium Herbal Aloe Shampoo Model E30 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 31,
-    "product_name": "Sunscreen Model F31",
-    "category": "beauty",
-    "price": 10.77,
-    "description": "Premium Sunscreen Model F31 in beauty category. High-quality build, popular selection."
+    "product_name": "Scented Soy Candle Model F31",
+    "category": "Handmade & Crafts",
+    "price": 105.61,
+    "description": "Premium Scented Soy Candle Model F31 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 32,
-    "product_name": "Dark Chocolate Model G32",
-    "category": "grocery",
-    "price": 16.34,
-    "description": "Premium Dark Chocolate Model G32 in grocery category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model G32",
+    "category": "Natural & Beauty Products",
+    "price": 23.28,
+    "description": "Premium Hydrating Lip Balm Extract Model G32 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 33,
-    "product_name": "Scented Candle Model H33",
-    "category": "home_decor",
-    "price": 68.28,
-    "description": "Premium Scented Candle Model H33 in home_decor category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model H33",
+    "category": "Natural & Beauty Products",
+    "price": 65.94,
+    "description": "Premium Mineral Clay Face Mask Model H33 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 34,
-    "product_name": "Scented Candle Model I34",
-    "category": "home_decor",
-    "price": 181.84,
-    "description": "Premium Scented Candle Model I34 in home_decor category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model I34",
+    "category": "Handmade & Crafts",
+    "price": 93.45,
+    "description": "Premium Woven Reed Basket Model I34 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 35,
-    "product_name": "Picture Frame Model J35",
-    "category": "home_decor",
-    "price": 56.94,
-    "description": "Premium Picture Frame Model J35 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model J35",
+    "category": "Handmade & Crafts",
+    "price": 157.71,
+    "description": "Premium Hand-painted Clay Vase Model J35 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 36,
-    "product_name": "Jeans Model K36",
-    "category": "clothing",
-    "price": 140.7,
-    "description": "Premium Jeans Model K36 in clothing category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model K36",
+    "category": "Natural & Beauty Products",
+    "price": 68.23,
+    "description": "Premium Pure Essential Oil Blend Model K36 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 37,
-    "product_name": "Smart Watch Model L37",
-    "category": "electronics",
-    "price": 141.49,
-    "description": "Premium Smart Watch Model L37 in electronics category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model L37",
+    "category": "Handmade & Crafts",
+    "price": 132.73,
+    "description": "Premium Handmade Journal notebook Model L37 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 38,
-    "product_name": "Shampoo Model M38",
-    "category": "beauty",
-    "price": 45.3,
-    "description": "Premium Shampoo Model M38 in beauty category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model M38",
+    "category": "Natural & Beauty Products",
+    "price": 68.35,
+    "description": "Premium Coconut Hair Treatment Model M38 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 39,
-    "product_name": "Organic Coffee Model N39",
-    "category": "grocery",
-    "price": 27.17,
-    "description": "Premium Organic Coffee Model N39 in grocery category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model N39",
+    "category": "Fashion & Accessories",
+    "price": 348.23,
+    "description": "Premium Beaded Accent Bracelet Model N39 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 40,
-    "product_name": "Dark Chocolate Model O40",
-    "category": "grocery",
-    "price": 17.29,
-    "description": "Premium Dark Chocolate Model O40 in grocery category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model O40",
+    "category": "Natural & Beauty Products",
+    "price": 34.71,
+    "description": "Premium Pure Essential Oil Blend Model O40 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 41,
-    "product_name": "Granola Bars Model P41",
-    "category": "grocery",
-    "price": 11.88,
-    "description": "Premium Granola Bars Model P41 in grocery category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model P41",
+    "category": "Handmade & Crafts",
+    "price": 68.72,
+    "description": "Premium Hand-carved Oak Sculpture Model P41 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 42,
-    "product_name": "Wall Clock Model Q42",
-    "category": "home_decor",
-    "price": 119.08,
-    "description": "Premium Wall Clock Model Q42 in home_decor category. High-quality build, popular selection."
+    "product_name": "Natural Shea Butter Cream Model Q42",
+    "category": "Natural & Beauty Products",
+    "price": 58.78,
+    "description": "Premium Natural Shea Butter Cream Model Q42 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 43,
-    "product_name": "Running Shorts Model R43",
-    "category": "clothing",
-    "price": 139.98,
-    "description": "Premium Running Shorts Model R43 in clothing category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model R43",
+    "category": "Natural & Beauty Products",
+    "price": 13.09,
+    "description": "Premium Pure Essential Oil Blend Model R43 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 44,
-    "product_name": "Granola Bars Model S44",
-    "category": "grocery",
-    "price": 25.64,
-    "description": "Premium Granola Bars Model S44 in grocery category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model S44",
+    "category": "Natural & Beauty Products",
+    "price": 56.63,
+    "description": "Premium Hydrating Lip Balm Extract Model S44 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 45,
-    "product_name": "Wall Clock Model T45",
-    "category": "home_decor",
-    "price": 14.4,
-    "description": "Premium Wall Clock Model T45 in home_decor category. High-quality build, popular selection."
+    "product_name": "Sleek Bamboo Sunglasses Model T45",
+    "category": "Fashion & Accessories",
+    "price": 32.53,
+    "description": "Premium Sleek Bamboo Sunglasses Model T45 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 46,
-    "product_name": "Granola Bars Model U46",
-    "category": "grocery",
-    "price": 19.78,
-    "description": "Premium Granola Bars Model U46 in grocery category. High-quality build, popular selection."
+    "product_name": "Rose Water Facial Mist Model U46",
+    "category": "Natural & Beauty Products",
+    "price": 40.81,
+    "description": "Premium Rose Water Facial Mist Model U46 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 47,
-    "product_name": "Organic Coffee Model V47",
-    "category": "grocery",
-    "price": 27.04,
-    "description": "Premium Organic Coffee Model V47 in grocery category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model V47",
+    "category": "Handmade & Crafts",
+    "price": 96.55,
+    "description": "Premium Hand-carved Oak Sculpture Model V47 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 48,
-    "product_name": "Sunscreen Model W48",
-    "category": "beauty",
-    "price": 61.84,
-    "description": "Premium Sunscreen Model W48 in beauty category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model W48",
+    "category": "Handmade & Crafts",
+    "price": 69.57,
+    "description": "Premium Handcrafted Ceramic Mug Model W48 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 49,
-    "product_name": "Scented Candle Model X49",
-    "category": "home_decor",
-    "price": 83.52,
-    "description": "Premium Scented Candle Model X49 in home_decor category. High-quality build, popular selection."
+    "product_name": "Scented Soy Candle Model X49",
+    "category": "Handmade & Crafts",
+    "price": 170.81,
+    "description": "Premium Scented Soy Candle Model X49 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 50,
-    "product_name": "Organic Coffee Model Y50",
-    "category": "grocery",
-    "price": 18.47,
-    "description": "Premium Organic Coffee Model Y50 in grocery category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model Y50",
+    "category": "Natural & Beauty Products",
+    "price": 21.86,
+    "description": "Premium Pure Essential Oil Blend Model Y50 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 51,
-    "product_name": "Tablet Model Z51",
-    "category": "electronics",
-    "price": 75.54,
-    "description": "Premium Tablet Model Z51 in electronics category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model Z51",
+    "category": "Handmade & Crafts",
+    "price": 151.95,
+    "description": "Premium Hand-painted Clay Vase Model Z51 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 52,
-    "product_name": "Bonsai Tree Model A52",
-    "category": "home_decor",
-    "price": 97.71,
-    "description": "Premium Bonsai Tree Model A52 in home_decor category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model A52",
+    "category": "Fashion & Accessories",
+    "price": 51.08,
+    "description": "Premium Organic Canvas Sneakers Model A52 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 53,
-    "product_name": "Hand Cream Model B53",
-    "category": "beauty",
-    "price": 57.48,
-    "description": "Premium Hand Cream Model B53 in beauty category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model B53",
+    "category": "Natural & Beauty Products",
+    "price": 73.52,
+    "description": "Premium Pure Essential Oil Blend Model B53 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 54,
-    "product_name": "Honey Model C54",
-    "category": "grocery",
-    "price": 18.43,
-    "description": "Premium Honey Model C54 in grocery category. High-quality build, popular selection."
+    "product_name": "Natural Shea Butter Cream Model C54",
+    "category": "Natural & Beauty Products",
+    "price": 28.32,
+    "description": "Premium Natural Shea Butter Cream Model C54 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 55,
-    "product_name": "Perfume Model D55",
-    "category": "beauty",
-    "price": 71.65,
-    "description": "Premium Perfume Model D55 in beauty category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model D55",
+    "category": "Fashion & Accessories",
+    "price": 241.1,
+    "description": "Premium Designer Leather Bag Model D55 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 56,
-    "product_name": "Jeans Model E56",
-    "category": "clothing",
-    "price": 118.09,
-    "description": "Premium Jeans Model E56 in clothing category. High-quality build, popular selection."
+    "product_name": "Scented Soy Candle Model E56",
+    "category": "Handmade & Crafts",
+    "price": 86.4,
+    "description": "Premium Scented Soy Candle Model E56 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 57,
-    "product_name": "Dark Chocolate Model F57",
-    "category": "grocery",
-    "price": 18.88,
-    "description": "Premium Dark Chocolate Model F57 in grocery category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model F57",
+    "category": "Handmade & Crafts",
+    "price": 41.38,
+    "description": "Premium Artisanal Wall Hanging Model F57 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 58,
-    "product_name": "Sneakers Model G58",
-    "category": "clothing",
-    "price": 64.62,
-    "description": "Premium Sneakers Model G58 in clothing category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model G58",
+    "category": "Natural & Beauty Products",
+    "price": 16.02,
+    "description": "Premium Mineral Clay Face Mask Model G58 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 59,
-    "product_name": "Moisturizer Model H59",
-    "category": "beauty",
-    "price": 65.62,
-    "description": "Premium Moisturizer Model H59 in beauty category. High-quality build, popular selection."
+    "product_name": "Handcrafted Silver Ring Model H59",
+    "category": "Fashion & Accessories",
+    "price": 34.56,
+    "description": "Premium Handcrafted Silver Ring Model H59 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 60,
-    "product_name": "Scented Candle Model I60",
-    "category": "home_decor",
-    "price": 176.14,
-    "description": "Premium Scented Candle Model I60 in home_decor category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model I60",
+    "category": "Fashion & Accessories",
+    "price": 284.19,
+    "description": "Premium Designer Leather Bag Model I60 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 61,
-    "product_name": "Hoodie Model J61",
-    "category": "clothing",
-    "price": 23.69,
-    "description": "Premium Hoodie Model J61 in clothing category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model J61",
+    "category": "Natural & Beauty Products",
+    "price": 55.4,
+    "description": "Premium Herbal Aloe Shampoo Model J61 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 62,
-    "product_name": "Face Mask Model K62",
-    "category": "beauty",
-    "price": 56.4,
-    "description": "Premium Face Mask Model K62 in beauty category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model K62",
+    "category": "Natural & Beauty Products",
+    "price": 10.63,
+    "description": "Premium Hydrating Lip Balm Extract Model K62 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 63,
-    "product_name": "Power Bank Model L63",
-    "category": "electronics",
-    "price": 247.44,
-    "description": "Premium Power Bank Model L63 in electronics category. High-quality build, popular selection."
+    "product_name": "Embroidered Cotton Throw Model L63",
+    "category": "Handmade & Crafts",
+    "price": 121.55,
+    "description": "Premium Embroidered Cotton Throw Model L63 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 64,
-    "product_name": "Face Mask Model M64",
-    "category": "beauty",
-    "price": 70.38,
-    "description": "Premium Face Mask Model M64 in beauty category. High-quality build, popular selection."
+    "product_name": "Upcycled Denim Jacket Model M64",
+    "category": "Fashion & Accessories",
+    "price": 219.78,
+    "description": "Premium Upcycled Denim Jacket Model M64 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 65,
-    "product_name": "Wireless Earbuds Model N65",
-    "category": "electronics",
-    "price": 773.39,
-    "description": "Premium Wireless Earbuds Model N65 in electronics category. High-quality build, popular selection."
+    "product_name": "Embroidered Cotton Throw Model N65",
+    "category": "Handmade & Crafts",
+    "price": 100.67,
+    "description": "Premium Embroidered Cotton Throw Model N65 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 66,
-    "product_name": "Organic Coffee Model O66",
-    "category": "grocery",
-    "price": 28.12,
-    "description": "Premium Organic Coffee Model O66 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model O66",
+    "category": "Natural & Beauty Products",
+    "price": 69.17,
+    "description": "Premium Coconut Hair Treatment Model O66 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 67,
-    "product_name": "T-Shirt Model P67",
-    "category": "clothing",
-    "price": 76.98,
-    "description": "Premium T-Shirt Model P67 in clothing category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model P67",
+    "category": "Natural & Beauty Products",
+    "price": 64.3,
+    "description": "Premium Hydrating Lip Balm Extract Model P67 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 68,
-    "product_name": "Granola Bars Model Q68",
-    "category": "grocery",
-    "price": 7.73,
-    "description": "Premium Granola Bars Model Q68 in grocery category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model Q68",
+    "category": "Handmade & Crafts",
+    "price": 132.65,
+    "description": "Premium Woven Reed Basket Model Q68 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 69,
-    "product_name": "Curtains Model R69",
-    "category": "home_decor",
-    "price": 84.41,
-    "description": "Premium Curtains Model R69 in home_decor category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model R69",
+    "category": "Handmade & Crafts",
+    "price": 69.05,
+    "description": "Premium Handmade Journal notebook Model R69 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 70,
-    "product_name": "Power Bank Model S70",
-    "category": "electronics",
-    "price": 492.58,
-    "description": "Premium Power Bank Model S70 in electronics category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model S70",
+    "category": "Fashion & Accessories",
+    "price": 140.22,
+    "description": "Premium Organic Canvas Sneakers Model S70 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 71,
-    "product_name": "Almond Butter Model T71",
-    "category": "grocery",
-    "price": 12.23,
-    "description": "Premium Almond Butter Model T71 in grocery category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model T71",
+    "category": "Handmade & Crafts",
+    "price": 157.87,
+    "description": "Premium Woven Reed Basket Model T71 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 72,
-    "product_name": "Running Shorts Model U72",
-    "category": "clothing",
-    "price": 74.11,
-    "description": "Premium Running Shorts Model U72 in clothing category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model U72",
+    "category": "Fashion & Accessories",
+    "price": 211.44,
+    "description": "Premium Handwoven Woolen Scarf Model U72 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 73,
-    "product_name": "T-Shirt Model V73",
-    "category": "clothing",
-    "price": 94.44,
-    "description": "Premium T-Shirt Model V73 in clothing category. High-quality build, popular selection."
+    "product_name": "Scented Soy Candle Model V73",
+    "category": "Handmade & Crafts",
+    "price": 157.13,
+    "description": "Premium Scented Soy Candle Model V73 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 74,
-    "product_name": "Bonsai Tree Model W74",
-    "category": "home_decor",
-    "price": 146.84,
-    "description": "Premium Bonsai Tree Model W74 in home_decor category. High-quality build, popular selection."
+    "product_name": "Embroidered Cotton Throw Model W74",
+    "category": "Handmade & Crafts",
+    "price": 32.16,
+    "description": "Premium Embroidered Cotton Throw Model W74 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 75,
-    "product_name": "Organic Coffee Model X75",
-    "category": "grocery",
-    "price": 22.0,
-    "description": "Premium Organic Coffee Model X75 in grocery category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model X75",
+    "category": "Handmade & Crafts",
+    "price": 152.75,
+    "description": "Premium Handmade Journal notebook Model X75 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 76,
-    "product_name": "Honey Model Y76",
-    "category": "grocery",
-    "price": 21.82,
-    "description": "Premium Honey Model Y76 in grocery category. High-quality build, popular selection."
+    "product_name": "Sleek Bamboo Sunglasses Model Y76",
+    "category": "Fashion & Accessories",
+    "price": 219.4,
+    "description": "Premium Sleek Bamboo Sunglasses Model Y76 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 77,
-    "product_name": "Curtains Model Z77",
-    "category": "home_decor",
-    "price": 52.36,
-    "description": "Premium Curtains Model Z77 in home_decor category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model Z77",
+    "category": "Natural & Beauty Products",
+    "price": 37.94,
+    "description": "Premium Coconut Hair Treatment Model Z77 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 78,
-    "product_name": "Hoodie Model A78",
-    "category": "clothing",
-    "price": 45.19,
-    "description": "Premium Hoodie Model A78 in clothing category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model A78",
+    "category": "Fashion & Accessories",
+    "price": 334.01,
+    "description": "Premium Designer Leather Bag Model A78 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 79,
-    "product_name": "Dark Chocolate Model B79",
-    "category": "grocery",
-    "price": 3.36,
-    "description": "Premium Dark Chocolate Model B79 in grocery category. High-quality build, popular selection."
+    "product_name": "Natural Shea Butter Cream Model B79",
+    "category": "Natural & Beauty Products",
+    "price": 20.22,
+    "description": "Premium Natural Shea Butter Cream Model B79 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 80,
-    "product_name": "Oat Milk Model C80",
-    "category": "grocery",
-    "price": 23.19,
-    "description": "Premium Oat Milk Model C80 in grocery category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model C80",
+    "category": "Fashion & Accessories",
+    "price": 89.79,
+    "description": "Premium Organic Canvas Sneakers Model C80 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 81,
-    "product_name": "Bonsai Tree Model D81",
-    "category": "home_decor",
-    "price": 85.14,
-    "description": "Premium Bonsai Tree Model D81 in home_decor category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model D81",
+    "category": "Handmade & Crafts",
+    "price": 62.66,
+    "description": "Premium Artisanal Wall Hanging Model D81 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 82,
-    "product_name": "Granola Bars Model E82",
-    "category": "grocery",
-    "price": 20.57,
-    "description": "Premium Granola Bars Model E82 in grocery category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model E82",
+    "category": "Fashion & Accessories",
+    "price": 267.79,
+    "description": "Premium Handwoven Woolen Scarf Model E82 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 83,
-    "product_name": "Picture Frame Model F83",
-    "category": "home_decor",
-    "price": 161.98,
-    "description": "Premium Picture Frame Model F83 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model F83",
+    "category": "Handmade & Crafts",
+    "price": 116.56,
+    "description": "Premium Hand-carved Oak Sculpture Model F83 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 84,
-    "product_name": "T-Shirt Model G84",
-    "category": "clothing",
-    "price": 80.33,
-    "description": "Premium T-Shirt Model G84 in clothing category. High-quality build, popular selection."
+    "product_name": "Rose Water Facial Mist Model G84",
+    "category": "Natural & Beauty Products",
+    "price": 30.13,
+    "description": "Premium Rose Water Facial Mist Model G84 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 85,
-    "product_name": "Power Bank Model H85",
-    "category": "electronics",
-    "price": 654.75,
-    "description": "Premium Power Bank Model H85 in electronics category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model H85",
+    "category": "Natural & Beauty Products",
+    "price": 57.75,
+    "description": "Premium Mineral Clay Face Mask Model H85 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 86,
-    "product_name": "Hand Cream Model I86",
-    "category": "beauty",
-    "price": 22.69,
-    "description": "Premium Hand Cream Model I86 in beauty category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model I86",
+    "category": "Natural & Beauty Products",
+    "price": 53.06,
+    "description": "Premium Coconut Hair Treatment Model I86 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 87,
-    "product_name": "Jacket Model J87",
-    "category": "clothing",
-    "price": 74.91,
-    "description": "Premium Jacket Model J87 in clothing category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model J87",
+    "category": "Natural & Beauty Products",
+    "price": 24.21,
+    "description": "Premium Coconut Hair Treatment Model J87 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 88,
-    "product_name": "Perfume Model K88",
-    "category": "beauty",
-    "price": 11.31,
-    "description": "Premium Perfume Model K88 in beauty category. High-quality build, popular selection."
+    "product_name": "Natural Shea Butter Cream Model K88",
+    "category": "Natural & Beauty Products",
+    "price": 33.92,
+    "description": "Premium Natural Shea Butter Cream Model K88 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 89,
-    "product_name": "Scented Candle Model L89",
-    "category": "home_decor",
-    "price": 110.3,
-    "description": "Premium Scented Candle Model L89 in home_decor category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model L89",
+    "category": "Fashion & Accessories",
+    "price": 170.48,
+    "description": "Premium Handwoven Woolen Scarf Model L89 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 90,
-    "product_name": "Tablet Model M90",
-    "category": "electronics",
-    "price": 584.2,
-    "description": "Premium Tablet Model M90 in electronics category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model M90",
+    "category": "Natural & Beauty Products",
+    "price": 15.16,
+    "description": "Premium Herbal Aloe Shampoo Model M90 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 91,
-    "product_name": "Smartphone Model N91",
-    "category": "electronics",
-    "price": 903.07,
-    "description": "Premium Smartphone Model N91 in electronics category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model N91",
+    "category": "Fashion & Accessories",
+    "price": 61.63,
+    "description": "Premium Handwoven Woolen Scarf Model N91 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 92,
-    "product_name": "Bonsai Tree Model O92",
-    "category": "home_decor",
-    "price": 56.4,
-    "description": "Premium Bonsai Tree Model O92 in home_decor category. High-quality build, popular selection."
+    "product_name": "Embroidered Cotton Throw Model O92",
+    "category": "Handmade & Crafts",
+    "price": 141.47,
+    "description": "Premium Embroidered Cotton Throw Model O92 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 93,
-    "product_name": "Laptop Model P93",
-    "category": "electronics",
-    "price": 143.86,
-    "description": "Premium Laptop Model P93 in electronics category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model P93",
+    "category": "Handmade & Crafts",
+    "price": 41.22,
+    "description": "Premium Hand-painted Clay Vase Model P93 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 94,
-    "product_name": "Wireless Earbuds Model Q94",
-    "category": "electronics",
-    "price": 738.04,
-    "description": "Premium Wireless Earbuds Model Q94 in electronics category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model Q94",
+    "category": "Natural & Beauty Products",
+    "price": 44.08,
+    "description": "Premium Mineral Clay Face Mask Model Q94 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 95,
-    "product_name": "Curtains Model R95",
-    "category": "home_decor",
-    "price": 112.71,
-    "description": "Premium Curtains Model R95 in home_decor category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model R95",
+    "category": "Handmade & Crafts",
+    "price": 83.72,
+    "description": "Premium Woven Reed Basket Model R95 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 96,
-    "product_name": "Perfume Model S96",
-    "category": "beauty",
-    "price": 72.58,
-    "description": "Premium Perfume Model S96 in beauty category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model S96",
+    "category": "Fashion & Accessories",
+    "price": 224.4,
+    "description": "Premium Handwoven Woolen Scarf Model S96 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 97,
-    "product_name": "Hoodie Model T97",
-    "category": "clothing",
-    "price": 129.45,
-    "description": "Premium Hoodie Model T97 in clothing category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model T97",
+    "category": "Handmade & Crafts",
+    "price": 168.84,
+    "description": "Premium Hand-carved Oak Sculpture Model T97 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 98,
-    "product_name": "Bluetooth Speaker Model U98",
-    "category": "electronics",
-    "price": 261.39,
-    "description": "Premium Bluetooth Speaker Model U98 in electronics category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model U98",
+    "category": "Natural & Beauty Products",
+    "price": 56.4,
+    "description": "Premium Pure Essential Oil Blend Model U98 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 99,
-    "product_name": "Socks Model V99",
-    "category": "clothing",
-    "price": 55.19,
-    "description": "Premium Socks Model V99 in clothing category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model V99",
+    "category": "Fashion & Accessories",
+    "price": 79.96,
+    "description": "Premium Handwoven Woolen Scarf Model V99 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 100,
-    "product_name": "Jeans Model W100",
-    "category": "clothing",
-    "price": 76.58,
-    "description": "Premium Jeans Model W100 in clothing category. High-quality build, popular selection."
+    "product_name": "Rose Water Facial Mist Model W100",
+    "category": "Natural & Beauty Products",
+    "price": 11.18,
+    "description": "Premium Rose Water Facial Mist Model W100 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 101,
-    "product_name": "Facial Cleanser Model X101",
-    "category": "beauty",
-    "price": 24.58,
-    "description": "Premium Facial Cleanser Model X101 in beauty category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model X101",
+    "category": "Handmade & Crafts",
+    "price": 163.4,
+    "description": "Premium Woven Reed Basket Model X101 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 102,
-    "product_name": "Facial Cleanser Model Y102",
-    "category": "beauty",
-    "price": 79.68,
-    "description": "Premium Facial Cleanser Model Y102 in beauty category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model Y102",
+    "category": "Fashion & Accessories",
+    "price": 333.56,
+    "description": "Premium Handwoven Woolen Scarf Model Y102 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 103,
-    "product_name": "Dark Chocolate Model Z103",
-    "category": "grocery",
-    "price": 22.76,
-    "description": "Premium Dark Chocolate Model Z103 in grocery category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model Z103",
+    "category": "Fashion & Accessories",
+    "price": 334.11,
+    "description": "Premium Handwoven Woolen Scarf Model Z103 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 104,
-    "product_name": "Organic Coffee Model A104",
-    "category": "grocery",
-    "price": 4.96,
-    "description": "Premium Organic Coffee Model A104 in grocery category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model A104",
+    "category": "Handmade & Crafts",
+    "price": 16.73,
+    "description": "Premium Handcrafted Ceramic Mug Model A104 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 105,
-    "product_name": "Tablet Model B105",
-    "category": "electronics",
-    "price": 766.53,
-    "description": "Premium Tablet Model B105 in electronics category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model B105",
+    "category": "Handmade & Crafts",
+    "price": 51.63,
+    "description": "Premium Woven Reed Basket Model B105 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 106,
-    "product_name": "Charger Cable Model C106",
-    "category": "electronics",
-    "price": 973.48,
-    "description": "Premium Charger Cable Model C106 in electronics category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model C106",
+    "category": "Fashion & Accessories",
+    "price": 199.99,
+    "description": "Premium Classic Leather Wallet Model C106 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 107,
-    "product_name": "T-Shirt Model D107",
-    "category": "clothing",
-    "price": 91.08,
-    "description": "Premium T-Shirt Model D107 in clothing category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model D107",
+    "category": "Natural & Beauty Products",
+    "price": 51.0,
+    "description": "Premium Coconut Hair Treatment Model D107 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 108,
-    "product_name": "Scented Candle Model E108",
-    "category": "home_decor",
-    "price": 39.97,
-    "description": "Premium Scented Candle Model E108 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model E108",
+    "category": "Natural & Beauty Products",
+    "price": 53.67,
+    "description": "Premium Hydrating Lip Balm Extract Model E108 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 109,
-    "product_name": "Organic Coffee Model F109",
-    "category": "grocery",
-    "price": 26.55,
-    "description": "Premium Organic Coffee Model F109 in grocery category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model F109",
+    "category": "Handmade & Crafts",
+    "price": 26.68,
+    "description": "Premium Woven Reed Basket Model F109 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 110,
-    "product_name": "T-Shirt Model G110",
-    "category": "clothing",
-    "price": 98.55,
-    "description": "Premium T-Shirt Model G110 in clothing category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model G110",
+    "category": "Natural & Beauty Products",
+    "price": 59.93,
+    "description": "Premium Coconut Hair Treatment Model G110 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 111,
-    "product_name": "Facial Cleanser Model H111",
-    "category": "beauty",
-    "price": 19.68,
-    "description": "Premium Facial Cleanser Model H111 in beauty category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model H111",
+    "category": "Natural & Beauty Products",
+    "price": 33.87,
+    "description": "Premium Hydrating Lip Balm Extract Model H111 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 112,
-    "product_name": "Wireless Earbuds Model I112",
-    "category": "electronics",
-    "price": 64.9,
-    "description": "Premium Wireless Earbuds Model I112 in electronics category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model I112",
+    "category": "Natural & Beauty Products",
+    "price": 51.98,
+    "description": "Premium Mineral Clay Face Mask Model I112 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 113,
-    "product_name": "Power Bank Model J113",
-    "category": "electronics",
-    "price": 966.36,
-    "description": "Premium Power Bank Model J113 in electronics category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model J113",
+    "category": "Fashion & Accessories",
+    "price": 26.89,
+    "description": "Premium Classic Leather Wallet Model J113 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 114,
-    "product_name": "Honey Model K114",
-    "category": "grocery",
-    "price": 19.89,
-    "description": "Premium Honey Model K114 in grocery category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model K114",
+    "category": "Natural & Beauty Products",
+    "price": 63.06,
+    "description": "Premium Herbal Aloe Shampoo Model K114 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 115,
-    "product_name": "Laptop Model L115",
-    "category": "electronics",
-    "price": 355.42,
-    "description": "Premium Laptop Model L115 in electronics category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model L115",
+    "category": "Natural & Beauty Products",
+    "price": 14.17,
+    "description": "Premium Mineral Clay Face Mask Model L115 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 116,
-    "product_name": "Smartphone Model M116",
-    "category": "electronics",
-    "price": 545.58,
-    "description": "Premium Smartphone Model M116 in electronics category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model M116",
+    "category": "Handmade & Crafts",
+    "price": 15.09,
+    "description": "Premium Hand-carved Oak Sculpture Model M116 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 117,
-    "product_name": "Organic Coffee Model N117",
-    "category": "grocery",
-    "price": 27.47,
-    "description": "Premium Organic Coffee Model N117 in grocery category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model N117",
+    "category": "Fashion & Accessories",
+    "price": 112.92,
+    "description": "Premium Beaded Accent Bracelet Model N117 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 118,
-    "product_name": "Charger Cable Model O118",
-    "category": "electronics",
-    "price": 201.23,
-    "description": "Premium Charger Cable Model O118 in electronics category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model O118",
+    "category": "Natural & Beauty Products",
+    "price": 49.54,
+    "description": "Premium Herbal Aloe Shampoo Model O118 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 119,
-    "product_name": "Power Bank Model P119",
-    "category": "electronics",
-    "price": 566.15,
-    "description": "Premium Power Bank Model P119 in electronics category. High-quality build, popular selection."
+    "product_name": "Rose Water Facial Mist Model P119",
+    "category": "Natural & Beauty Products",
+    "price": 64.12,
+    "description": "Premium Rose Water Facial Mist Model P119 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 120,
-    "product_name": "Scented Candle Model Q120",
-    "category": "home_decor",
-    "price": 125.95,
-    "description": "Premium Scented Candle Model Q120 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model Q120",
+    "category": "Handmade & Crafts",
+    "price": 67.3,
+    "description": "Premium Hand-painted Clay Vase Model Q120 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 121,
-    "product_name": "Face Mask Model R121",
-    "category": "beauty",
-    "price": 51.22,
-    "description": "Premium Face Mask Model R121 in beauty category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model R121",
+    "category": "Handmade & Crafts",
+    "price": 150.2,
+    "description": "Premium Artisanal Wall Hanging Model R121 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 122,
-    "product_name": "Sneakers Model S122",
-    "category": "clothing",
-    "price": 112.18,
-    "description": "Premium Sneakers Model S122 in clothing category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model S122",
+    "category": "Fashion & Accessories",
+    "price": 268.18,
+    "description": "Premium Organic Canvas Sneakers Model S122 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 123,
-    "product_name": "Tablet Model T123",
-    "category": "electronics",
-    "price": 65.03,
-    "description": "Premium Tablet Model T123 in electronics category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model T123",
+    "category": "Handmade & Crafts",
+    "price": 71.0,
+    "description": "Premium Artisanal Wall Hanging Model T123 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 124,
-    "product_name": "Bonsai Tree Model U124",
-    "category": "home_decor",
-    "price": 11.78,
-    "description": "Premium Bonsai Tree Model U124 in home_decor category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model U124",
+    "category": "Fashion & Accessories",
+    "price": 168.26,
+    "description": "Premium Classic Leather Wallet Model U124 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 125,
-    "product_name": "Socks Model V125",
-    "category": "clothing",
-    "price": 81.59,
-    "description": "Premium Socks Model V125 in clothing category. High-quality build, popular selection."
+    "product_name": "Organic Lavender Soap Model V125",
+    "category": "Natural & Beauty Products",
+    "price": 65.8,
+    "description": "Premium Organic Lavender Soap Model V125 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 126,
-    "product_name": "Olive Oil Model W126",
-    "category": "grocery",
-    "price": 21.66,
-    "description": "Premium Olive Oil Model W126 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model W126",
+    "category": "Natural & Beauty Products",
+    "price": 34.91,
+    "description": "Premium Coconut Hair Treatment Model W126 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 127,
-    "product_name": "Green Tea Model X127",
-    "category": "grocery",
-    "price": 28.04,
-    "description": "Premium Green Tea Model X127 in grocery category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model X127",
+    "category": "Natural & Beauty Products",
+    "price": 24.21,
+    "description": "Premium Herbal Aloe Shampoo Model X127 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 128,
-    "product_name": "Hand Cream Model Y128",
-    "category": "beauty",
-    "price": 44.12,
-    "description": "Premium Hand Cream Model Y128 in beauty category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model Y128",
+    "category": "Handmade & Crafts",
+    "price": 73.66,
+    "description": "Premium Hand-carved Oak Sculpture Model Y128 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 129,
-    "product_name": "Running Shorts Model Z129",
-    "category": "clothing",
-    "price": 52.23,
-    "description": "Premium Running Shorts Model Z129 in clothing category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model Z129",
+    "category": "Handmade & Crafts",
+    "price": 101.43,
+    "description": "Premium Handmade Journal notebook Model Z129 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 130,
-    "product_name": "Wall Clock Model A130",
-    "category": "home_decor",
-    "price": 90.71,
-    "description": "Premium Wall Clock Model A130 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model A130",
+    "category": "Natural & Beauty Products",
+    "price": 53.45,
+    "description": "Premium Hydrating Lip Balm Extract Model A130 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 131,
-    "product_name": "Dark Chocolate Model B131",
-    "category": "grocery",
-    "price": 15.91,
-    "description": "Premium Dark Chocolate Model B131 in grocery category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model B131",
+    "category": "Handmade & Crafts",
+    "price": 83.99,
+    "description": "Premium Hand-carved Oak Sculpture Model B131 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 132,
-    "product_name": "Wall Clock Model C132",
-    "category": "home_decor",
-    "price": 49.33,
-    "description": "Premium Wall Clock Model C132 in home_decor category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model C132",
+    "category": "Natural & Beauty Products",
+    "price": 66.64,
+    "description": "Premium Pure Essential Oil Blend Model C132 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 133,
-    "product_name": "Olive Oil Model D133",
-    "category": "grocery",
-    "price": 18.32,
-    "description": "Premium Olive Oil Model D133 in grocery category. High-quality build, popular selection."
+    "product_name": "Embroidered Cotton Throw Model D133",
+    "category": "Handmade & Crafts",
+    "price": 124.3,
+    "description": "Premium Embroidered Cotton Throw Model D133 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 134,
-    "product_name": "Face Mask Model E134",
-    "category": "beauty",
-    "price": 32.3,
-    "description": "Premium Face Mask Model E134 in beauty category. High-quality build, popular selection."
+    "product_name": "Organic Lavender Soap Model E134",
+    "category": "Natural & Beauty Products",
+    "price": 63.73,
+    "description": "Premium Organic Lavender Soap Model E134 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 135,
-    "product_name": "Power Bank Model F135",
-    "category": "electronics",
-    "price": 471.34,
-    "description": "Premium Power Bank Model F135 in electronics category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model F135",
+    "category": "Handmade & Crafts",
+    "price": 49.25,
+    "description": "Premium Woven Reed Basket Model F135 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 136,
-    "product_name": "Perfume Model G136",
-    "category": "beauty",
-    "price": 8.22,
-    "description": "Premium Perfume Model G136 in beauty category. High-quality build, popular selection."
+    "product_name": "Organic Lavender Soap Model G136",
+    "category": "Natural & Beauty Products",
+    "price": 35.41,
+    "description": "Premium Organic Lavender Soap Model G136 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 137,
-    "product_name": "Almond Butter Model H137",
-    "category": "grocery",
-    "price": 7.21,
-    "description": "Premium Almond Butter Model H137 in grocery category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model H137",
+    "category": "Handmade & Crafts",
+    "price": 126.91,
+    "description": "Premium Handcrafted Ceramic Mug Model H137 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 138,
-    "product_name": "Curtains Model I138",
-    "category": "home_decor",
-    "price": 195.3,
-    "description": "Premium Curtains Model I138 in home_decor category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model I138",
+    "category": "Natural & Beauty Products",
+    "price": 49.27,
+    "description": "Premium Coconut Hair Treatment Model I138 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 139,
-    "product_name": "Power Bank Model J139",
-    "category": "electronics",
-    "price": 122.99,
-    "description": "Premium Power Bank Model J139 in electronics category. High-quality build, popular selection."
+    "product_name": "Upcycled Denim Jacket Model J139",
+    "category": "Fashion & Accessories",
+    "price": 281.82,
+    "description": "Premium Upcycled Denim Jacket Model J139 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 140,
-    "product_name": "Running Shorts Model K140",
-    "category": "clothing",
-    "price": 92.7,
-    "description": "Premium Running Shorts Model K140 in clothing category. High-quality build, popular selection."
+    "product_name": "Rose Water Facial Mist Model K140",
+    "category": "Natural & Beauty Products",
+    "price": 45.98,
+    "description": "Premium Rose Water Facial Mist Model K140 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 141,
-    "product_name": "Laptop Model L141",
-    "category": "electronics",
-    "price": 62.34,
-    "description": "Premium Laptop Model L141 in electronics category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model L141",
+    "category": "Natural & Beauty Products",
+    "price": 22.98,
+    "description": "Premium Mineral Clay Face Mask Model L141 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 142,
-    "product_name": "Tablet Model M142",
-    "category": "electronics",
-    "price": 26.16,
-    "description": "Premium Tablet Model M142 in electronics category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model M142",
+    "category": "Handmade & Crafts",
+    "price": 165.82,
+    "description": "Premium Handmade Journal notebook Model M142 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 143,
-    "product_name": "Cap Model N143",
-    "category": "clothing",
-    "price": 76.83,
-    "description": "Premium Cap Model N143 in clothing category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model N143",
+    "category": "Natural & Beauty Products",
+    "price": 25.89,
+    "description": "Premium Hydrating Lip Balm Extract Model N143 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 144,
-    "product_name": "Laptop Model O144",
-    "category": "electronics",
-    "price": 639.25,
-    "description": "Premium Laptop Model O144 in electronics category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model O144",
+    "category": "Handmade & Crafts",
+    "price": 135.6,
+    "description": "Premium Handmade Journal notebook Model O144 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 145,
-    "product_name": "Charger Cable Model P145",
-    "category": "electronics",
-    "price": 694.47,
-    "description": "Premium Charger Cable Model P145 in electronics category. High-quality build, popular selection."
+    "product_name": "Handcrafted Silver Ring Model P145",
+    "category": "Fashion & Accessories",
+    "price": 102.28,
+    "description": "Premium Handcrafted Silver Ring Model P145 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 146,
-    "product_name": "Desk Lamp Model Q146",
-    "category": "home_decor",
-    "price": 11.8,
-    "description": "Premium Desk Lamp Model Q146 in home_decor category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model Q146",
+    "category": "Natural & Beauty Products",
+    "price": 45.2,
+    "description": "Premium Pure Essential Oil Blend Model Q146 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 147,
-    "product_name": "Cap Model R147",
-    "category": "clothing",
-    "price": 79.87,
-    "description": "Premium Cap Model R147 in clothing category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model R147",
+    "category": "Handmade & Crafts",
+    "price": 132.03,
+    "description": "Premium Handcrafted Ceramic Mug Model R147 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 148,
-    "product_name": "Wall Clock Model S148",
-    "category": "home_decor",
-    "price": 18.35,
-    "description": "Premium Wall Clock Model S148 in home_decor category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model S148",
+    "category": "Fashion & Accessories",
+    "price": 140.73,
+    "description": "Premium Classic Leather Wallet Model S148 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 149,
-    "product_name": "Laptop Model T149",
-    "category": "electronics",
-    "price": 526.18,
-    "description": "Premium Laptop Model T149 in electronics category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model T149",
+    "category": "Fashion & Accessories",
+    "price": 185.79,
+    "description": "Premium Classic Leather Wallet Model T149 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 150,
-    "product_name": "Hoodie Model U150",
-    "category": "clothing",
-    "price": 65.07,
-    "description": "Premium Hoodie Model U150 in clothing category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model U150",
+    "category": "Handmade & Crafts",
+    "price": 109.53,
+    "description": "Premium Handcrafted Ceramic Mug Model U150 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 151,
-    "product_name": "Curtains Model V151",
-    "category": "home_decor",
-    "price": 29.11,
-    "description": "Premium Curtains Model V151 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model V151",
+    "category": "Handmade & Crafts",
+    "price": 70.27,
+    "description": "Premium Hand-painted Clay Vase Model V151 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 152,
-    "product_name": "Socks Model W152",
-    "category": "clothing",
-    "price": 84.51,
-    "description": "Premium Socks Model W152 in clothing category. High-quality build, popular selection."
+    "product_name": "Embroidered Cotton Throw Model W152",
+    "category": "Handmade & Crafts",
+    "price": 48.43,
+    "description": "Premium Embroidered Cotton Throw Model W152 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 153,
-    "product_name": "T-Shirt Model X153",
-    "category": "clothing",
-    "price": 130.52,
-    "description": "Premium T-Shirt Model X153 in clothing category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model X153",
+    "category": "Handmade & Crafts",
+    "price": 50.42,
+    "description": "Premium Hand-carved Oak Sculpture Model X153 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 154,
-    "product_name": "Smartphone Model Y154",
-    "category": "electronics",
-    "price": 198.61,
-    "description": "Premium Smartphone Model Y154 in electronics category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model Y154",
+    "category": "Handmade & Crafts",
+    "price": 47.23,
+    "description": "Premium Handmade Journal notebook Model Y154 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 155,
-    "product_name": "Sunscreen Model Z155",
-    "category": "beauty",
-    "price": 34.32,
-    "description": "Premium Sunscreen Model Z155 in beauty category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model Z155",
+    "category": "Natural & Beauty Products",
+    "price": 54.04,
+    "description": "Premium Coconut Hair Treatment Model Z155 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 156,
-    "product_name": "Smart Watch Model A156",
-    "category": "electronics",
-    "price": 76.99,
-    "description": "Premium Smart Watch Model A156 in electronics category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model A156",
+    "category": "Handmade & Crafts",
+    "price": 106.37,
+    "description": "Premium Woven Reed Basket Model A156 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 157,
-    "product_name": "Olive Oil Model B157",
-    "category": "grocery",
-    "price": 14.29,
-    "description": "Premium Olive Oil Model B157 in grocery category. High-quality build, popular selection."
+    "product_name": "Handwoven Woolen Scarf Model B157",
+    "category": "Fashion & Accessories",
+    "price": 87.77,
+    "description": "Premium Handwoven Woolen Scarf Model B157 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 158,
-    "product_name": "Lip Balm Model C158",
-    "category": "beauty",
-    "price": 79.56,
-    "description": "Premium Lip Balm Model C158 in beauty category. High-quality build, popular selection."
+    "product_name": "Scented Soy Candle Model C158",
+    "category": "Handmade & Crafts",
+    "price": 135.7,
+    "description": "Premium Scented Soy Candle Model C158 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 159,
-    "product_name": "T-Shirt Model D159",
-    "category": "clothing",
-    "price": 33.09,
-    "description": "Premium T-Shirt Model D159 in clothing category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model D159",
+    "category": "Natural & Beauty Products",
+    "price": 72.37,
+    "description": "Premium Mineral Clay Face Mask Model D159 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 160,
-    "product_name": "Moisturizer Model E160",
-    "category": "beauty",
-    "price": 50.64,
-    "description": "Premium Moisturizer Model E160 in beauty category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model E160",
+    "category": "Natural & Beauty Products",
+    "price": 35.68,
+    "description": "Premium Hydrating Lip Balm Extract Model E160 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 161,
-    "product_name": "Lip Balm Model F161",
-    "category": "beauty",
-    "price": 74.89,
-    "description": "Premium Lip Balm Model F161 in beauty category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model F161",
+    "category": "Fashion & Accessories",
+    "price": 330.01,
+    "description": "Premium Beaded Accent Bracelet Model F161 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 162,
-    "product_name": "Scented Candle Model G162",
-    "category": "home_decor",
-    "price": 98.28,
-    "description": "Premium Scented Candle Model G162 in home_decor category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model G162",
+    "category": "Natural & Beauty Products",
+    "price": 59.23,
+    "description": "Premium Mineral Clay Face Mask Model G162 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 163,
-    "product_name": "T-Shirt Model H163",
-    "category": "clothing",
-    "price": 67.44,
-    "description": "Premium T-Shirt Model H163 in clothing category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model H163",
+    "category": "Handmade & Crafts",
+    "price": 152.79,
+    "description": "Premium Artisanal Wall Hanging Model H163 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 164,
-    "product_name": "Curtains Model I164",
-    "category": "home_decor",
-    "price": 44.23,
-    "description": "Premium Curtains Model I164 in home_decor category. High-quality build, popular selection."
+    "product_name": "Organic Lavender Soap Model I164",
+    "category": "Natural & Beauty Products",
+    "price": 19.84,
+    "description": "Premium Organic Lavender Soap Model I164 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 165,
-    "product_name": "Throw Pillow Model J165",
-    "category": "home_decor",
-    "price": 44.61,
-    "description": "Premium Throw Pillow Model J165 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model J165",
+    "category": "Natural & Beauty Products",
+    "price": 62.16,
+    "description": "Premium Hydrating Lip Balm Extract Model J165 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 166,
-    "product_name": "Sneakers Model K166",
-    "category": "clothing",
-    "price": 65.77,
-    "description": "Premium Sneakers Model K166 in clothing category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model K166",
+    "category": "Natural & Beauty Products",
+    "price": 58.49,
+    "description": "Premium Coconut Hair Treatment Model K166 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 167,
-    "product_name": "Scented Candle Model L167",
-    "category": "home_decor",
-    "price": 70.8,
-    "description": "Premium Scented Candle Model L167 in home_decor category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model L167",
+    "category": "Natural & Beauty Products",
+    "price": 57.39,
+    "description": "Premium Herbal Aloe Shampoo Model L167 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 168,
-    "product_name": "Curtains Model M168",
-    "category": "home_decor",
-    "price": 153.57,
-    "description": "Premium Curtains Model M168 in home_decor category. High-quality build, popular selection."
+    "product_name": "Organic Lavender Soap Model M168",
+    "category": "Natural & Beauty Products",
+    "price": 32.17,
+    "description": "Premium Organic Lavender Soap Model M168 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 169,
-    "product_name": "Power Bank Model N169",
-    "category": "electronics",
-    "price": 458.41,
-    "description": "Premium Power Bank Model N169 in electronics category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model N169",
+    "category": "Handmade & Crafts",
+    "price": 35.06,
+    "description": "Premium Handmade Journal notebook Model N169 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 170,
-    "product_name": "Picture Frame Model O170",
-    "category": "home_decor",
-    "price": 87.7,
-    "description": "Premium Picture Frame Model O170 in home_decor category. High-quality build, popular selection."
+    "product_name": "Designer Leather Bag Model O170",
+    "category": "Fashion & Accessories",
+    "price": 198.45,
+    "description": "Premium Designer Leather Bag Model O170 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 171,
-    "product_name": "Power Bank Model P171",
-    "category": "electronics",
-    "price": 223.35,
-    "description": "Premium Power Bank Model P171 in electronics category. High-quality build, popular selection."
+    "product_name": "Handcrafted Silver Ring Model P171",
+    "category": "Fashion & Accessories",
+    "price": 243.27,
+    "description": "Premium Handcrafted Silver Ring Model P171 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 172,
-    "product_name": "Smart Watch Model Q172",
-    "category": "electronics",
-    "price": 842.13,
-    "description": "Premium Smart Watch Model Q172 in electronics category. High-quality build, popular selection."
+    "product_name": "Scented Soy Candle Model Q172",
+    "category": "Handmade & Crafts",
+    "price": 162.94,
+    "description": "Premium Scented Soy Candle Model Q172 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 173,
-    "product_name": "Hand Cream Model R173",
-    "category": "beauty",
-    "price": 11.86,
-    "description": "Premium Hand Cream Model R173 in beauty category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model R173",
+    "category": "Fashion & Accessories",
+    "price": 113.79,
+    "description": "Premium Beaded Accent Bracelet Model R173 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 174,
-    "product_name": "Oat Milk Model S174",
-    "category": "grocery",
-    "price": 23.3,
-    "description": "Premium Oat Milk Model S174 in grocery category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model S174",
+    "category": "Fashion & Accessories",
+    "price": 315.75,
+    "description": "Premium Classic Leather Wallet Model S174 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 175,
-    "product_name": "Moisturizer Model T175",
-    "category": "beauty",
-    "price": 17.49,
-    "description": "Premium Moisturizer Model T175 in beauty category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model T175",
+    "category": "Handmade & Crafts",
+    "price": 115.73,
+    "description": "Premium Artisanal Wall Hanging Model T175 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 176,
-    "product_name": "Throw Pillow Model U176",
-    "category": "home_decor",
-    "price": 156.06,
-    "description": "Premium Throw Pillow Model U176 in home_decor category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model U176",
+    "category": "Handmade & Crafts",
+    "price": 22.62,
+    "description": "Premium Handcrafted Ceramic Mug Model U176 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 177,
-    "product_name": "Organic Coffee Model V177",
-    "category": "grocery",
-    "price": 23.51,
-    "description": "Premium Organic Coffee Model V177 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model V177",
+    "category": "Natural & Beauty Products",
+    "price": 20.11,
+    "description": "Premium Coconut Hair Treatment Model V177 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 178,
-    "product_name": "Power Bank Model W178",
-    "category": "electronics",
-    "price": 379.94,
-    "description": "Premium Power Bank Model W178 in electronics category. High-quality build, popular selection."
+    "product_name": "Mineral Clay Face Mask Model W178",
+    "category": "Natural & Beauty Products",
+    "price": 29.52,
+    "description": "Premium Mineral Clay Face Mask Model W178 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 179,
-    "product_name": "Curtains Model X179",
-    "category": "home_decor",
-    "price": 108.46,
-    "description": "Premium Curtains Model X179 in home_decor category. High-quality build, popular selection."
+    "product_name": "Handmade Journal notebook Model X179",
+    "category": "Handmade & Crafts",
+    "price": 117.17,
+    "description": "Premium Handmade Journal notebook Model X179 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 180,
-    "product_name": "Socks Model Y180",
-    "category": "clothing",
-    "price": 91.74,
-    "description": "Premium Socks Model Y180 in clothing category. High-quality build, popular selection."
+    "product_name": "Handcrafted Silver Ring Model Y180",
+    "category": "Fashion & Accessories",
+    "price": 124.62,
+    "description": "Premium Handcrafted Silver Ring Model Y180 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 181,
-    "product_name": "Olive Oil Model Z181",
-    "category": "grocery",
-    "price": 9.97,
-    "description": "Premium Olive Oil Model Z181 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model Z181",
+    "category": "Natural & Beauty Products",
+    "price": 57.38,
+    "description": "Premium Coconut Hair Treatment Model Z181 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 182,
-    "product_name": "Perfume Model A182",
-    "category": "beauty",
-    "price": 65.22,
-    "description": "Premium Perfume Model A182 in beauty category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model A182",
+    "category": "Handmade & Crafts",
+    "price": 78.06,
+    "description": "Premium Hand-painted Clay Vase Model A182 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 183,
-    "product_name": "Hand Cream Model B183",
-    "category": "beauty",
-    "price": 44.84,
-    "description": "Premium Hand Cream Model B183 in beauty category. High-quality build, popular selection."
+    "product_name": "Hydrating Lip Balm Extract Model B183",
+    "category": "Natural & Beauty Products",
+    "price": 38.92,
+    "description": "Premium Hydrating Lip Balm Extract Model B183 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 184,
-    "product_name": "Tablet Model C184",
-    "category": "electronics",
-    "price": 620.77,
-    "description": "Premium Tablet Model C184 in electronics category. High-quality build, popular selection."
+    "product_name": "Hand-painted Clay Vase Model C184",
+    "category": "Handmade & Crafts",
+    "price": 59.93,
+    "description": "Premium Hand-painted Clay Vase Model C184 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 185,
-    "product_name": "Dark Chocolate Model D185",
-    "category": "grocery",
-    "price": 5.38,
-    "description": "Premium Dark Chocolate Model D185 in grocery category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model D185",
+    "category": "Fashion & Accessories",
+    "price": 302.51,
+    "description": "Premium Beaded Accent Bracelet Model D185 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 186,
-    "product_name": "Desk Lamp Model E186",
-    "category": "home_decor",
-    "price": 128.7,
-    "description": "Premium Desk Lamp Model E186 in home_decor category. High-quality build, popular selection."
+    "product_name": "Pure Essential Oil Blend Model E186",
+    "category": "Natural & Beauty Products",
+    "price": 23.0,
+    "description": "Premium Pure Essential Oil Blend Model E186 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 187,
-    "product_name": "Curtains Model F187",
-    "category": "home_decor",
-    "price": 155.55,
-    "description": "Premium Curtains Model F187 in home_decor category. High-quality build, popular selection."
+    "product_name": "Upcycled Denim Jacket Model F187",
+    "category": "Fashion & Accessories",
+    "price": 181.67,
+    "description": "Premium Upcycled Denim Jacket Model F187 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 188,
-    "product_name": "Sunscreen Model G188",
-    "category": "beauty",
-    "price": 12.53,
-    "description": "Premium Sunscreen Model G188 in beauty category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model G188",
+    "category": "Fashion & Accessories",
+    "price": 97.89,
+    "description": "Premium Organic Canvas Sneakers Model G188 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 189,
-    "product_name": "Socks Model H189",
-    "category": "clothing",
-    "price": 142.81,
-    "description": "Premium Socks Model H189 in clothing category. High-quality build, popular selection."
+    "product_name": "Woven Reed Basket Model H189",
+    "category": "Handmade & Crafts",
+    "price": 18.21,
+    "description": "Premium Woven Reed Basket Model H189 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 190,
-    "product_name": "Hoodie Model I190",
-    "category": "clothing",
-    "price": 101.48,
-    "description": "Premium Hoodie Model I190 in clothing category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model I190",
+    "category": "Fashion & Accessories",
+    "price": 182.61,
+    "description": "Premium Beaded Accent Bracelet Model I190 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 191,
-    "product_name": "Running Shorts Model J191",
-    "category": "clothing",
-    "price": 37.55,
-    "description": "Premium Running Shorts Model J191 in clothing category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model J191",
+    "category": "Natural & Beauty Products",
+    "price": 70.98,
+    "description": "Premium Herbal Aloe Shampoo Model J191 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 192,
-    "product_name": "Organic Coffee Model K192",
-    "category": "grocery",
-    "price": 13.2,
-    "description": "Premium Organic Coffee Model K192 in grocery category. High-quality build, popular selection."
+    "product_name": "Coconut Hair Treatment Model K192",
+    "category": "Natural & Beauty Products",
+    "price": 22.32,
+    "description": "Premium Coconut Hair Treatment Model K192 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 193,
-    "product_name": "Bonsai Tree Model L193",
-    "category": "home_decor",
-    "price": 26.66,
-    "description": "Premium Bonsai Tree Model L193 in home_decor category. High-quality build, popular selection."
+    "product_name": "Beaded Accent Bracelet Model L193",
+    "category": "Fashion & Accessories",
+    "price": 311.88,
+    "description": "Premium Beaded Accent Bracelet Model L193 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 194,
-    "product_name": "Charger Cable Model M194",
-    "category": "electronics",
-    "price": 227.68,
-    "description": "Premium Charger Cable Model M194 in electronics category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model M194",
+    "category": "Fashion & Accessories",
+    "price": 273.99,
+    "description": "Premium Organic Canvas Sneakers Model M194 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 195,
-    "product_name": "Green Tea Model N195",
-    "category": "grocery",
-    "price": 15.7,
-    "description": "Premium Green Tea Model N195 in grocery category. High-quality build, popular selection."
+    "product_name": "Handcrafted Ceramic Mug Model N195",
+    "category": "Handmade & Crafts",
+    "price": 54.24,
+    "description": "Premium Handcrafted Ceramic Mug Model N195 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 196,
-    "product_name": "Throw Pillow Model O196",
-    "category": "home_decor",
-    "price": 32.02,
-    "description": "Premium Throw Pillow Model O196 in home_decor category. High-quality build, popular selection."
+    "product_name": "Artisanal Wall Hanging Model O196",
+    "category": "Handmade & Crafts",
+    "price": 98.95,
+    "description": "Premium Artisanal Wall Hanging Model O196 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 197,
-    "product_name": "Scented Candle Model P197",
-    "category": "home_decor",
-    "price": 129.11,
-    "description": "Premium Scented Candle Model P197 in home_decor category. High-quality build, popular selection."
+    "product_name": "Hand-carved Oak Sculpture Model P197",
+    "category": "Handmade & Crafts",
+    "price": 64.75,
+    "description": "Premium Hand-carved Oak Sculpture Model P197 in Handmade & Crafts catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 198,
-    "product_name": "Olive Oil Model Q198",
-    "category": "grocery",
-    "price": 25.68,
-    "description": "Premium Olive Oil Model Q198 in grocery category. High-quality build, popular selection."
+    "product_name": "Classic Leather Wallet Model Q198",
+    "category": "Fashion & Accessories",
+    "price": 347.95,
+    "description": "Premium Classic Leather Wallet Model Q198 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 199,
-    "product_name": "Oat Milk Model R199",
-    "category": "grocery",
-    "price": 10.85,
-    "description": "Premium Oat Milk Model R199 in grocery category. High-quality build, popular selection."
+    "product_name": "Organic Canvas Sneakers Model R199",
+    "category": "Fashion & Accessories",
+    "price": 148.66,
+    "description": "Premium Organic Canvas Sneakers Model R199 in Fashion & Accessories catalog. Ethically sourced, high artisan quality."
   },
   {
     "product_id": 200,
-    "product_name": "Oat Milk Model S200",
-    "category": "grocery",
-    "price": 6.01,
-    "description": "Premium Oat Milk Model S200 in grocery category. High-quality build, popular selection."
+    "product_name": "Herbal Aloe Shampoo Model S200",
+    "category": "Natural & Beauty Products",
+    "price": 31.21,
+    "description": "Premium Herbal Aloe Shampoo Model S200 in Natural & Beauty Products catalog. Ethically sourced, high artisan quality."
   }
 ]

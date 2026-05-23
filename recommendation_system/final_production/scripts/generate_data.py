@@ -6,11 +6,21 @@ from datetime import datetime, timedelta
 
 def create_product_catalog(num_products=200):
     categories = {
-        "electronics": ["Smartphone", "Laptop", "Wireless Earbuds", "Smart Watch", "Power Bank", "Bluetooth Speaker", "Tablet", "Charger Cable"],
-        "clothing": ["T-Shirt", "Jeans", "Hoodie", "Jacket", "Sneakers", "Socks", "Cap", "Running Shorts"],
-        "home_decor": ["Desk Lamp", "Scented Candle", "Throw Pillow", "Wall Clock", "Bonsai Tree", "Picture Frame", "Area Rug", "Curtains"],
-        "grocery": ["Organic Coffee", "Green Tea", "Granola Bars", "Almond Butter", "Dark Chocolate", "Olive Oil", "Oat Milk", "Honey"],
-        "beauty": ["Facial Cleanser", "Moisturizer", "Sunscreen", "Lip Balm", "Shampoo", "Face Mask", "Perfume", "Hand Cream"]
+        "Fashion & Accessories": [
+            "Designer Leather Bag", "Handcrafted Silver Ring", "Handwoven Woolen Scarf", 
+            "Sleek Bamboo Sunglasses", "Organic Canvas Sneakers", "Classic Leather Wallet",
+            "Beaded Accent Bracelet", "Upcycled Denim Jacket"
+        ],
+        "Handmade & Crafts": [
+            "Handcrafted Ceramic Mug", "Hand-carved Oak Sculpture", "Embroidered Cotton Throw", 
+            "Hand-painted Clay Vase", "Scented Soy Candle", "Woven Reed Basket",
+            "Artisanal Wall Hanging", "Handmade Journal notebook"
+        ],
+        "Natural & Beauty Products": [
+            "Organic Lavender Soap", "Herbal Aloe Shampoo", "Rose Water Facial Mist", 
+            "Natural Shea Butter Cream", "Pure Essential Oil Blend", "Mineral Clay Face Mask",
+            "Coconut Hair Treatment", "Hydrating Lip Balm Extract"
+        ]
     }
     
     products = []
@@ -20,18 +30,14 @@ def create_product_catalog(num_products=200):
         product_name = f"{base_name} Model {chr(65 + (i % 26))}{i}"
         
         # Determine price ranges by category
-        if cat == "electronics":
-            price = round(random.uniform(20.0, 1000.0), 2)
-        elif cat == "clothing":
-            price = round(random.uniform(15.0, 150.0), 2)
-        elif cat == "home_decor":
-            price = round(random.uniform(10.0, 200.0), 2)
-        elif cat == "grocery":
-            price = round(random.uniform(3.0, 30.0), 2)
-        else: # beauty
-            price = round(random.uniform(8.0, 80.0), 2)
+        if cat == "Fashion & Accessories":
+            price = round(random.uniform(25.0, 350.0), 2)
+        elif cat == "Handmade & Crafts":
+            price = round(random.uniform(15.0, 180.0), 2)
+        else: # Natural & Beauty Products
+            price = round(random.uniform(10.0, 75.0), 2)
             
-        description = f"Premium {product_name} in {cat} category. High-quality build, popular selection."
+        description = f"Premium {product_name} in {cat} catalog. Ethically sourced, high artisan quality."
         
         products.append({
             "product_id": i,
@@ -44,11 +50,18 @@ def create_product_catalog(num_products=200):
 
 def create_raw_material_catalog(num_materials=100):
     categories = {
-        "fabrics": ["Cotton Roll", "Polyester Blend", "Silk Yarn", "Denim Sheets", "Linen Fiber", "Wool Thread"],
-        "metals": ["Aluminum Plate", "Steel Rods", "Copper Wire Coils", "Brass Sheets", "Titanium Screws"],
-        "chemicals": ["Industrial Solvent", "Polymer Resin", "Organic Dyes", "Catalyst Agent", "Adhesive Liquid"],
-        "agricultural": ["Raw Coffee Beans", "Cocoa Beans", "Cotton Fiber", "Sugar Cane Extract", "Essential Oils Extract"],
-        "packaging": ["Cardboard Boxes", "Biodegradable Wrap", "Glass Bottles", "Tin Cans", "Paper Bags"]
+        "Fashion & Accessories": [
+            "Cotton Thread Cone", "Premium Leather Sheets", "Solid Brass Buckles", 
+            "Industrial Zipper Rolls", "Linen Fabric Roll", "Silk Yarn Skein"
+        ],
+        "Handmade & Crafts": [
+            "Refined Pottery Clay", "Unfinished Oak Blocks", "Organic Woolen Yarn", 
+            "Natural Dye Pigments", "Soy Wax Flakes", "Dried Reed Strands"
+        ],
+        "Natural & Beauty Products": [
+            "Essential Oil Extracts", "Organic Shea Butter Bulk", "Natural Clay Powder", 
+            "Organic Coconut Oil Base", "Herbal Extract Concentrate", "Natural Rose Hydrosol"
+        ]
     }
     
     materials = []
@@ -57,18 +70,14 @@ def create_raw_material_catalog(num_materials=100):
         base_name = random.choice(categories[cat])
         material_name = f"{base_name} Grade-{chr(65 + (i % 6))}{i}"
         
-        if cat == "fabrics":
-            price = round(random.uniform(5.0, 50.0), 2)
-        elif cat == "metals":
-            price = round(random.uniform(20.0, 300.0), 2)
-        elif cat == "chemicals":
-            price = round(random.uniform(10.0, 150.0), 2)
-        elif cat == "agricultural":
-            price = round(random.uniform(2.0, 40.0), 2)
-        else: # packaging
-            price = round(random.uniform(0.5, 10.0), 2)
+        if cat == "Fashion & Accessories":
+            price = round(random.uniform(5.0, 60.0), 2)
+        elif cat == "Handmade & Crafts":
+            price = round(random.uniform(2.0, 35.0), 2)
+        else: # Natural & Beauty Products
+            price = round(random.uniform(8.0, 110.0), 2)
             
-        description = f"Industrial raw {material_name} in {cat} division. Certified for production use."
+        description = f"Artisanal raw {material_name} in {cat} division. Premium source for production use."
         
         materials.append({
             "material_id": i,
@@ -80,7 +89,7 @@ def create_raw_material_catalog(num_materials=100):
     return materials
 
 def generate_data():
-    print("Generating synthetic catalogs...")
+    print("Generating synthetic catalogs for new business focus...")
     products = create_product_catalog(200)
     raw_materials = create_raw_material_catalog(100)
     
@@ -170,16 +179,13 @@ def generate_data():
         material_by_cat.setdefault(m["category"], []).append(m)
         
     # Assign standard procurement cycles to each owner-material pairing
-    # cycles: 7 days, 14 days, 21 days, 30 days
     owner_schedules = []
     for owner_id in range(1, num_owners + 1):
-        # Owners procure about 5-15 raw materials regularly
         num_materials_procured = random.randint(5, 15)
         subscribed_materials = random.sample(raw_materials, num_materials_procured)
         
         for mat in subscribed_materials:
             cycle_days = random.choice([7, 14, 21, 28])
-            # Random starting date offset within the first 14 days
             start_offset = random.randint(0, 14)
             owner_schedules.append({
                 "owner_id": owner_id,
@@ -190,11 +196,9 @@ def generate_data():
             })
             
     # Simulating standard reorders over the 90 days period
-    current_time = start_date
+    sim_date = start_date
     end_date = datetime.now()
     
-    # Run a daily schedule simulator to generate realistic cyclic time-series procurement data!
-    sim_date = start_date
     while sim_date <= end_date:
         for sched in owner_schedules:
             owner_id = sched["owner_id"]
@@ -203,22 +207,17 @@ def generate_data():
             start_offset = sched["start_offset"]
             
             days_since_start = (sim_date - start_date).days
-            
-            # Check if this day is a procurement day (with some noise of ±2 days)
-            # Or occasional random purchases
             is_procurement_day = ((days_since_start - start_offset) % cycle == 0)
             
-            if is_procurement_day or (random.random() < 0.02): # 2% chance of emergency purchase
-                # Interaction Type
+            if is_procurement_day or (random.random() < 0.02):
                 int_type = "reorder" if (is_procurement_day and random.random() < 0.8) else "purchase"
                 
-                # Seasonality: Business cycles might have higher volumes at start/end of month
                 multiplier = 1.0
                 if sim_date.day in [1, 2, 28, 29, 30]:
                     multiplier = 1.25
                     
                 quantity = int(sched["base_qty"] * multiplier * random.uniform(0.85, 1.15))
-                hour = random.randint(8, 17) # Business hours: 8am to 5pm
+                hour = random.randint(8, 17)
                 int_time = sim_date + timedelta(hours=hour, minutes=random.randint(0, 59))
                 
                 owner_interactions.append({
@@ -235,12 +234,10 @@ def generate_data():
                 
         sim_date += timedelta(days=1)
         
-    # We want exactly 40,000 or close. Let's fill/trim slightly to make it robust and match expectations
     target_owner_count = 40000
     if len(owner_interactions) > target_owner_count:
         owner_interactions = random.sample(owner_interactions, target_owner_count)
     else:
-        # Pad with random browses/reorders if under-filled
         diff = target_owner_count - len(owner_interactions)
         for _ in range(diff):
             sched = random.choice(owner_schedules)
@@ -265,9 +262,9 @@ def generate_data():
     with open("data/owner_interactions.json", "w") as f:
         json.dump(owner_interactions, f, indent=2)
         
-    print(f"Data generation complete! Totals:")
-    print(f"  Products catalog: {len(products)}")
-    print(f"  Raw materials catalog: {len(raw_materials)}")
+    print(f"New data generation complete! Totals:")
+    print(f"  Products: {len(products)}")
+    print(f"  Raw Materials: {len(raw_materials)}")
     print(f"  Customer Interactions: {len(customer_interactions)}")
     print(f"  Owner Interactions: {len(owner_interactions)}")
 

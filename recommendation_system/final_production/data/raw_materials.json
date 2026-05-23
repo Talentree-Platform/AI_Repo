@@ -1,702 +1,702 @@
 [
   {
     "material_id": 1,
-    "material_name": "Steel Rods Grade-B1",
-    "category": "metals",
-    "price": 158.66,
-    "description": "Industrial raw Steel Rods Grade-B1 in metals division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-B1",
+    "category": "Natural & Beauty Products",
+    "price": 9.18,
+    "description": "Artisanal raw Natural Clay Powder Grade-B1 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 2,
-    "material_name": "Polymer Resin Grade-C2",
-    "category": "chemicals",
-    "price": 134.7,
-    "description": "Industrial raw Polymer Resin Grade-C2 in chemicals division. Certified for production use."
+    "material_name": "Soy Wax Flakes Grade-C2",
+    "category": "Handmade & Crafts",
+    "price": 17.19,
+    "description": "Artisanal raw Soy Wax Flakes Grade-C2 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 3,
-    "material_name": "Sugar Cane Extract Grade-D3",
-    "category": "agricultural",
-    "price": 21.85,
-    "description": "Industrial raw Sugar Cane Extract Grade-D3 in agricultural division. Certified for production use."
+    "material_name": "Natural Rose Hydrosol Grade-D3",
+    "category": "Natural & Beauty Products",
+    "price": 15.89,
+    "description": "Artisanal raw Natural Rose Hydrosol Grade-D3 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 4,
-    "material_name": "Linen Fiber Grade-E4",
-    "category": "fabrics",
-    "price": 27.14,
-    "description": "Industrial raw Linen Fiber Grade-E4 in fabrics division. Certified for production use."
+    "material_name": "Unfinished Oak Blocks Grade-E4",
+    "category": "Handmade & Crafts",
+    "price": 5.54,
+    "description": "Artisanal raw Unfinished Oak Blocks Grade-E4 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 5,
-    "material_name": "Aluminum Plate Grade-F5",
-    "category": "metals",
-    "price": 254.17,
-    "description": "Industrial raw Aluminum Plate Grade-F5 in metals division. Certified for production use."
+    "material_name": "Industrial Zipper Rolls Grade-F5",
+    "category": "Fashion & Accessories",
+    "price": 29.68,
+    "description": "Artisanal raw Industrial Zipper Rolls Grade-F5 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 6,
-    "material_name": "Cotton Roll Grade-A6",
-    "category": "fabrics",
-    "price": 28.91,
-    "description": "Industrial raw Cotton Roll Grade-A6 in fabrics division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-A6",
+    "category": "Natural & Beauty Products",
+    "price": 18.01,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-A6 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 7,
-    "material_name": "Wool Thread Grade-B7",
-    "category": "fabrics",
-    "price": 28.15,
-    "description": "Industrial raw Wool Thread Grade-B7 in fabrics division. Certified for production use."
+    "material_name": "Refined Pottery Clay Grade-B7",
+    "category": "Handmade & Crafts",
+    "price": 30.72,
+    "description": "Artisanal raw Refined Pottery Clay Grade-B7 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 8,
-    "material_name": "Polyester Blend Grade-C8",
-    "category": "fabrics",
-    "price": 24.25,
-    "description": "Industrial raw Polyester Blend Grade-C8 in fabrics division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-C8",
+    "category": "Handmade & Crafts",
+    "price": 12.64,
+    "description": "Artisanal raw Natural Dye Pigments Grade-C8 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 9,
-    "material_name": "Cocoa Beans Grade-D9",
-    "category": "agricultural",
-    "price": 2.04,
-    "description": "Industrial raw Cocoa Beans Grade-D9 in agricultural division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-D9",
+    "category": "Handmade & Crafts",
+    "price": 29.29,
+    "description": "Artisanal raw Natural Dye Pigments Grade-D9 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 10,
-    "material_name": "Linen Fiber Grade-E10",
-    "category": "fabrics",
-    "price": 34.71,
-    "description": "Industrial raw Linen Fiber Grade-E10 in fabrics division. Certified for production use."
+    "material_name": "Natural Rose Hydrosol Grade-E10",
+    "category": "Natural & Beauty Products",
+    "price": 56.73,
+    "description": "Artisanal raw Natural Rose Hydrosol Grade-E10 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 11,
-    "material_name": "Titanium Screws Grade-F11",
-    "category": "metals",
-    "price": 207.56,
-    "description": "Industrial raw Titanium Screws Grade-F11 in metals division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-F11",
+    "category": "Handmade & Crafts",
+    "price": 34.16,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-F11 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 12,
-    "material_name": "Catalyst Agent Grade-A12",
-    "category": "chemicals",
-    "price": 44.46,
-    "description": "Industrial raw Catalyst Agent Grade-A12 in chemicals division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-A12",
+    "category": "Handmade & Crafts",
+    "price": 5.89,
+    "description": "Artisanal raw Natural Dye Pigments Grade-A12 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 13,
-    "material_name": "Steel Rods Grade-B13",
-    "category": "metals",
-    "price": 227.98,
-    "description": "Industrial raw Steel Rods Grade-B13 in metals division. Certified for production use."
+    "material_name": "Natural Rose Hydrosol Grade-B13",
+    "category": "Natural & Beauty Products",
+    "price": 105.32,
+    "description": "Artisanal raw Natural Rose Hydrosol Grade-B13 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 14,
-    "material_name": "Copper Wire Coils Grade-C14",
-    "category": "metals",
-    "price": 20.79,
-    "description": "Industrial raw Copper Wire Coils Grade-C14 in metals division. Certified for production use."
+    "material_name": "Dried Reed Strands Grade-C14",
+    "category": "Handmade & Crafts",
+    "price": 7.62,
+    "description": "Artisanal raw Dried Reed Strands Grade-C14 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 15,
-    "material_name": "Paper Bags Grade-D15",
-    "category": "packaging",
-    "price": 1.73,
-    "description": "Industrial raw Paper Bags Grade-D15 in packaging division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-D15",
+    "category": "Handmade & Crafts",
+    "price": 31.13,
+    "description": "Artisanal raw Natural Dye Pigments Grade-D15 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 16,
-    "material_name": "Linen Fiber Grade-E16",
-    "category": "fabrics",
-    "price": 11.18,
-    "description": "Industrial raw Linen Fiber Grade-E16 in fabrics division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-E16",
+    "category": "Natural & Beauty Products",
+    "price": 28.02,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-E16 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 17,
-    "material_name": "Polymer Resin Grade-F17",
-    "category": "chemicals",
-    "price": 132.69,
-    "description": "Industrial raw Polymer Resin Grade-F17 in chemicals division. Certified for production use."
+    "material_name": "Silk Yarn Skein Grade-F17",
+    "category": "Fashion & Accessories",
+    "price": 42.45,
+    "description": "Artisanal raw Silk Yarn Skein Grade-F17 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 18,
-    "material_name": "Paper Bags Grade-A18",
-    "category": "packaging",
-    "price": 5.35,
-    "description": "Industrial raw Paper Bags Grade-A18 in packaging division. Certified for production use."
+    "material_name": "Refined Pottery Clay Grade-A18",
+    "category": "Handmade & Crafts",
+    "price": 34.39,
+    "description": "Artisanal raw Refined Pottery Clay Grade-A18 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 19,
-    "material_name": "Raw Coffee Beans Grade-B19",
-    "category": "agricultural",
-    "price": 4.35,
-    "description": "Industrial raw Raw Coffee Beans Grade-B19 in agricultural division. Certified for production use."
+    "material_name": "Essential Oil Extracts Grade-B19",
+    "category": "Natural & Beauty Products",
+    "price": 71.04,
+    "description": "Artisanal raw Essential Oil Extracts Grade-B19 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 20,
-    "material_name": "Linen Fiber Grade-C20",
-    "category": "fabrics",
-    "price": 33.63,
-    "description": "Industrial raw Linen Fiber Grade-C20 in fabrics division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-C20",
+    "category": "Natural & Beauty Products",
+    "price": 56.42,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-C20 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 21,
-    "material_name": "Silk Yarn Grade-D21",
-    "category": "fabrics",
-    "price": 17.22,
-    "description": "Industrial raw Silk Yarn Grade-D21 in fabrics division. Certified for production use."
+    "material_name": "Soy Wax Flakes Grade-D21",
+    "category": "Handmade & Crafts",
+    "price": 19.82,
+    "description": "Artisanal raw Soy Wax Flakes Grade-D21 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 22,
-    "material_name": "Wool Thread Grade-E22",
-    "category": "fabrics",
-    "price": 37.95,
-    "description": "Industrial raw Wool Thread Grade-E22 in fabrics division. Certified for production use."
+    "material_name": "Soy Wax Flakes Grade-E22",
+    "category": "Handmade & Crafts",
+    "price": 31.42,
+    "description": "Artisanal raw Soy Wax Flakes Grade-E22 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 23,
-    "material_name": "Sugar Cane Extract Grade-F23",
-    "category": "agricultural",
-    "price": 16.02,
-    "description": "Industrial raw Sugar Cane Extract Grade-F23 in agricultural division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-F23",
+    "category": "Natural & Beauty Products",
+    "price": 8.73,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-F23 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 24,
-    "material_name": "Cocoa Beans Grade-A24",
-    "category": "agricultural",
-    "price": 25.07,
-    "description": "Industrial raw Cocoa Beans Grade-A24 in agricultural division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-A24",
+    "category": "Natural & Beauty Products",
+    "price": 18.15,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-A24 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 25,
-    "material_name": "Denim Sheets Grade-B25",
-    "category": "fabrics",
-    "price": 13.86,
-    "description": "Industrial raw Denim Sheets Grade-B25 in fabrics division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-B25",
+    "category": "Natural & Beauty Products",
+    "price": 32.1,
+    "description": "Artisanal raw Natural Clay Powder Grade-B25 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 26,
-    "material_name": "Raw Coffee Beans Grade-C26",
-    "category": "agricultural",
-    "price": 15.26,
-    "description": "Industrial raw Raw Coffee Beans Grade-C26 in agricultural division. Certified for production use."
+    "material_name": "Unfinished Oak Blocks Grade-C26",
+    "category": "Handmade & Crafts",
+    "price": 25.75,
+    "description": "Artisanal raw Unfinished Oak Blocks Grade-C26 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 27,
-    "material_name": "Raw Coffee Beans Grade-D27",
-    "category": "agricultural",
-    "price": 3.77,
-    "description": "Industrial raw Raw Coffee Beans Grade-D27 in agricultural division. Certified for production use."
+    "material_name": "Dried Reed Strands Grade-D27",
+    "category": "Handmade & Crafts",
+    "price": 34.34,
+    "description": "Artisanal raw Dried Reed Strands Grade-D27 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 28,
-    "material_name": "Glass Bottles Grade-E28",
-    "category": "packaging",
-    "price": 6.9,
-    "description": "Industrial raw Glass Bottles Grade-E28 in packaging division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-E28",
+    "category": "Handmade & Crafts",
+    "price": 34.46,
+    "description": "Artisanal raw Natural Dye Pigments Grade-E28 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 29,
-    "material_name": "Wool Thread Grade-F29",
-    "category": "fabrics",
-    "price": 13.18,
-    "description": "Industrial raw Wool Thread Grade-F29 in fabrics division. Certified for production use."
+    "material_name": "Unfinished Oak Blocks Grade-F29",
+    "category": "Handmade & Crafts",
+    "price": 26.51,
+    "description": "Artisanal raw Unfinished Oak Blocks Grade-F29 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 30,
-    "material_name": "Brass Sheets Grade-A30",
-    "category": "metals",
-    "price": 240.39,
-    "description": "Industrial raw Brass Sheets Grade-A30 in metals division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-A30",
+    "category": "Natural & Beauty Products",
+    "price": 56.76,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-A30 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 31,
-    "material_name": "Titanium Screws Grade-B31",
-    "category": "metals",
-    "price": 135.7,
-    "description": "Industrial raw Titanium Screws Grade-B31 in metals division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-B31",
+    "category": "Natural & Beauty Products",
+    "price": 76.25,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-B31 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 32,
-    "material_name": "Aluminum Plate Grade-C32",
-    "category": "metals",
-    "price": 40.54,
-    "description": "Industrial raw Aluminum Plate Grade-C32 in metals division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-C32",
+    "category": "Natural & Beauty Products",
+    "price": 32.5,
+    "description": "Artisanal raw Natural Clay Powder Grade-C32 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 33,
-    "material_name": "Cotton Roll Grade-D33",
-    "category": "fabrics",
-    "price": 30.35,
-    "description": "Industrial raw Cotton Roll Grade-D33 in fabrics division. Certified for production use."
+    "material_name": "Silk Yarn Skein Grade-D33",
+    "category": "Fashion & Accessories",
+    "price": 39.47,
+    "description": "Artisanal raw Silk Yarn Skein Grade-D33 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 34,
-    "material_name": "Wool Thread Grade-E34",
-    "category": "fabrics",
-    "price": 17.74,
-    "description": "Industrial raw Wool Thread Grade-E34 in fabrics division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-E34",
+    "category": "Natural & Beauty Products",
+    "price": 28.59,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-E34 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 35,
-    "material_name": "Cotton Fiber Grade-F35",
-    "category": "agricultural",
-    "price": 24.82,
-    "description": "Industrial raw Cotton Fiber Grade-F35 in agricultural division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-F35",
+    "category": "Natural & Beauty Products",
+    "price": 69.76,
+    "description": "Artisanal raw Natural Clay Powder Grade-F35 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 36,
-    "material_name": "Cotton Roll Grade-A36",
-    "category": "fabrics",
-    "price": 9.8,
-    "description": "Industrial raw Cotton Roll Grade-A36 in fabrics division. Certified for production use."
+    "material_name": "Silk Yarn Skein Grade-A36",
+    "category": "Fashion & Accessories",
+    "price": 28.39,
+    "description": "Artisanal raw Silk Yarn Skein Grade-A36 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 37,
-    "material_name": "Cotton Fiber Grade-B37",
-    "category": "agricultural",
-    "price": 7.9,
-    "description": "Industrial raw Cotton Fiber Grade-B37 in agricultural division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-B37",
+    "category": "Handmade & Crafts",
+    "price": 7.54,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-B37 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 38,
-    "material_name": "Catalyst Agent Grade-C38",
-    "category": "chemicals",
-    "price": 117.32,
-    "description": "Industrial raw Catalyst Agent Grade-C38 in chemicals division. Certified for production use."
+    "material_name": "Solid Brass Buckles Grade-C38",
+    "category": "Fashion & Accessories",
+    "price": 48.31,
+    "description": "Artisanal raw Solid Brass Buckles Grade-C38 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 39,
-    "material_name": "Polymer Resin Grade-D39",
-    "category": "chemicals",
-    "price": 105.39,
-    "description": "Industrial raw Polymer Resin Grade-D39 in chemicals division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-D39",
+    "category": "Natural & Beauty Products",
+    "price": 53.67,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-D39 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 40,
-    "material_name": "Cardboard Boxes Grade-E40",
-    "category": "packaging",
-    "price": 4.36,
-    "description": "Industrial raw Cardboard Boxes Grade-E40 in packaging division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-E40",
+    "category": "Natural & Beauty Products",
+    "price": 56.53,
+    "description": "Artisanal raw Natural Clay Powder Grade-E40 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 41,
-    "material_name": "Essential Oils Extract Grade-F41",
-    "category": "agricultural",
-    "price": 32.02,
-    "description": "Industrial raw Essential Oils Extract Grade-F41 in agricultural division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-F41",
+    "category": "Natural & Beauty Products",
+    "price": 14.26,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-F41 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 42,
-    "material_name": "Brass Sheets Grade-A42",
-    "category": "metals",
-    "price": 201.82,
-    "description": "Industrial raw Brass Sheets Grade-A42 in metals division. Certified for production use."
+    "material_name": "Solid Brass Buckles Grade-A42",
+    "category": "Fashion & Accessories",
+    "price": 7.99,
+    "description": "Artisanal raw Solid Brass Buckles Grade-A42 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 43,
-    "material_name": "Adhesive Liquid Grade-B43",
-    "category": "chemicals",
-    "price": 88.13,
-    "description": "Industrial raw Adhesive Liquid Grade-B43 in chemicals division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-B43",
+    "category": "Natural & Beauty Products",
+    "price": 23.78,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-B43 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 44,
-    "material_name": "Steel Rods Grade-C44",
-    "category": "metals",
-    "price": 69.97,
-    "description": "Industrial raw Steel Rods Grade-C44 in metals division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-C44",
+    "category": "Handmade & Crafts",
+    "price": 17.71,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-C44 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 45,
-    "material_name": "Steel Rods Grade-D45",
-    "category": "metals",
-    "price": 35.12,
-    "description": "Industrial raw Steel Rods Grade-D45 in metals division. Certified for production use."
+    "material_name": "Soy Wax Flakes Grade-D45",
+    "category": "Handmade & Crafts",
+    "price": 22.52,
+    "description": "Artisanal raw Soy Wax Flakes Grade-D45 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 46,
-    "material_name": "Denim Sheets Grade-E46",
-    "category": "fabrics",
-    "price": 45.84,
-    "description": "Industrial raw Denim Sheets Grade-E46 in fabrics division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-E46",
+    "category": "Natural & Beauty Products",
+    "price": 66.44,
+    "description": "Artisanal raw Natural Clay Powder Grade-E46 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 47,
-    "material_name": "Adhesive Liquid Grade-F47",
-    "category": "chemicals",
-    "price": 34.22,
-    "description": "Industrial raw Adhesive Liquid Grade-F47 in chemicals division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-F47",
+    "category": "Natural & Beauty Products",
+    "price": 78.08,
+    "description": "Artisanal raw Natural Clay Powder Grade-F47 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 48,
-    "material_name": "Raw Coffee Beans Grade-A48",
-    "category": "agricultural",
-    "price": 25.61,
-    "description": "Industrial raw Raw Coffee Beans Grade-A48 in agricultural division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-A48",
+    "category": "Natural & Beauty Products",
+    "price": 87.1,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-A48 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 49,
-    "material_name": "Brass Sheets Grade-B49",
-    "category": "metals",
-    "price": 26.0,
-    "description": "Industrial raw Brass Sheets Grade-B49 in metals division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-B49",
+    "category": "Handmade & Crafts",
+    "price": 2.77,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-B49 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 50,
-    "material_name": "Adhesive Liquid Grade-C50",
-    "category": "chemicals",
-    "price": 137.27,
-    "description": "Industrial raw Adhesive Liquid Grade-C50 in chemicals division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-C50",
+    "category": "Handmade & Crafts",
+    "price": 29.82,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-C50 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 51,
-    "material_name": "Polyester Blend Grade-D51",
-    "category": "fabrics",
-    "price": 39.62,
-    "description": "Industrial raw Polyester Blend Grade-D51 in fabrics division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-D51",
+    "category": "Natural & Beauty Products",
+    "price": 60.61,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-D51 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 52,
-    "material_name": "Copper Wire Coils Grade-E52",
-    "category": "metals",
-    "price": 118.24,
-    "description": "Industrial raw Copper Wire Coils Grade-E52 in metals division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-E52",
+    "category": "Natural & Beauty Products",
+    "price": 17.11,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-E52 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 53,
-    "material_name": "Steel Rods Grade-F53",
-    "category": "metals",
-    "price": 207.8,
-    "description": "Industrial raw Steel Rods Grade-F53 in metals division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-F53",
+    "category": "Natural & Beauty Products",
+    "price": 26.17,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-F53 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 54,
-    "material_name": "Steel Rods Grade-A54",
-    "category": "metals",
-    "price": 100.86,
-    "description": "Industrial raw Steel Rods Grade-A54 in metals division. Certified for production use."
+    "material_name": "Dried Reed Strands Grade-A54",
+    "category": "Handmade & Crafts",
+    "price": 21.34,
+    "description": "Artisanal raw Dried Reed Strands Grade-A54 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 55,
-    "material_name": "Copper Wire Coils Grade-B55",
-    "category": "metals",
-    "price": 261.65,
-    "description": "Industrial raw Copper Wire Coils Grade-B55 in metals division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-B55",
+    "category": "Natural & Beauty Products",
+    "price": 57.05,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-B55 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 56,
-    "material_name": "Polymer Resin Grade-C56",
-    "category": "chemicals",
-    "price": 21.16,
-    "description": "Industrial raw Polymer Resin Grade-C56 in chemicals division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-C56",
+    "category": "Natural & Beauty Products",
+    "price": 85.67,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-C56 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 57,
-    "material_name": "Copper Wire Coils Grade-D57",
-    "category": "metals",
-    "price": 82.65,
-    "description": "Industrial raw Copper Wire Coils Grade-D57 in metals division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-D57",
+    "category": "Fashion & Accessories",
+    "price": 34.96,
+    "description": "Artisanal raw Linen Fabric Roll Grade-D57 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 58,
-    "material_name": "Raw Coffee Beans Grade-E58",
-    "category": "agricultural",
-    "price": 27.81,
-    "description": "Industrial raw Raw Coffee Beans Grade-E58 in agricultural division. Certified for production use."
+    "material_name": "Essential Oil Extracts Grade-E58",
+    "category": "Natural & Beauty Products",
+    "price": 56.48,
+    "description": "Artisanal raw Essential Oil Extracts Grade-E58 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 59,
-    "material_name": "Raw Coffee Beans Grade-F59",
-    "category": "agricultural",
-    "price": 27.89,
-    "description": "Industrial raw Raw Coffee Beans Grade-F59 in agricultural division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-F59",
+    "category": "Handmade & Crafts",
+    "price": 34.75,
+    "description": "Artisanal raw Natural Dye Pigments Grade-F59 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 60,
-    "material_name": "Catalyst Agent Grade-A60",
-    "category": "chemicals",
-    "price": 135.56,
-    "description": "Industrial raw Catalyst Agent Grade-A60 in chemicals division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-A60",
+    "category": "Fashion & Accessories",
+    "price": 16.56,
+    "description": "Artisanal raw Linen Fabric Roll Grade-A60 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 61,
-    "material_name": "Copper Wire Coils Grade-B61",
-    "category": "metals",
-    "price": 40.55,
-    "description": "Industrial raw Copper Wire Coils Grade-B61 in metals division. Certified for production use."
+    "material_name": "Premium Leather Sheets Grade-B61",
+    "category": "Fashion & Accessories",
+    "price": 35.89,
+    "description": "Artisanal raw Premium Leather Sheets Grade-B61 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 62,
-    "material_name": "Cotton Roll Grade-C62",
-    "category": "fabrics",
-    "price": 39.36,
-    "description": "Industrial raw Cotton Roll Grade-C62 in fabrics division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-C62",
+    "category": "Handmade & Crafts",
+    "price": 22.95,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-C62 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 63,
-    "material_name": "Essential Oils Extract Grade-D63",
-    "category": "agricultural",
-    "price": 20.96,
-    "description": "Industrial raw Essential Oils Extract Grade-D63 in agricultural division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-D63",
+    "category": "Natural & Beauty Products",
+    "price": 84.42,
+    "description": "Artisanal raw Natural Clay Powder Grade-D63 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 64,
-    "material_name": "Industrial Solvent Grade-E64",
-    "category": "chemicals",
-    "price": 114.41,
-    "description": "Industrial raw Industrial Solvent Grade-E64 in chemicals division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-E64",
+    "category": "Fashion & Accessories",
+    "price": 25.8,
+    "description": "Artisanal raw Linen Fabric Roll Grade-E64 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 65,
-    "material_name": "Organic Dyes Grade-F65",
-    "category": "chemicals",
-    "price": 67.43,
-    "description": "Industrial raw Organic Dyes Grade-F65 in chemicals division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-F65",
+    "category": "Fashion & Accessories",
+    "price": 5.18,
+    "description": "Artisanal raw Linen Fabric Roll Grade-F65 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 66,
-    "material_name": "Silk Yarn Grade-A66",
-    "category": "fabrics",
-    "price": 37.43,
-    "description": "Industrial raw Silk Yarn Grade-A66 in fabrics division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-A66",
+    "category": "Handmade & Crafts",
+    "price": 18.31,
+    "description": "Artisanal raw Natural Dye Pigments Grade-A66 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 67,
-    "material_name": "Biodegradable Wrap Grade-B67",
-    "category": "packaging",
-    "price": 4.69,
-    "description": "Industrial raw Biodegradable Wrap Grade-B67 in packaging division. Certified for production use."
+    "material_name": "Industrial Zipper Rolls Grade-B67",
+    "category": "Fashion & Accessories",
+    "price": 57.27,
+    "description": "Artisanal raw Industrial Zipper Rolls Grade-B67 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 68,
-    "material_name": "Sugar Cane Extract Grade-C68",
-    "category": "agricultural",
-    "price": 5.33,
-    "description": "Industrial raw Sugar Cane Extract Grade-C68 in agricultural division. Certified for production use."
+    "material_name": "Silk Yarn Skein Grade-C68",
+    "category": "Fashion & Accessories",
+    "price": 20.94,
+    "description": "Artisanal raw Silk Yarn Skein Grade-C68 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 69,
-    "material_name": "Steel Rods Grade-D69",
-    "category": "metals",
-    "price": 91.41,
-    "description": "Industrial raw Steel Rods Grade-D69 in metals division. Certified for production use."
+    "material_name": "Refined Pottery Clay Grade-D69",
+    "category": "Handmade & Crafts",
+    "price": 14.3,
+    "description": "Artisanal raw Refined Pottery Clay Grade-D69 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 70,
-    "material_name": "Copper Wire Coils Grade-E70",
-    "category": "metals",
-    "price": 173.99,
-    "description": "Industrial raw Copper Wire Coils Grade-E70 in metals division. Certified for production use."
+    "material_name": "Unfinished Oak Blocks Grade-E70",
+    "category": "Handmade & Crafts",
+    "price": 7.84,
+    "description": "Artisanal raw Unfinished Oak Blocks Grade-E70 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 71,
-    "material_name": "Silk Yarn Grade-F71",
-    "category": "fabrics",
-    "price": 29.57,
-    "description": "Industrial raw Silk Yarn Grade-F71 in fabrics division. Certified for production use."
+    "material_name": "Essential Oil Extracts Grade-F71",
+    "category": "Natural & Beauty Products",
+    "price": 27.48,
+    "description": "Artisanal raw Essential Oil Extracts Grade-F71 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 72,
-    "material_name": "Industrial Solvent Grade-A72",
-    "category": "chemicals",
-    "price": 39.08,
-    "description": "Industrial raw Industrial Solvent Grade-A72 in chemicals division. Certified for production use."
+    "material_name": "Natural Rose Hydrosol Grade-A72",
+    "category": "Natural & Beauty Products",
+    "price": 76.22,
+    "description": "Artisanal raw Natural Rose Hydrosol Grade-A72 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 73,
-    "material_name": "Cotton Fiber Grade-B73",
-    "category": "agricultural",
-    "price": 33.11,
-    "description": "Industrial raw Cotton Fiber Grade-B73 in agricultural division. Certified for production use."
+    "material_name": "Unfinished Oak Blocks Grade-B73",
+    "category": "Handmade & Crafts",
+    "price": 24.57,
+    "description": "Artisanal raw Unfinished Oak Blocks Grade-B73 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 74,
-    "material_name": "Silk Yarn Grade-C74",
-    "category": "fabrics",
-    "price": 41.25,
-    "description": "Industrial raw Silk Yarn Grade-C74 in fabrics division. Certified for production use."
+    "material_name": "Solid Brass Buckles Grade-C74",
+    "category": "Fashion & Accessories",
+    "price": 45.59,
+    "description": "Artisanal raw Solid Brass Buckles Grade-C74 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 75,
-    "material_name": "Sugar Cane Extract Grade-D75",
-    "category": "agricultural",
-    "price": 36.17,
-    "description": "Industrial raw Sugar Cane Extract Grade-D75 in agricultural division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-D75",
+    "category": "Natural & Beauty Products",
+    "price": 83.31,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-D75 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 76,
-    "material_name": "Cardboard Boxes Grade-E76",
-    "category": "packaging",
-    "price": 2.84,
-    "description": "Industrial raw Cardboard Boxes Grade-E76 in packaging division. Certified for production use."
+    "material_name": "Organic Woolen Yarn Grade-E76",
+    "category": "Handmade & Crafts",
+    "price": 18.34,
+    "description": "Artisanal raw Organic Woolen Yarn Grade-E76 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 77,
-    "material_name": "Tin Cans Grade-F77",
-    "category": "packaging",
-    "price": 6.37,
-    "description": "Industrial raw Tin Cans Grade-F77 in packaging division. Certified for production use."
+    "material_name": "Essential Oil Extracts Grade-F77",
+    "category": "Natural & Beauty Products",
+    "price": 49.98,
+    "description": "Artisanal raw Essential Oil Extracts Grade-F77 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 78,
-    "material_name": "Raw Coffee Beans Grade-A78",
-    "category": "agricultural",
-    "price": 11.09,
-    "description": "Industrial raw Raw Coffee Beans Grade-A78 in agricultural division. Certified for production use."
+    "material_name": "Essential Oil Extracts Grade-A78",
+    "category": "Natural & Beauty Products",
+    "price": 42.48,
+    "description": "Artisanal raw Essential Oil Extracts Grade-A78 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 79,
-    "material_name": "Paper Bags Grade-B79",
-    "category": "packaging",
-    "price": 2.08,
-    "description": "Industrial raw Paper Bags Grade-B79 in packaging division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-B79",
+    "category": "Natural & Beauty Products",
+    "price": 89.77,
+    "description": "Artisanal raw Natural Clay Powder Grade-B79 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 80,
-    "material_name": "Sugar Cane Extract Grade-C80",
-    "category": "agricultural",
-    "price": 7.66,
-    "description": "Industrial raw Sugar Cane Extract Grade-C80 in agricultural division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-C80",
+    "category": "Natural & Beauty Products",
+    "price": 77.07,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-C80 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 81,
-    "material_name": "Organic Dyes Grade-D81",
-    "category": "chemicals",
-    "price": 93.9,
-    "description": "Industrial raw Organic Dyes Grade-D81 in chemicals division. Certified for production use."
+    "material_name": "Solid Brass Buckles Grade-D81",
+    "category": "Fashion & Accessories",
+    "price": 45.29,
+    "description": "Artisanal raw Solid Brass Buckles Grade-D81 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 82,
-    "material_name": "Tin Cans Grade-E82",
-    "category": "packaging",
-    "price": 4.37,
-    "description": "Industrial raw Tin Cans Grade-E82 in packaging division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-E82",
+    "category": "Fashion & Accessories",
+    "price": 53.87,
+    "description": "Artisanal raw Linen Fabric Roll Grade-E82 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 83,
-    "material_name": "Catalyst Agent Grade-F83",
-    "category": "chemicals",
-    "price": 42.85,
-    "description": "Industrial raw Catalyst Agent Grade-F83 in chemicals division. Certified for production use."
+    "material_name": "Organic Shea Butter Bulk Grade-F83",
+    "category": "Natural & Beauty Products",
+    "price": 26.86,
+    "description": "Artisanal raw Organic Shea Butter Bulk Grade-F83 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 84,
-    "material_name": "Polyester Blend Grade-A84",
-    "category": "fabrics",
-    "price": 38.7,
-    "description": "Industrial raw Polyester Blend Grade-A84 in fabrics division. Certified for production use."
+    "material_name": "Soy Wax Flakes Grade-A84",
+    "category": "Handmade & Crafts",
+    "price": 16.74,
+    "description": "Artisanal raw Soy Wax Flakes Grade-A84 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 85,
-    "material_name": "Silk Yarn Grade-B85",
-    "category": "fabrics",
-    "price": 11.28,
-    "description": "Industrial raw Silk Yarn Grade-B85 in fabrics division. Certified for production use."
+    "material_name": "Essential Oil Extracts Grade-B85",
+    "category": "Natural & Beauty Products",
+    "price": 36.62,
+    "description": "Artisanal raw Essential Oil Extracts Grade-B85 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 86,
-    "material_name": "Cardboard Boxes Grade-C86",
-    "category": "packaging",
-    "price": 6.65,
-    "description": "Industrial raw Cardboard Boxes Grade-C86 in packaging division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-C86",
+    "category": "Natural & Beauty Products",
+    "price": 41.07,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-C86 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 87,
-    "material_name": "Cardboard Boxes Grade-D87",
-    "category": "packaging",
-    "price": 5.67,
-    "description": "Industrial raw Cardboard Boxes Grade-D87 in packaging division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-D87",
+    "category": "Handmade & Crafts",
+    "price": 33.33,
+    "description": "Artisanal raw Natural Dye Pigments Grade-D87 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 88,
-    "material_name": "Copper Wire Coils Grade-E88",
-    "category": "metals",
-    "price": 236.2,
-    "description": "Industrial raw Copper Wire Coils Grade-E88 in metals division. Certified for production use."
+    "material_name": "Soy Wax Flakes Grade-E88",
+    "category": "Handmade & Crafts",
+    "price": 20.23,
+    "description": "Artisanal raw Soy Wax Flakes Grade-E88 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 89,
-    "material_name": "Polymer Resin Grade-F89",
-    "category": "chemicals",
-    "price": 146.0,
-    "description": "Industrial raw Polymer Resin Grade-F89 in chemicals division. Certified for production use."
+    "material_name": "Organic Coconut Oil Base Grade-F89",
+    "category": "Natural & Beauty Products",
+    "price": 42.17,
+    "description": "Artisanal raw Organic Coconut Oil Base Grade-F89 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 90,
-    "material_name": "Brass Sheets Grade-A90",
-    "category": "metals",
-    "price": 220.11,
-    "description": "Industrial raw Brass Sheets Grade-A90 in metals division. Certified for production use."
+    "material_name": "Refined Pottery Clay Grade-A90",
+    "category": "Handmade & Crafts",
+    "price": 30.58,
+    "description": "Artisanal raw Refined Pottery Clay Grade-A90 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 91,
-    "material_name": "Glass Bottles Grade-B91",
-    "category": "packaging",
-    "price": 3.9,
-    "description": "Industrial raw Glass Bottles Grade-B91 in packaging division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-B91",
+    "category": "Natural & Beauty Products",
+    "price": 81.76,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-B91 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 92,
-    "material_name": "Essential Oils Extract Grade-C92",
-    "category": "agricultural",
-    "price": 6.0,
-    "description": "Industrial raw Essential Oils Extract Grade-C92 in agricultural division. Certified for production use."
+    "material_name": "Natural Clay Powder Grade-C92",
+    "category": "Natural & Beauty Products",
+    "price": 49.5,
+    "description": "Artisanal raw Natural Clay Powder Grade-C92 in Natural & Beauty Products division. Premium source for production use."
   },
   {
     "material_id": 93,
-    "material_name": "Polymer Resin Grade-D93",
-    "category": "chemicals",
-    "price": 134.61,
-    "description": "Industrial raw Polymer Resin Grade-D93 in chemicals division. Certified for production use."
+    "material_name": "Natural Dye Pigments Grade-D93",
+    "category": "Handmade & Crafts",
+    "price": 31.4,
+    "description": "Artisanal raw Natural Dye Pigments Grade-D93 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 94,
-    "material_name": "Tin Cans Grade-E94",
-    "category": "packaging",
-    "price": 1.16,
-    "description": "Industrial raw Tin Cans Grade-E94 in packaging division. Certified for production use."
+    "material_name": "Cotton Thread Cone Grade-E94",
+    "category": "Fashion & Accessories",
+    "price": 56.84,
+    "description": "Artisanal raw Cotton Thread Cone Grade-E94 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 95,
-    "material_name": "Titanium Screws Grade-F95",
-    "category": "metals",
-    "price": 248.34,
-    "description": "Industrial raw Titanium Screws Grade-F95 in metals division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-F95",
+    "category": "Fashion & Accessories",
+    "price": 32.11,
+    "description": "Artisanal raw Linen Fabric Roll Grade-F95 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 96,
-    "material_name": "Linen Fiber Grade-A96",
-    "category": "fabrics",
-    "price": 18.67,
-    "description": "Industrial raw Linen Fiber Grade-A96 in fabrics division. Certified for production use."
+    "material_name": "Silk Yarn Skein Grade-A96",
+    "category": "Fashion & Accessories",
+    "price": 28.78,
+    "description": "Artisanal raw Silk Yarn Skein Grade-A96 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 97,
-    "material_name": "Tin Cans Grade-B97",
-    "category": "packaging",
-    "price": 3.98,
-    "description": "Industrial raw Tin Cans Grade-B97 in packaging division. Certified for production use."
+    "material_name": "Refined Pottery Clay Grade-B97",
+    "category": "Handmade & Crafts",
+    "price": 33.67,
+    "description": "Artisanal raw Refined Pottery Clay Grade-B97 in Handmade & Crafts division. Premium source for production use."
   },
   {
     "material_id": 98,
-    "material_name": "Polymer Resin Grade-C98",
-    "category": "chemicals",
-    "price": 115.9,
-    "description": "Industrial raw Polymer Resin Grade-C98 in chemicals division. Certified for production use."
+    "material_name": "Linen Fabric Roll Grade-C98",
+    "category": "Fashion & Accessories",
+    "price": 53.36,
+    "description": "Artisanal raw Linen Fabric Roll Grade-C98 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 99,
-    "material_name": "Cardboard Boxes Grade-D99",
-    "category": "packaging",
-    "price": 8.94,
-    "description": "Industrial raw Cardboard Boxes Grade-D99 in packaging division. Certified for production use."
+    "material_name": "Premium Leather Sheets Grade-D99",
+    "category": "Fashion & Accessories",
+    "price": 5.73,
+    "description": "Artisanal raw Premium Leather Sheets Grade-D99 in Fashion & Accessories division. Premium source for production use."
   },
   {
     "material_id": 100,
-    "material_name": "Linen Fiber Grade-E100",
-    "category": "fabrics",
-    "price": 40.59,
-    "description": "Industrial raw Linen Fiber Grade-E100 in fabrics division. Certified for production use."
+    "material_name": "Herbal Extract Concentrate Grade-E100",
+    "category": "Natural & Beauty Products",
+    "price": 39.65,
+    "description": "Artisanal raw Herbal Extract Concentrate Grade-E100 in Natural & Beauty Products division. Premium source for production use."
   }
 ]

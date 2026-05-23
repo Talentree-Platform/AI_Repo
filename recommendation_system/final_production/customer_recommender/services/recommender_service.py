@@ -70,13 +70,13 @@ class CustomerRecommenderService:
 
     def _get_fallback_popular_recommendations(self, top_k: int) -> List[Dict[str, Any]]:
         """Mock fallback catalog recommendation helper when models are not yet compiled."""
-        # Simple fallback product list
+        # Simple fallback product list matching the updated business model
         fallback_products = [
-            {"product_id": 1, "product_name": "Premium Wireless Earbuds Model A1", "category": "electronics", "price": 89.99, "description": "Popular choice", "score": 0.5},
-            {"product_id": 2, "product_name": "Comfort Fit Denim Jeans Model C2", "category": "clothing", "price": 49.99, "description": "Highly demanded", "score": 0.5},
-            {"product_id": 3, "product_name": "Minimalist Desk Lamp Model L3", "category": "home_decor", "price": 29.99, "description": "Sleek look", "score": 0.5},
-            {"product_id": 4, "product_name": "Organic Coffee Grade-A", "category": "grocery", "price": 12.50, "description": "Fresh roast", "score": 0.5},
-            {"product_id": 5, "product_name": "Hydrating Facial Moisturizer", "category": "beauty", "price": 24.00, "description": "Skin care favorite", "score": 0.5}
+            {"product_id": 1, "product_name": "Designer Leather Bag Model A1", "category": "Fashion & Accessories", "price": 189.99, "description": "Popular handcrafted accessory", "score": 0.5},
+            {"product_id": 2, "product_name": "Handcrafted Ceramic Mug Model C2", "category": "Handmade & Crafts", "price": 24.99, "description": "Highly demanded craft cup", "score": 0.5},
+            {"product_id": 3, "product_name": "Organic Lavender Soap Model S3", "category": "Natural & Beauty Products", "price": 12.50, "description": "Sleek organic face soap", "score": 0.5},
+            {"product_id": 4, "product_name": "Handwoven Woolen Scarf Model W4", "category": "Fashion & Accessories", "price": 45.00, "description": "Artisan weave winter wear", "score": 0.5},
+            {"product_id": 5, "product_name": "Rose Water Facial Mist Model R5", "category": "Natural & Beauty Products", "price": 18.00, "description": "Fresh herbal rose spray", "score": 0.5}
         ]
         return fallback_products[:top_k]
 

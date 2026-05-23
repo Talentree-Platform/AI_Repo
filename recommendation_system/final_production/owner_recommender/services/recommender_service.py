@@ -71,11 +71,11 @@ class OwnerRecommenderService:
     def _get_fallback_popular_materials(self, top_k: int) -> List[Dict[str, Any]]:
         """Mock fallback catalog recommendation helper when models are not yet compiled."""
         fallback_materials = [
-            {"material_id": 1, "material_name": "Premium Cotton Roll Grade-A", "category": "fabrics", "price": 12.99, "description": "Highly demanded fabric", "predicted_demand_qty": 120.0, "urgency_days_elapsed": 5, "urgency_cycle_days": 14, "score": 0.5},
-            {"material_id": 2, "material_name": "Industrial Aluminum Plate", "category": "metals", "price": 45.50, "description": "Heavy metal utility sheet", "predicted_demand_qty": 45.0, "urgency_days_elapsed": 8, "urgency_cycle_days": 21, "score": 0.5},
-            {"material_id": 3, "material_name": "High-Quality Polymer Resin", "category": "chemicals", "price": 28.00, "description": "Polymerizing compound liquid", "predicted_demand_qty": 95.0, "urgency_days_elapsed": 3, "urgency_cycle_days": 7, "score": 0.5},
-            {"material_id": 4, "material_name": "Organic Coffee Beans Bulk", "category": "agricultural", "price": 8.50, "description": "Raw coffee beans direct harvest", "predicted_demand_qty": 350.0, "urgency_days_elapsed": 12, "urgency_cycle_days": 30, "score": 0.5},
-            {"material_id": 5, "material_name": "Heavy Cardboard Boxes Package", "category": "packaging", "price": 1.20, "description": "Industrial shipping containers", "predicted_demand_qty": 800.0, "urgency_days_elapsed": 6, "urgency_cycle_days": 14, "score": 0.5}
+            {"material_id": 1, "material_name": "Premium Cotton Yarn Grade-A", "category": "Fashion & Accessories", "price": 15.99, "description": "Highly demanded weaving thread", "predicted_demand_qty": 120.0, "urgency_days_elapsed": 5, "urgency_cycle_days": 14, "score": 0.5},
+            {"material_id": 2, "material_name": "Refined Pottery Clay Sheet", "category": "Handmade & Crafts", "price": 8.50, "description": "High purity structural clay block", "predicted_demand_qty": 45.0, "urgency_days_elapsed": 8, "urgency_cycle_days": 21, "score": 0.5},
+            {"material_id": 3, "material_name": "Organic Shea Butter Bulk Base", "category": "Natural & Beauty Products", "price": 48.00, "description": "Raw unrefined coconut oil base", "predicted_demand_qty": 95.0, "urgency_days_elapsed": 3, "urgency_cycle_days": 7, "score": 0.5},
+            {"material_id": 4, "material_name": "Linen Fabric Roll Premium", "category": "Fashion & Accessories", "price": 32.50, "description": "Woven linen direct roll", "predicted_demand_qty": 350.0, "urgency_days_elapsed": 12, "urgency_cycle_days": 30, "score": 0.5},
+            {"material_id": 5, "material_name": "Natural Soy Wax Flakes Base", "category": "Handmade & Crafts", "price": 14.20, "description": "Artisan candle soy wax package", "predicted_demand_qty": 800.0, "urgency_days_elapsed": 6, "urgency_cycle_days": 14, "score": 0.5}
         ]
         return fallback_materials[:top_k]
 
