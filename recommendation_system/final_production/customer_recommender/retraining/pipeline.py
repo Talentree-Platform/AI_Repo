@@ -9,7 +9,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from shared.config.settings import settings
 from shared.utils.logger import customer_logger
 from shared.database.connection import SessionLocal, check_db_connection
-from shared.database.models import Interaction
+from shared.database.models import Interaction, Product
 from customer_recommender.training.train import run_training
 from customer_recommender.services.recommender_service import customer_service
 
@@ -21,28 +21,44 @@ def run_retraining_pipeline() -> bool:
     customer_logger.info("Triggered Customer Online Retraining Pipeline.")
     
     # 1. FETCH LATEST DATA
-    # Try fetching from DB first. If DB is unavailable, fallback to local JSON flat files.
+    # Try fetching from DB first. If DB is unavailable or catalog is empty, fallback to local JSON flat files.
     db_available = check_db_connection()
     temp_data_dir = "data"
     
     if db_available:
-        customer_logger.info("SQL Server database is active. Fetching latest customer interactions from SQL tables...")
+        customer_logger.info("SQL Server database is active. Fetching latest customer interactions and products from SQL tables...")
         try:
             db = SessionLocal()
-            query = db.query(Interaction).filter(Interaction.user_type == "customer")
-            interactions = [item.to_dict() for item in query.all()]
+            
+            # Fetch interactions
+            query_inter = db.query(Interaction).filter(Interaction.user_type == "customer")
+            interactions = [item.to_dict() for item in query_inter.all()]
+            
+            # Fetch products catalog
+            query_prod = db.query(Product)
+            products = [item.to_dict() for item in query_prod.all()]
+            
             db.close()
             
-            customer_logger.info(f"Fetched {len(interactions)} records from SQL Server. Overwriting local JSON file for reproducibility...")
-            
-            # Save fetched records to customer_interactions.json to serve as local cache
+            # Cache Interactions
             os.makedirs(temp_data_dir, exist_ok=True)
-            cache_path = os.path.join(temp_data_dir, "customer_interactions.json")
+            if len(interactions) > 0:
+                customer_logger.info(f"Fetched {len(interactions)} customer interaction records from SQL Server. Overwriting local JSON file for reproducibility...")
+                cache_path = os.path.join(temp_data_dir, "customer_interactions.json")
+                pd.DataFrame(interactions).to_json(cache_path, orient="records", indent=2)
+            else:
+                customer_logger.warning("SQL Server interactions table returned 0 records. Keeping existing customer_interactions.json.")
             
-            # Simple conversion to DataFrame and save
-            pd.DataFrame(interactions).to_json(cache_path, orient="records", indent=2)
+            # Cache Products Catalog (only if DB has records)
+            if len(products) > 0:
+                customer_logger.info(f"Fetched {len(products)} product catalog records from SQL Server. Updating local products.json cache...")
+                prod_cache_path = os.path.join(temp_data_dir, "products.json")
+                pd.DataFrame(products).to_json(prod_cache_path, orient="records", indent=2)
+            else:
+                customer_logger.warning("SQL database products table is empty. Gracefully falling back to local data/products.json file...")
+                
         except Exception as e:
-            customer_logger.error(f"Error fetching interactions from SQL Server: {e}. Falling back to flat files.")
+            customer_logger.error(f"Error fetching data from SQL Server: {e}. Falling back entirely to local flat files.")
     else:
         customer_logger.warning("SQL Server not reachable. Relying entirely on local cache JSON files under data/.")
 

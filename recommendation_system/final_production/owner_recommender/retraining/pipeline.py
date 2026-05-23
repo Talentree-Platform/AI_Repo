@@ -9,7 +9,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 from shared.config.settings import settings
 from shared.utils.logger import owner_logger
 from shared.database.connection import SessionLocal, check_db_connection
-from shared.database.models import Interaction
+from shared.database.models import Interaction, RawMaterial
 from owner_recommender.training.train import run_owner_training
 from owner_recommender.services.recommender_service import owner_service
 
@@ -25,20 +25,39 @@ def run_owner_retraining_pipeline() -> bool:
     temp_data_dir = "data"
     
     if db_available:
-        owner_logger.info("SQL Server database is active. Fetching latest owner interactions from SQL tables...")
+        owner_logger.info("SQL Server database is active. Fetching latest owner interactions and raw materials from SQL tables...")
         try:
             db = SessionLocal()
-            query = db.query(Interaction).filter(Interaction.user_type == "owner")
-            interactions = [item.to_dict() for item in query.all()]
+            
+            # Fetch interactions
+            query_inter = db.query(Interaction).filter(Interaction.user_type == "owner")
+            interactions = [item.to_dict() for item in query_inter.all()]
+            
+            # Fetch raw materials catalog
+            query_mat = db.query(RawMaterial)
+            materials = [item.to_dict() for item in query_mat.all()]
+            
             db.close()
             
-            owner_logger.info(f"Fetched {len(interactions)} records from SQL Server. Overwriting local JSON file...")
-            
+            # Cache Interactions
             os.makedirs(temp_data_dir, exist_ok=True)
-            cache_path = os.path.join(temp_data_dir, "owner_interactions.json")
-            pd.DataFrame(interactions).to_json(cache_path, orient="records", indent=2)
+            if len(interactions) > 0:
+                owner_logger.info(f"Fetched {len(interactions)} owner interaction records from SQL Server. Overwriting local JSON file...")
+                cache_path = os.path.join(temp_data_dir, "owner_interactions.json")
+                pd.DataFrame(interactions).to_json(cache_path, orient="records", indent=2)
+            else:
+                owner_logger.warning("SQL Server interactions table returned 0 records. Keeping existing owner_interactions.json.")
+            
+            # Cache Raw Materials Catalog (only if DB has records)
+            if len(materials) > 0:
+                owner_logger.info(f"Fetched {len(materials)} raw material catalog records from SQL Server. Updating local raw_materials.json cache...")
+                mat_cache_path = os.path.join(temp_data_dir, "raw_materials.json")
+                pd.DataFrame(materials).to_json(mat_cache_path, orient="records", indent=2)
+            else:
+                owner_logger.warning("SQL database raw_materials table is empty. Gracefully falling back to local data/raw_materials.json file...")
+                
         except Exception as e:
-            owner_logger.error(f"Error fetching interactions from SQL Server: {e}. Falling back to flat files.")
+            owner_logger.error(f"Error fetching data from SQL Server: {e}. Falling back entirely to local flat files.")
     else:
         owner_logger.warning("SQL Server not reachable. Relying entirely on local cache JSON files under data/.")
 

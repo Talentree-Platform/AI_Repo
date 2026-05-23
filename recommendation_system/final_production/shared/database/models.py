@@ -29,3 +29,42 @@ class Interaction(Base):
             "price": self.price,
             "interaction_timestamp": self.interaction_timestamp.isoformat() if self.interaction_timestamp else None
         }
+
+class Product(Base):
+    __tablename__ = "products"
+
+    product_id = Column(Integer, primary_key=True, index=True)
+    product_name = Column(String(150), nullable=False)
+    category = Column(String(100), nullable=False)
+    price = Column(Float, nullable=False)
+    description = Column(String(500), nullable=True)
+
+    def to_dict(self):
+        """Converts ORM record into dict format for serializing/features."""
+        return {
+            "product_id": self.product_id,
+            "product_name": self.product_name,
+            "category": self.category,
+            "price": self.price,
+            "description": self.description
+        }
+
+class RawMaterial(Base):
+    __tablename__ = "raw_materials"
+
+    material_id = Column(Integer, primary_key=True, index=True)
+    material_name = Column(String(150), nullable=False)
+    category = Column(String(100), nullable=False)
+    price = Column(Float, nullable=False)
+    description = Column(String(500), nullable=True)
+
+    def to_dict(self):
+        """Converts ORM record into dict format for serializing/features."""
+        return {
+            "material_id": self.material_id,
+            "material_name": self.material_name,
+            "category": self.category,
+            "price": self.price,
+            "description": self.description
+        }
+
