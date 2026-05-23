@@ -1,0 +1,1 @@
+{'demand_forecast_rmse': 757.1466700712616, 'demand_forecast_mae': 615.34, 'owner_precision_at_5': 1.0, 'owner_recall_at_5': 0.5724732212232212}

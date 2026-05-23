@@ -1,0 +1,65 @@
+version: "3.8"
+
+services:
+  # 1. SQL Server Container
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: recommendation_sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=TalentreePassword123!
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-S", "localhost", "-U", "sa", "-P", "TalentreePassword123!", "-Q", "SELECT 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 2. MLflow Tracking Server
+  mlflow:
+    image: python:3.11-slim
+    container_name: recommendation_mlflow
+    command: >
+      sh -c "pip install --no-cache-dir mlflow && mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri /mlflow/mlruns --default-artifact-root /mlflow/artifacts"
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+
+  # 3. FastAPI Serving Application
+  app:
+    build: .
+    container_name: recommendation_app
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=Enterprise Recommendation System
+      - ENV=production
+      - LOG_LEVEL=INFO
+      - DB_USER=sa
+      - DB_PASSWORD=TalentreePassword123!
+      - DB_HOST=sqlserver
+      - DB_PORT=1433
+      - DB_NAME=recommendation_db
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+      - MODEL_DIR=./trained_models
+    volumes:
+      - trained_models_data:/app/trained_models
+      - logs_data:/app/logs
+      - datasets_data:/app/data
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+      mlflow:
+        condition: service_started
+
+volumes:
+  mssql_data:
+  mlflow_data:
+  trained_models_data:
+  logs_data:
+  datasets_data:

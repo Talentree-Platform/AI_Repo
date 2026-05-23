@@ -1,0 +1,8 @@
+artifact_location: file:D:/Learn/Faculity/GraduationProject/AI_Repo/recommendation_system/final_production/mlruns/831392270560244933
+creation_time: 1779529837588
+experiment_id: '831392270560244933'
+last_update_time: 1779529837588
+lifecycle_stage: active
+name: owner_recommender_experiment
+trace_location: null
+workspace: default
