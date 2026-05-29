@@ -14,6 +14,10 @@ from shared.config.settings import settings
 from shared.utils.logger import owner_logger
 from owner_recommender.model.recommender import OwnerRawMaterialRecommender
 from owner_recommender.evaluation.metrics import evaluate_owner_forecast, evaluate_owner_recommender
+from shared.data_sources import DataSourceFactory
+from shared.feature_engineering.owner.owner_feature_builder import OwnerFeatureBuilder
+from shared.feature_validation import FeatureValidator
+from shared.feature_store import ParquetFeatureStore
 
 def run_owner_training(data_dir: str = "data"):
     owner_logger.info("Starting Business Owner Raw Material Recommender Offline Training...")
@@ -27,16 +31,10 @@ def run_owner_training(data_dir: str = "data"):
         mlflow.set_tracking_uri("./mlruns")
         mlflow.set_experiment("owner_recommender_experiment")
     
-    # 1. LOAD DATA
-    mat_path = os.path.join(data_dir, "raw_materials.json")
-    inter_path = os.path.join(data_dir, "owner_interactions.json")
-    
-    if not os.path.exists(mat_path) or not os.path.exists(inter_path):
-        owner_logger.error("Training files not found. Ensure generate_data.py has been run.")
-        raise FileNotFoundError("Raw materials or owner interactions files not found.")
-        
-    materials_df = pd.read_json(mat_path)
-    interactions_df = pd.read_json(inter_path)
+    # 1. LOAD DATA VIA DATA SOURCE ABSTRACTION LAYER (SQL + Fallback to JSON)
+    data_source = DataSourceFactory.get_data_source()
+    materials_df = data_source.load_raw_materials()
+    interactions_df = data_source.load_owner_interactions()
     
     owner_logger.info(f"Loaded {len(materials_df)} raw materials and {len(interactions_df)} owner procurement records.")
     
@@ -46,17 +44,29 @@ def run_owner_training(data_dir: str = "data"):
     
     # Temporal Split: 85% Train, 15% Test
     split_idx = int(len(interactions_df) * 0.85)
-    train_df = interactions_df.iloc[:split_idx].copy()
+    train_raw = interactions_df.iloc[:split_idx].copy()
     test_df = interactions_df.iloc[split_idx:].copy()
     
-    owner_logger.info(f"Train split size: {len(train_df)}, Test split size: {len(test_df)}")
+    owner_logger.info(f"Train split size: {len(train_raw)} raw rows, Test split size: {len(test_df)}")
     
-    # 2. FIT MODEL
+    # 2. FEATURE ENGINEERING PIPELINE
+    feature_builder = OwnerFeatureBuilder()
+    train_features = feature_builder.build_features(train_raw, materials_df)
+    
+    # 3. FEATURE VALIDATION LAYER
+    FeatureValidator.validate_owner_features(train_features)
+    
+    # 4. Parquet VERSIONED FEATURE STORE PERSISTENCE
+    feature_store = ParquetFeatureStore()
+    feature_version = feature_store.save_features(train_features, "owner_features")
+    owner_logger.info(f"Persisted training features to Parquet Feature Store (version {feature_version})")
+    
+    # 5. FIT MODEL STRICTLY FROM ENGINEERED FEATURES
     recommender = OwnerRawMaterialRecommender()
-    recommender.fit(train_df, materials_df)
+    recommender.fit(train_features, materials_df)
     owner_logger.info("Raw material recommender and forecaster training complete.")
     
-    # 3. EVALUATE FORECASTING ACCURACY
+    # 6. EVALUATE FORECASTING ACCURACY
     # Build actual test weekly demand targets for forecasting validation
     test_df["week"] = test_df["interaction_timestamp"].dt.to_period("W").dt.start_time
     test_weekly = (
@@ -70,7 +80,7 @@ def run_owner_training(data_dir: str = "data"):
     predicted_quantities = []
     
     # Evaluate a sample of owner-item records present in training histories
-    train_owner_items = set(zip(train_df["user_id"], train_df["item_id"]))
+    train_owner_items = set(zip(train_features["user_id"], train_features["item_id"]))
     
     sample_size = min(300, len(test_weekly))
     if sample_size > 0:
@@ -79,14 +89,15 @@ def run_owner_training(data_dir: str = "data"):
             oid = int(row["user_id"])
             iid = int(row["item_id"])
             if (oid, iid) in train_owner_items:
-                pred = recommender.forecaster.predict_next_week_demand(oid, iid, train_df)
+                # Forecasting uses raw temporal train_raw for historical time-series lags
+                pred = recommender.forecaster.predict_next_week_demand(oid, iid, train_raw)
                 actual_quantities.append(float(row["quantity"]))
                 predicted_quantities.append(pred)
                 
     forecasting_metrics = evaluate_owner_forecast(actual_quantities, predicted_quantities)
     owner_logger.info(f"Forecasting metrics: {forecasting_metrics}")
     
-    # 4. EVALUATE RECOMMENDATION RELEVANCE
+    # 7. EVALUATE RECOMMENDATION RELEVANCE
     test_owner_procurements = (
         test_df[test_df["interaction_type"].isin(["purchase", "reorder"])]
         .groupby("user_id")["item_id"]
@@ -94,7 +105,7 @@ def run_owner_training(data_dir: str = "data"):
         .to_dict()
     )
     
-    train_owners = set(train_df["user_id"].unique())
+    train_owners = set(train_features["user_id"].unique())
     test_proc_filtered = {
         oid: items for oid, items in test_owner_procurements.items()
         if oid in train_owners
@@ -105,11 +116,13 @@ def run_owner_training(data_dir: str = "data"):
     
     all_metrics = {**forecasting_metrics, **rec_metrics}
     
-    # 5. LOG TO MLFLOW
+    # 8. LOG TO MLFLOW
     try:
         with mlflow.start_run():
-            mlflow.log_param("train_size", len(train_df))
+            mlflow.log_param("train_raw_size", len(train_raw))
+            mlflow.log_param("train_feature_size", len(train_features))
             mlflow.log_param("test_size", len(test_df))
+            mlflow.log_param("feature_version", feature_version)
             mlflow.log_param("model_type", "Owner_Raw_Material_Cyclic_Procurement_Forecaster")
             
             # Log Metrics

@@ -15,6 +15,10 @@ from shared.config.settings import settings
 from shared.utils.logger import customer_logger
 from customer_recommender.model.recommender import CustomerHybridRecommender
 from customer_recommender.evaluation.metrics import evaluate_recommender
+from shared.data_sources import DataSourceFactory
+from shared.feature_engineering.customer.customer_feature_builder import CustomerFeatureBuilder
+from shared.feature_validation import FeatureValidator
+from shared.feature_store import ParquetFeatureStore
 
 def run_training(alpha: float = 0.4, data_dir: str = "data"):
     customer_logger.info("Starting Customer Product Recommender Offline Training...")
@@ -28,16 +32,10 @@ def run_training(alpha: float = 0.4, data_dir: str = "data"):
         mlflow.set_tracking_uri("./mlruns")
         mlflow.set_experiment("customer_recommender_experiment")
     
-    # 1. LOAD DATA
-    prod_path = os.path.join(data_dir, "products.json")
-    inter_path = os.path.join(data_dir, "customer_interactions.json")
-    
-    if not os.path.exists(prod_path) or not os.path.exists(inter_path):
-        customer_logger.error("Training files not found. Ensure generate_data.py has been run.")
-        raise FileNotFoundError("Products or customer interactions files not found.")
-        
-    products_df = pd.read_json(prod_path)
-    interactions_df = pd.read_json(inter_path)
+    # 1. LOAD DATA VIA DATA SOURCE ABSTRACTION LAYER (SQL + Fallback to JSON)
+    data_source = DataSourceFactory.get_data_source()
+    products_df = data_source.load_products()
+    interactions_df = data_source.load_customer_interactions()
     
     customer_logger.info(f"Loaded {len(products_df)} products and {len(interactions_df)} customer interactions.")
     
@@ -47,17 +45,29 @@ def run_training(alpha: float = 0.4, data_dir: str = "data"):
     
     # Split: Train (85%) and Test (15%) based on time
     split_idx = int(len(interactions_df) * 0.85)
-    train_df = interactions_df.iloc[:split_idx].copy()
+    train_raw = interactions_df.iloc[:split_idx].copy()
     test_df = interactions_df.iloc[split_idx:].copy()
     
-    customer_logger.info(f"Train split size: {len(train_df)}, Test split size: {len(test_df)}")
+    customer_logger.info(f"Train split size: {len(train_raw)} raw rows, Test split size: {len(test_df)}")
     
-    # 2. FIT MODEL
+    # 2. FEATURE ENGINEERING PIPELINE
+    feature_builder = CustomerFeatureBuilder()
+    train_features = feature_builder.build_features(train_raw, products_df)
+    
+    # 3. FEATURE VALIDATION LAYER
+    FeatureValidator.validate_customer_features(train_features)
+    
+    # 4. Parquet VERSIONED FEATURE STORE PERSISTENCE
+    feature_store = ParquetFeatureStore()
+    feature_version = feature_store.save_features(train_features, "customer_features")
+    customer_logger.info(f"Persisted training features to Parquet Feature Store (version {feature_version})")
+    
+    # 5. FIT MODEL STRICTLY FROM ENGINEERED FEATURES
     recommender = CustomerHybridRecommender(alpha=alpha)
-    recommender.fit(train_df, products_df)
+    recommender.fit(train_features, products_df)
     customer_logger.info("Hybrid recommender training complete.")
     
-    # 3. EVALUATE MODEL
+    # 6. EVALUATE MODEL
     # Build actual set of user purchases/clicks in test set to measure metrics
     # Only consider users who have positive purchase or click behavior in test set
     test_interactions = (
@@ -68,7 +78,7 @@ def run_training(alpha: float = 0.4, data_dir: str = "data"):
     )
     
     # Filter test users to those who were present in training set (to avoid pure cold-start bias on metrics)
-    train_users = set(train_df["user_id"].unique())
+    train_users = set(train_features["user_id"].unique())
     test_interactions_filtered = {
         uid: items for uid, items in test_interactions.items()
         if uid in train_users
@@ -81,12 +91,14 @@ def run_training(alpha: float = 0.4, data_dir: str = "data"):
     all_metrics = {**metrics_k5, **metrics_k10}
     customer_logger.info(f"Evaluation Metrics: {all_metrics}")
     
-    # 4. MLFLOW LOGGING
+    # 7. MLFLOW LOGGING
     try:
         with mlflow.start_run():
             mlflow.log_param("alpha", alpha)
-            mlflow.log_param("train_size", len(train_df))
+            mlflow.log_param("train_raw_size", len(train_raw))
+            mlflow.log_param("train_feature_size", len(train_features))
             mlflow.log_param("test_size", len(test_df))
+            mlflow.log_param("feature_version", feature_version)
             mlflow.log_param("model_type", "Hybrid_Content_Collaborative_Filtering")
             
             # Log Metrics

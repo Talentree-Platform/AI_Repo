@@ -20,6 +20,7 @@ class Settings(BaseSettings):
     
     # Model Directories
     MODEL_DIR: str = Field(default="./trained_models")
+    FEATURE_STORE_DIR: str = Field(default="./data/processed")
     
     # Server settings
     HOST: str = "0.0.0.0"

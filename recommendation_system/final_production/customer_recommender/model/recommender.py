@@ -37,21 +37,32 @@ class CustomerHybridRecommender:
         self.user_interactions = interactions_df.copy()
         
         # 1. COMPUTE GLOBAL POPULARITY (Cold Start Fallback)
-        purchase_counts = (
-            interactions_df[interactions_df["interaction_type"] == "purchase"]
-            .groupby("item_id")
-            .size()
-            .reset_index(name="purchase_count")
-        )
-        popular_items = (
-            interactions_df.groupby("item_id")
-            .size()
-            .reset_index(name="total_interactions")
-            .merge(purchase_counts, on="item_id", how="left")
-            .fillna(0)
-            .sort_values(by=["purchase_count", "total_interactions"], ascending=False)
-        )
-        self.global_popular_items = popular_items["item_id"].head(50).tolist()
+        if "weighted_score" in interactions_df.columns:
+            # Feature Store dataset path
+            popular_items = (
+                interactions_df.groupby("item_id")["item_interaction_count"]
+                .max()
+                .reset_index()
+                .sort_values(by="item_interaction_count", ascending=False)
+            )
+            self.global_popular_items = popular_items["item_id"].head(50).tolist()
+        else:
+            # Traditional raw interactions path
+            purchase_counts = (
+                interactions_df[interactions_df["interaction_type"] == "purchase"]
+                .groupby("item_id")
+                .size()
+                .reset_index(name="purchase_count")
+            )
+            popular_items = (
+                interactions_df.groupby("item_id")
+                .size()
+                .reset_index(name="total_interactions")
+                .merge(purchase_counts, on="item_id", how="left")
+                .fillna(0)
+                .sort_values(by=["purchase_count", "total_interactions"], ascending=False)
+            )
+            self.global_popular_items = popular_items["item_id"].head(50).tolist()
 
         # 2. CONTENT-BASED FILTERING: TF-IDF on product metadata
         # Combine Category and Description for rich content profiling
@@ -63,16 +74,21 @@ class CustomerHybridRecommender:
         self.item_similarity_cb = cosine_similarity(tfidf_matrix)
 
         # 3. COLLABORATIVE FILTERING: Item-Item Cosine Similarity
-        # Weight interactions: view=1, click=2, purchase=5
-        weight_map = {"view": 1.0, "click": 2.0, "purchase": 5.0}
-        interactions_df["score"] = interactions_df["interaction_type"].map(weight_map)
-        
-        # Group by user-item and aggregate interaction score
-        user_item_scores = (
-            interactions_df.groupby(["user_id", "item_id"])["score"]
-            .sum()
-            .reset_index()
-        )
+        if "weighted_score" in interactions_df.columns:
+            # We are using the engineered Feature Store DataFrame!
+            user_item_scores = interactions_df.copy()
+            user_item_scores.rename(columns={"weighted_score": "score"}, inplace=True)
+        else:
+            # Weight interactions: view=1, click=2, purchase=5
+            weight_map = {"view": 1.0, "click": 2.0, "purchase": 5.0}
+            interactions_df["score"] = interactions_df["interaction_type"].map(weight_map)
+            
+            # Group by user-item and aggregate interaction score
+            user_item_scores = (
+                interactions_df.groupby(["user_id", "item_id"])["score"]
+                .sum()
+                .reset_index()
+            )
         
         # Build index mappers to support sparse matrices
         unique_users = sorted(user_item_scores["user_id"].unique())
