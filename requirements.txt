@@ -1,5 +1,6 @@
 # ── Core ──
-pyodbc>=5.1.0
+sqlalchemy>=2.0.0          # ORM / connection pool (replaces direct pyodbc usage)
+pyodbc>=5.1.0              # DBAPI driver used by SQLAlchemy mssql+pyodbc dialect
 pandas>=2.2.0
 numpy>=1.26.0
 
