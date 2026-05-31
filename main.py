@@ -33,31 +33,47 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Auto-train models if pkl files are missing (e.g. first boot on HF Spaces)
+# Auto-train models if pkl files are missing (e.g. first boot / HF Space restart)
 def _ensure_models():
-    import os, subprocess, sys
+    """Train any missing models synchronously using the retrain service.
+    HF Spaces uses ephemeral storage — models must be re-trained on every restart.
+    """
+    import os
     models_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
     required = ["churn_model.pkl", "fraud_model.pkl", "anomaly_model.pkl", "demand_model.pkl"]
     missing  = [m for m in required if not os.path.exists(os.path.join(models_dir, m))]
-    if missing:
-        print(f"[STARTUP] Missing models: {missing} — running train_models.py ...")
-        train_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "train", "train_models.py")
-        result = subprocess.run([sys.executable, train_script], capture_output=True, text=True)
-        print(result.stdout[-2000:] if result.stdout else "[STARTUP] No stdout")
-        if result.returncode == 0:
-            print("[STARTUP] Models trained successfully.")
-        else:
-            print(f"[STARTUP] Training failed: {result.stderr[-500:]}")
-    else:
+    if not missing:
         print("[STARTUP] All model files present.")
+        return
+
+    print(f"[STARTUP] Missing models: {missing} — retraining from DB ...")
+    try:
+        from db.connection import get_conn
+        from services import retrain_service
+        conn = get_conn()
+        cur  = conn.cursor()
+        result = retrain_service.retrain_all(cur)
+        conn.commit()
+        cur.close()
+        conn.close()
+        print(f"[STARTUP] Retrain result: {result}")
+        # demand model: reuse train_models.py only for demand (XGBoost regressor)
+        demand_path = os.path.join(models_dir, "demand_model.pkl")
+        if not os.path.exists(demand_path):
+            import subprocess, sys
+            train_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "train", "train_models.py")
+            subprocess.run([sys.executable, train_script], capture_output=True)
+            print("[STARTUP] Demand model trained via train_models.py")
+    except Exception as e:
+        print(f"[STARTUP] Auto-train failed: {e}")
 
 # Start nightly/weekly scheduler on app startup
 @app.on_event("startup")
 async def startup_scheduler():
     import asyncio
-    # Run model check in background thread to not block startup
+    # Run model training SYNCHRONOUSLY first — HF Spaces ephemeral FS wipes pkl on restart
     loop = asyncio.get_event_loop()
-    loop.run_in_executor(None, _ensure_models)
+    await loop.run_in_executor(None, _ensure_models)
     try:
         from scheduler import create_scheduler
         _scheduler = create_scheduler()
