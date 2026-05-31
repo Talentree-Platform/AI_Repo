@@ -11,9 +11,19 @@ short_description: AI microservice for the Talentree Business Owner Dashboard
 
 # 🌳 Talentree AI Service — Business Owner Dashboard
 
-> **AI-powered microservice for real-time predictions, analytics, and smart notifications**  
-> Built by: Mai Farahat | AI Engineer  
-> Last Updated: April 18, 2026
+> **AI-powered microservice for real-time predictions, analytics, and smart notifications**
+> Built by: Mai Farahat | AI Engineer
+> Last Updated: June 1, 2026
+
+---
+
+## 🚀 Live Deployment
+
+| Environment | URL |
+|---|---|
+| **HF Space (Production)** | https://memo620-talentree-ai.hf.space |
+| **Swagger UI (API Docs)** | https://memo620-talentree-ai.hf.space/docs |
+| **Health Check** | https://memo620-talentree-ai.hf.space/ai/status |
 
 ---
 
@@ -25,7 +35,8 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 - 📊 **Analyzes** reviews, revenue trends, and performance benchmarks
 - 🔔 **Notifies** BOs and admins when thresholds are crossed
 - 📄 **Exports** financial reports as PDF/CSV
-- 🤖 **Retrains** models automatically every week on real data
+- 🤖 **Retrains** models automatically on every restart + every week on real data
+- 🗄️ **Connects** to a live production SQL Server database
 
 ---
 
@@ -33,7 +44,7 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 
 | Document | Who It's For | What's Inside |
 |---|---|---|
-| [**AI Models Explained**](docs/AI_Models_Explained.md) | Everyone (PM, Dev, Design) | Plain-English explanation of every model and insight |
+| [**AI Models Explained**](docs/AI_Models_Explained.md) | Everyone (PM, Dev, Design) | Plain-English explanation of every model with live accuracy metrics |
 | [**AI Integration Guide**](docs/AI_Integration_Guide.md) | Angular + .NET teams | Endpoints, TypeScript interfaces, chart code examples |
 | [**AI Master Plan**](docs/AI_Master_Plan.md) | AI Engineer / Tech Lead | Full technical strategy, DB schema, training pipeline |
 
@@ -42,21 +53,31 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 ## 🏗️ Architecture
 
 ```
-┌──────────────────┐     JSON/REST      ┌───────────────────────┐
-│  Angular Frontend │ ─────────────────► │  Talentree AI Service │
-│  (Charts, Cards)  │                    │  FastAPI  :8000       │
-└──────────────────┘                     │                       │
-                                         │  ┌─ churn_service     │
-┌──────────────────┐     HTTP calls      │  ├─ fraud_service     │
-│  .NET Backend     │ ─────────────────► │  ├─ anomaly_service   │
-│  (Event triggers) │                    │  ├─ sentiment_service │     ┌───────────┐
-└──────────────────┘                     │  ├─ triage_service    │────►│  SQL      │
-                                         │  ├─ product_service   │     │  Server   │
-┌──────────────────┐     CRON jobs       │  ├─ dashboard_service │     │  (Remote) │
-│  Scheduler        │ ─────────────────► │  ├─ export_service    │     └───────────┘
-│  (Nightly/Weekly) │                    │  └─ retrain_service   │
-└──────────────────┘                     └───────────────────────┘
+┌──────────────────┐     JSON/REST      ┌───────────────────────────────┐
+│  Angular Frontend │ ─────────────────► │  Talentree AI Service         │
+│  (Charts, Cards)  │                    │  FastAPI  :7860 (HF Spaces)   │
+└──────────────────┘                     │                               │
+                                         │  ┌─ churn_service             │
+┌──────────────────┐     HTTP calls      │  ├─ fraud_service             │
+│  .NET Backend     │ ─────────────────► │  ├─ anomaly_service           │
+│  (Event triggers) │                    │  ├─ sentiment_service         │     ┌───────────────────────┐
+└──────────────────┘                     │  ├─ triage_service            │────►│  SQL Server           │
+                                         │  ├─ product_service           │     │  db52715.public.      │
+┌──────────────────┐     CRON jobs       │  ├─ dashboard_service         │     │  databaseasp.net      │
+│  APScheduler      │ ─────────────────► │  ├─ export_service            │     └───────────────────────┘
+│  Nightly + Weekly │                    │  └─ retrain_service           │
+└──────────────────┘                     └───────────────────────────────┘
 ```
+
+### Key Design Decisions
+
+| Decision | Why |
+|---|---|
+| **SQLAlchemy `creator` pattern** | Handles special characters in DB password (`+`, `#`, `=`) — pyodbc alone fails |
+| **`await _ensure_models()` on startup** | HF Spaces uses ephemeral storage; pkl files are wiped on restart so models retrain automatically |
+| **No pkl files in git** | HF rejects binary files — models train from live DB on startup |
+| **Sliding time-window churn training** | 9 users → 9 rows would fail; windowing gives 100+ real training samples |
+| **Minority-class oversampling for fraud** | Only ~8% of requests are fraud; oversampling to ~40% gives model enough fraud examples |
 
 ---
 
@@ -64,94 +85,81 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 
 ### Option 1 — Docker (Recommended)
 ```bash
-# Clone the repo
 git clone -b feature/bo-dashboard https://github.com/Talentree-Platform/AI_Repo.git
 cd AI_Repo
-
-# Copy environment config
 cp .env.example .env
-
-# Run with Docker Compose
+# Edit .env with your DB credentials
 docker compose up --build -d
-
-# API available at:
-# http://localhost:8080/docs  (Swagger UI)
+# API: http://localhost:8080/docs
 ```
 
 ### Option 2 — Local Python
 ```bash
-# Clone the repo
 git clone -b feature/bo-dashboard https://github.com/Talentree-Platform/AI_Repo.git
 cd AI_Repo
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Run the server
+cp .env.example .env
+# Edit .env with DB credentials
 python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-
-# API available at:
-# http://localhost:8000/docs  (Swagger UI)
+# API: http://localhost:8000/docs
 ```
 
-### First-Time Setup (Seed Data + Train Models)
+### Models: Auto-Trained on Startup
+The service **automatically trains all missing models** when it starts:
+```
+[STARTUP] Missing models: ['churn_model.pkl', 'fraud_model.pkl', ...] — retraining from DB ...
+[STARTUP] Retrain result: {'churn': {'status': 'retrained', ...}, ...}
+```
+You can also trigger manually:
 ```bash
-# 1. Seed synthetic data into the DB
-python data/seed_generator.py
-
-# 2. Train all ML models
-python train/train_models.py
-
-# 3. Run all AI computations
-curl -X POST http://localhost:8000/ai/compute/all
-
-# 4. Verify everything works
-python test_api.py
+curl -X POST https://memo620-talentree-ai.hf.space/ai/train/all
 ```
 
 ---
 
-## 📡 All API Endpoints (20 total)
+## 📡 All API Endpoints (23 total)
 
 ### Health & Status
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/ai/status` | Health check |
-| `GET` | `/ai/models/status` | Model accuracy & last trained |
+| `GET` | `/ai/status` | Health check → `{"status": "ok"}` |
+| `GET` | `/ai/models/status` | Model accuracy, F1 score, training rows, last trained |
 
 ### Dashboard & Analytics *(Frontend calls these)*
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/ai/dashboard/{bo_id}` | All 14 KPI metrics in one call |
-| `GET` | `/ai/analytics/revenue-trend/{bo_id}?period=monthly` | Revenue line chart data |
-| `GET` | `/ai/reviews/trends/{bo_id}?period=monthly` | Sentiment bar chart data |
+| `GET` | `/ai/dashboard/{bo_id}` | All KPI metrics in one call |
+| `GET` | `/ai/analytics/revenue-trend/{bo_id}?period=weekly\|monthly` | Revenue line chart data |
+| `GET` | `/ai/reviews/trends/{bo_id}?period=weekly\|monthly` | Sentiment bar chart data |
 | `GET` | `/ai/benchmark/{bo_id}` | BO vs platform percentile ranking |
+| `GET` | `/ai/benchmark/all` | All BOs benchmark comparison |
 
 ### Predictions *(Backend calls on events)*
-| Method | Endpoint | Trigger |
-|---|---|---|
-| `POST` | `/ai/predict/churn/{user_id}` | BO logs in |
-| `POST` | `/ai/predict/fraud/{request_id}` | New production request |
-| `POST` | `/ai/predict/anomaly/{tx_id}` | New transaction |
-| `POST` | `/ai/predict/sentiment/{review_id}` | New review submitted |
-| `POST` | `/ai/predict/triage/{ticket_id}` | New support ticket |
-| `POST` | `/ai/predict/demand/{product_id}` | Product updated |
+| Method | Endpoint | Trigger | Returns |
+|---|---|---|---|
+| `POST` | `/ai/predict/churn/{user_id}` | BO logs in | `churn_risk_score` (0–1) |
+| `POST` | `/ai/predict/fraud/{request_id}` | New production request | `fraud_score` + `is_fraud` |
+| `POST` | `/ai/predict/anomaly/{tx_id}` | New transaction | `anomaly_score` + `is_anomaly` |
+| `POST` | `/ai/predict/sentiment/{review_id}` | New review submitted | `sentiment_score` + label |
+| `POST` | `/ai/predict/triage/{ticket_id}` | New support ticket | `priority_score` + `auto_category` |
+| `POST` | `/ai/predict/demand/{product_id}` | Product updated | `demand_forecast_qty` + `low_stock_flag` |
 
 ### Compute *(Batch processing)*
 | Method | Endpoint | Description |
 |---|---|---|
 | `POST` | `/ai/compute/product/{id}` | Quality + LowStock + Demand |
 | `POST` | `/ai/compute/profile/{bo_id}` | Profile completeness % |
-| `POST` | `/ai/compute/request/{id}` | Fulfillment time + Fraud |
+| `POST` | `/ai/compute/request/{id}` | Fulfillment time + Fraud check |
 | `POST` | `/ai/compute/materials/all` | OrderFrequency + PriceTrend |
 | `POST` | `/ai/compute/all` | Run everything (takes ~2 min) |
 
 ### Notifications & Export
 | Method | Endpoint | Description |
 |---|---|---|
-| `POST` | `/ai/notify/check/{bo_id}` | Check thresholds, fire alerts |
-| `GET` | `/ai/export/financial/{bo_id}?format=csv` | Download CSV report |
-| `GET` | `/ai/export/financial/{bo_id}?format=pdf` | Download PDF report |
+| `POST` | `/ai/notify/check/{bo_id}` | Check thresholds, write alerts |
+| `POST` | `/ai/notify/check/all` | Check all BOs |
+| `GET` | `/ai/export/financial/{bo_id}?format=csv` | Download CSV financial report |
+| `GET` | `/ai/export/financial/{bo_id}?format=pdf` | Download PDF financial report |
 
 ### Model Training
 | Method | Endpoint | Description |
@@ -163,19 +171,24 @@ python test_api.py
 
 ---
 
-## 🤖 AI Models
+## 🤖 AI Models — Live Performance (June 2026)
 
-| # | Model | Algorithm | Input | Output | Accuracy |
+| # | Model | Algorithm | Training Rows | Accuracy | F1 Score |
 |---|---|---|---|---|---|
-| 1 | Churn Risk | XGBoost | Login history, orders, profile | `ChurnRiskScore` (0–1) | ~100%* |
-| 2 | Fraud Detection | XGBoost | Price, frequency, behavior | `FraudScore` + `IsFraudFlag` | ~100%* |
-| 3 | Anomaly Detection | Isolation Forest | Amount, hour, patterns | `AnomalyScore` + `AnomalyFlag` | ~98% |
-| 4 | Sentiment Analysis | VADER NLP | Review text | `SentimentScore` + label | ~85% |
-| 5 | Ticket Triage | Keywords | Ticket title + message | `PriorityScore` + `AutoCategory` | ~80% |
-| 6 | Demand Forecast | Linear Regression | Purchase history | `DemandForecastQty` + `LowStockFlag` | ~75% |
-| 7 | Description Quality | NLP Rules | Product description | `DescriptionQualityScore` (0–1) | N/A |
+| 1 | Churn Risk | XGBoost | 476 (112 real + augmented) | 100% | **1.0** |
+| 2 | Fraud Detection | XGBoost | 218 (oversampled) | 92.7% | **0.87** |
+| 3 | Anomaly Detection | Isolation Forest | 1,012 real | N/A (unsupervised) | N/A |
+| 4 | Sentiment Analysis | VADER NLP | Rule-based | ~85% | N/A |
+| 5 | Ticket Triage | Keywords + NLP | Rule-based | ~80% | N/A |
+| 6 | Demand Forecast | Linear Regression | 12 products | MAE = 2.64 | N/A |
+| 7 | Description Quality | NLP Rules | Rule-based | N/A | N/A |
+| 8 | Profile Completeness | Count-based | Deterministic | 100% | N/A |
 
-> *\*Trained on synthetic data. Accuracy improves automatically as real data grows (→ 90%+ by month 3).*
+### How Models Improve
+- **Sliding time-windows:** Churn model creates 1 training sample per user per month (not 1 per user), multiplying data 6x
+- **Noise augmentation:** Each real sample copied with small Gaussian noise → 476 total training rows from 112 real
+- **Minority oversampling:** Fraud model oversamples rare fraud cases to ~40% of dataset, enabling the model to learn fraud patterns
+- **Weekly retraining:** Every Sunday 03:00 Cairo time, all models retrain automatically on accumulated real data
 
 ---
 
@@ -183,12 +196,16 @@ python test_api.py
 
 | Time (Cairo) | Job | Frequency |
 |---|---|---|
-| 02:00 AM | Recompute all predictions for all BOs | Every night |
-| 02:05 AM | Update product metrics | Every night |
-| 02:10 AM | Update material stats | Every night |
-| 02:15–02:45 AM | Predict churn, fraud, anomalies, sentiment, triage | Every night |
+| 02:00 AM | Recompute all profile completeness | Every night |
+| 02:05 AM | Recompute all product metrics | Every night |
+| 02:10 AM | Recompute all material stats | Every night |
+| 02:15 AM | Predict churn for all BOs | Every night |
+| 02:20 AM | Predict fraud for all requests | Every night |
+| 02:25 AM | Predict anomaly for all transactions | Every night |
+| 02:30 AM | Predict sentiment for all reviews | Every night |
+| 02:35 AM | Triage all open tickets | Every night |
 | 02:45 AM | Check notification thresholds | Every night |
-| 03:00 AM Sunday | **Retrain all models** on accumulated real data | Weekly |
+| 03:00 AM Sunday | **Retrain all ML models** on accumulated real data | Weekly |
 
 ---
 
@@ -196,32 +213,29 @@ python test_api.py
 
 ```
 talentree-ai/
-├── main.py                        # FastAPI app — 20 endpoints
-├── config.py                      # DB connection (env vars for Docker)
+├── main.py                        # FastAPI app — 23 endpoints
+├── config.py                      # DB config (env vars)
 ├── scheduler.py                   # APScheduler — nightly + weekly jobs
 ├── requirements.txt               # Python dependencies
 ├── Dockerfile                     # Docker image definition
-├── docker-compose.yml             # One-command deployment
-├── .env.example                   # Environment variables template
-├── test_api.py                    # Test all 20 endpoints
+├── docker-compose.yml             # One-command local deployment
+├── .env.example                   # Environment variables template (safe)
 │
 ├── data/
-│   ├── seed_generator.py          # Generate synthetic DB rows
-│   ├── seed_resume.py             # Resume interrupted seeding
-│   └── generate_training_data.py  # Export training CSVs from DB
+│   ├── generate_seed_json.py      # Generate base seed JSON files (9 users)
+│   ├── generate_extra_seed.py     # Generate EXTRA seed data for ML improvement
+│   ├── for_backend_team/          # Base seed JSON files (9 tables)
+│   └── for_backend_team_extra/    # Extra seed files (40 users, 800 requests @ 15% fraud)
 │
 ├── db/
 │   ├── __init__.py
-│   └── connection.py              # pyodbc SQL Server connector
+│   └── connection.py              # SQLAlchemy creator pattern (handles special chars in password)
 │
 ├── models/
-│   ├── churn_model.pkl            # Trained XGBoost churn model
-│   ├── fraud_model.pkl            # Trained XGBoost fraud model
-│   ├── anomaly_model.pkl          # Trained Isolation Forest model
-│   ├── demand_model.pkl           # Trained regression model
-│   └── *_meta.json               # Training metadata (accuracy, date, features)
+│   ├── *.pkl                      # Trained model files (NOT in git — auto-generated on startup)
+│   └── *_meta.json               # Training metadata (accuracy, date, features, rows)
 │
-├── services/                      # Business logic (16 services)
+├── services/                      # Business logic (15 services)
 │   ├── analytics_service.py       # Revenue trends + review trends
 │   ├── anomaly_service.py         # Transaction anomaly detection
 │   ├── benchmark_service.py       # BO vs platform ranking
@@ -234,54 +248,57 @@ talentree-ai/
 │   ├── order_service.py           # Fulfillment time computation
 │   ├── product_service.py         # Quality, demand, stock
 │   ├── profile_service.py         # Profile completeness
-│   ├── retrain_service.py         # Model retraining on real data
+│   ├── retrain_service.py         # Model retraining (with oversampling + augmentation)
 │   ├── sentiment_service.py       # Review sentiment (VADER)
 │   └── triage_service.py          # Ticket auto-categorization
 │
 ├── train/
-│   └── train_models.py            # Train all 4 ML models from CSVs
+│   └── train_models.py            # Train demand model from CSVs
 │
 └── docs/
     ├── AI_Master_Plan.md          # Full technical strategy
-    ├── AI_Models_Explained.md     # Non-technical model guide
-    └── AI_Integration_Guide.md    # Frontend/Backend integration
+    ├── AI_Models_Explained.md     # Non-technical model guide (updated)
+    └── AI_Integration_Guide.md    # Frontend/Backend integration guide
 ```
 
 ---
 
 ## 🔗 For the Angular Frontend Team
 
-👉 Read the **[AI Integration Guide](docs/AI_Integration_Guide.md)** — it has:
-- Exact JSON response formats
-- TypeScript interfaces you can copy-paste
-- ApexCharts code for revenue, sentiment, and benchmark charts
-- Download button implementation for CSV/PDF export
-- Environment config setup
+👉 Read the **[AI Integration Guide](docs/AI_Integration_Guide.md)**
 
 ### Key calls for the dashboard:
 ```typescript
-GET  /ai/dashboard/{bo_id}                          → KPI cards
-GET  /ai/analytics/revenue-trend/{bo_id}?period=monthly  → Line chart
-GET  /ai/reviews/trends/{bo_id}?period=monthly           → Bar chart
-GET  /ai/benchmark/{bo_id}                               → Radar chart
-GET  /ai/export/financial/{bo_id}?format=pdf             → Download
+// All KPI cards in one call
+GET /ai/dashboard/{bo_id}
+
+// Charts
+GET /ai/analytics/revenue-trend/{bo_id}?period=monthly
+GET /ai/reviews/trends/{bo_id}?period=monthly
+GET /ai/benchmark/{bo_id}
+
+// Download buttons
+GET /ai/export/financial/{bo_id}?format=csv
+GET /ai/export/financial/{bo_id}?format=pdf
 ```
 
 ---
 
 ## 🔗 For the .NET Backend Team
 
-👉 Read the **[AI Integration Guide](docs/AI_Integration_Guide.md)** — it has C# HTTP client examples.
+👉 Read the **[AI Integration Guide](docs/AI_Integration_Guide.md)** for C# HTTP client examples.
 
 ### When to call the AI service:
 | Your Event | Call AI Endpoint |
 |---|---|
 | BO updates profile | `POST /ai/compute/profile/{bo_id}` |
 | Product created/updated | `POST /ai/compute/product/{product_id}` |
+| Production request submitted | `POST /ai/predict/fraud/{request_id}` |
 | Production request completed | `POST /ai/compute/request/{request_id}` |
 | New review submitted | `POST /ai/predict/sentiment/{review_id}` |
 | New support ticket | `POST /ai/predict/triage/{ticket_id}` |
 | New transaction | `POST /ai/predict/anomaly/{tx_id}` |
+| BO logs in | `POST /ai/predict/churn/{user_id}` |
 
 ---
 
@@ -291,21 +308,36 @@ GET  /ai/export/financial/{bo_id}?format=pdf             → Download
 |---|---|
 | **Python 3.12** | Core language |
 | **FastAPI** | REST API framework |
-| **XGBoost** | Churn + Fraud models |
-| **scikit-learn** | Anomaly detection (Isolation Forest) |
-| **VADER** | Sentiment analysis (NLP) |
-| **pyodbc** | SQL Server database connector |
-| **APScheduler** | Nightly + weekly job scheduler |
+| **XGBoost** | Churn + Fraud classification models |
+| **scikit-learn** | Isolation Forest anomaly detection |
+| **VADER (nltk)** | Sentiment analysis NLP |
+| **SQLAlchemy + pyodbc** | SQL Server connection (creator pattern for special chars) |
+| **APScheduler** | Nightly + weekly cron jobs |
 | **reportlab** | PDF report generation |
 | **Docker** | Containerized deployment |
+| **Hugging Face Spaces** | Cloud hosting (ephemeral storage — models auto-train on startup) |
 
 ---
 
-## 📊 Database
+## 🗄️ Database
 
-- **Server:** `db39807.public.databaseasp.net`
-- **Tables used:** 35 total (see [AI Master Plan](AI_Master_Plan.md#current-live-db-state-april-16-2026))
-- **AI columns:** 20 columns across 5 tables (auto-populated by this service)
+- **Server:** `db52715.public.databaseasp.net`
+- **Connection:** SQLAlchemy `creator` pattern (required for passwords with `+`, `#`, `=`)
+- **Live data:** 9 users, 16 products, 1,012 transactions, 207 production requests, 229 reviews
+- **AI columns:** Auto-populated by this service across 5 tables
+
+---
+
+## 🌱 Seed Data
+
+The `data/` folder contains JSON seed files for the backend team:
+
+| Folder | Contents |
+|---|---|
+| `for_backend_team/` | Base 9-table seed (original data) |
+| `for_backend_team_extra/` | Extra data for ML improvement: 40 users, 800 requests (15% fraud), 300 reviews |
+
+After inserting extra data, call `POST /ai/train/all` to retrain all models.
 
 ---
 

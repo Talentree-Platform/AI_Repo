@@ -1,37 +1,44 @@
-# 🌳 Talentree BO Dashboard — AI Engineer Master Plan
-> **Strategy: Synthetic Pre-train → Connect DB → Retrain on Real Data**
-> **DB**: db39807.public.databaseasp.net | **Updated**: April 16, 2026
+# Talentree BO Dashboard — AI Engineer Master Plan
+> **Strategy: Synthetic Pre-train → Connect DB → Retrain on Real Data → Improve with ML Techniques**
+> **DB**: db52715.public.databaseasp.net | **Updated**: June 1, 2026
+> **Live Space**: https://memo620-talentree-ai.hf.space
 
 ---
 
-## ✅ Already Done
+## ✅ All Completed Work (June 2026)
 
-| Task | Status |
-|---|---|
-| Connected to live DB | ✅ Done |
-| Full schema audit + gap analysis sent to backend | ✅ Done |
-| Confirmed AI engineer has full DB permissions (INSERT/UPDATE/SELECT/DELETE) | ✅ Done |
-| Strategy decided: Synthetic → Train → Connect DB → Retrain | ✅ Done |
-| **Backend created all 4 missing tables** (ProductReviews, SupportTickets, TicketMessages, OnboardingProgress) | ✅ Done Apr 16 |
-| **DB now has 35 tables — Schema 100% complete** | ✅ Done Apr 16 |
-| All 20 AI columns deployed in correct tables | ✅ Done |
-
-### Current Live DB State (April 16, 2026)
-| Table | Rows | Ready? |
+| Task | Status | Date |
 |---|---|---|
-| AspNetUsers | 63 | ✅ Has data |
-| BusinessOwnerProfile | 25 | ✅ Has data |
-| Products | 12 | ✅ Has data |
-| BoProductionRequests | 12 | ✅ Has data |
-| RawMaterials | 31 | ✅ Has data |
-| MaterialOrders | 10 | ✅ Has data |
-| Transactions | 0 | ⏳ Needs synthetic seed |
-| LoginHistories | 0 | ⏳ Needs synthetic seed |
-| ProductReviews | 0 | ⏳ Needs synthetic seed |
-| SupportTickets | 0 | ⏳ Needs synthetic seed |
-| TicketMessages | 0 | ⏳ Needs synthetic seed |
-| OnboardingProgress | 0 | ⏳ Needs synthetic seed |
-| PayoutRequests | 0 | ⏳ Needs synthetic seed |
+| Connected to live DB | ✅ Done | April |
+| Full schema audit + gap analysis | ✅ Done | April |
+| Backend created all missing tables | ✅ Done | April 16 |
+| DB now has 35 tables — Schema 100% complete | ✅ Done | April 16 |
+| All AI columns deployed in correct tables | ✅ Done | April |
+| Seeded all tables with realistic data | ✅ Done | April |
+| Migrated DB connection to SQLAlchemy creator pattern | ✅ Done | April 18 |
+| Deployed to Hugging Face Spaces | ✅ Done | April |
+| Removed pkl files from git history (git filter-repo) | ✅ Done | May 31 |
+| Fixed _ensure_models() to retrain synchronously on startup | ✅ Done | May 31 |
+| Churn training: sliding time-windows + noise augmentation | ✅ Done | May 31 |
+| Fraud training: minority-class oversampling | ✅ Done | May 31 |
+| **All 23 APIs passing live tests: 23/23** | ✅ Done | May 31 |
+| Generated extra seed data for ML improvement | ✅ Done | June 1 |
+
+### Current Live DB State (June 2026)
+| Table | Rows | ML Status |
+|---|---|---|
+| AspNetUsers | 9 | Churn model trained (sliding windows + augmentation) |
+| BusinessOwnerProfile | 3 | ✅ |
+| Products | 16 | ✅ Demand model trained |
+| BoProductionRequests | ~207 | Fraud model trained (oversampled) |
+| RawMaterials | ~50 | ✅ |
+| Transactions | 1,012 | ✅ Anomaly model trained (best model) |
+| LoginHistories | 3,000 | ✅ Used for churn time-windows |
+| ProductReviews | 229 | ✅ Sentiment running |
+| SupportTickets | 106 | ✅ Triage running |
+| TicketMessages | ~300 | ✅ |
+| OnboardingProgress | 3 | ✅ |
+| PayoutRequests | ~10 | ✅ |
 
 ---
 

@@ -1,8 +1,9 @@
 # Talentree AI Service — Frontend & Backend Integration Guide
-> **For:** Angular Frontend Team & .NET Backend Team  
-> **AI Service Base URL:** `http://[ai-service-host]:8000`  
-> **Swagger Docs:** `http://[ai-service-host]:8000/docs`  
-> **Last Updated:** April 17, 2026
+> **For:** Angular Frontend Team & .NET Backend Team
+> **AI Service Base URL (Production):** `https://memo620-talentree-ai.hf.space`
+> **AI Service Base URL (Local):** `http://localhost:8000`
+> **Swagger Docs:** `https://memo620-talentree-ai.hf.space/docs`
+> **Last Updated:** June 1, 2026
 
 ---
 
@@ -416,16 +417,47 @@ const AI_BASE = environment.aiUrl;
 
 ---
 
-## Quick Reference — All Endpoints
+## 11. Testing the Live API
+
+All 23 endpoints are tested and passing on the live HF Space.
+
+```bash
+# Health check
+curl https://memo620-talentree-ai.hf.space/ai/status
+
+# Dashboard for BO 1
+curl https://memo620-talentree-ai.hf.space/ai/dashboard/11111111-1111-1111-1111-111111111101
+
+# Trigger fraud prediction for request ID 1
+curl -X POST https://memo620-talentree-ai.hf.space/ai/predict/fraud/1
+
+# Download CSV financial report
+curl -OJ "https://memo620-talentree-ai.hf.space/ai/export/financial/11111111-1111-1111-1111-111111111101?format=csv"
+
+# Retrain all models (after inserting extra seed data)
+curl -X POST https://memo620-talentree-ai.hf.space/ai/train/all
+```
+
+### Test User IDs (Live DB)
+| Role | User ID |
+|---|---|
+| Business Owner 1 (Nour Couture) | `11111111-1111-1111-1111-111111111101` |
+| Business Owner 2 (Karim Craft) | `22222222-2222-2222-2222-222222222202` |
+| Business Owner 3 (Salma Naturals) | `33333333-3333-3333-3333-333333333303` |
+
+---
+
+## Quick Reference — All 23 Endpoints
 
 | Method | Endpoint | Called By | Purpose |
 |---|---|---|---|
 | GET | `/ai/status` | Frontend | Health check |
-| GET | `/ai/dashboard/{bo_id}` | Frontend | All KPI cards |
-| GET | `/ai/analytics/revenue-trend/{bo_id}` | Frontend | Line chart |
-| GET | `/ai/reviews/trends/{bo_id}` | Frontend | Sentiment chart |
-| GET | `/ai/benchmark/{bo_id}` | Frontend | Radar/comparison |
-| GET | `/ai/models/status` | Admin panel | Model accuracy |
+| GET | `/ai/models/status` | Admin panel | Model accuracy + F1 + training info |
+| GET | `/ai/dashboard/{bo_id}` | Frontend | All KPI cards in one call |
+| GET | `/ai/analytics/revenue-trend/{bo_id}?period=weekly\|monthly` | Frontend | Revenue line chart |
+| GET | `/ai/reviews/trends/{bo_id}?period=weekly\|monthly` | Frontend | Sentiment bar chart |
+| GET | `/ai/benchmark/{bo_id}` | Frontend | Radar/comparison card |
+| GET | `/ai/benchmark/all` | Admin | All BOs benchmark |
 | GET | `/ai/export/financial/{bo_id}?format=csv` | Frontend | Download CSV |
 | GET | `/ai/export/financial/{bo_id}?format=pdf` | Frontend | Download PDF |
 | POST | `/ai/predict/churn/{user_id}` | .NET backend | On BO login |
@@ -434,9 +466,14 @@ const AI_BASE = environment.aiUrl;
 | POST | `/ai/predict/fraud/{request_id}` | .NET backend | On new request |
 | POST | `/ai/predict/anomaly/{tx_id}` | .NET backend | On new transaction |
 | POST | `/ai/predict/demand/{product_id}` | .NET backend | On product update |
-| POST | `/ai/compute/all` | Admin/manual | Full recompute |
+| POST | `/ai/compute/product/{id}` | .NET backend | Batch product metrics |
+| POST | `/ai/compute/profile/{bo_id}` | .NET backend | Profile completeness |
+| POST | `/ai/compute/request/{id}` | .NET backend | Fulfillment + fraud |
+| POST | `/ai/compute/materials/all` | Scheduler | Material stats |
+| POST | `/ai/compute/all` | Admin/manual | Full recompute (2 min) |
 | POST | `/ai/notify/check/{bo_id}` | .NET backend | Check thresholds |
-| POST | `/ai/train/all` | Scheduler/manual | Retrain models |
+| POST | `/ai/notify/check/all` | Scheduler | Check all BOs |
+| POST | `/ai/train/all` | Scheduler/manual | Retrain all models |
 
 ---
 

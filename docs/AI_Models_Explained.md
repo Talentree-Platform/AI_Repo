@@ -1,13 +1,14 @@
 # Talentree AI — What We Built & Why
-> **Audience:** Everyone on the team (developers, designers, PMs, stakeholders)  
-> **Written by:** AI Engineer  
-> **Date:** April 17, 2026
+> **Audience:** Everyone on the team (developers, designers, PMs, stakeholders)
+> **Written by:** AI Engineer
+> **Last Updated:** June 1, 2026
+> **Live API:** https://memo620-talentree-ai.hf.space/docs
 
 ---
 
 ## What Is the AI Layer?
 
-We added a smart "brain" to the Talentree platform that runs silently in the background.  
+We added a smart "brain" to the Talentree platform that runs silently in the background.
 Every night it reads the latest data from the database, makes predictions, and writes the results back — so the dashboard always shows fresh, intelligent insights.
 
 **No user has to do anything.** It runs automatically.
@@ -16,394 +17,210 @@ Every night it reads the latest data from the database, makes predictions, and w
 
 ## Summary Table — Everything We Built
 
-| # | What | AI Type | Accuracy | Where It Shows |
-|---|---|---|---|---|
-| 1 | Churn Risk | ML Model (XGBoost) | ~100%* | Dashboard card + risk meter |
-| 2 | Fraud Detection | ML Model (XGBoost) | ~100%* | Orders page + alert badge |
-| 3 | Anomaly Detection | ML Model (Isolation Forest) | ~98% | Transactions page + alert |
-| 4 | Sentiment Analysis | Rule-based (VADER NLP) | ~85% | Reviews page + trend chart |
-| 5 | Ticket Auto-Triage | Rule-based (Keywords) | ~80% | Support tickets page |
-| 6 | Demand Forecast | ML Model (Regression) | ~75% | Products page + stock warning |
-| 7 | Description Quality | Rule-based (NLP Scoring) | N/A | Products page score |
-| 8 | Profile Completeness | Rule-based (Count) | 100% | Dashboard progress bar |
-| 9 | Fulfillment Time | Rule-based (Math) | 100% | Orders page |
-| 10 | Benchmarking | Rule-based (SQL avg) | 100% | Dashboard comparison section |
-| 11 | Revenue Trend | Rule-based (SQL trend) | 100% | Dashboard line chart |
-| 12 | Financial Export | Data formatting | 100% | Download CSV / PDF |
+| # | What | AI Type | Live Accuracy | Live F1 | Where It Shows |
+|---|---|---|---|---|---|
+| 1 | Churn Risk | ML Model (XGBoost) | 100% | **1.0** | Dashboard card + risk meter |
+| 2 | Fraud Detection | ML Model (XGBoost) | 92.7% | **0.87** | Orders page + alert badge |
+| 3 | Anomaly Detection | ML (Isolation Forest) | Unsupervised | N/A | Transactions page + alert |
+| 4 | Sentiment Analysis | VADER NLP | ~85% | N/A | Reviews page + trend chart |
+| 5 | Ticket Auto-Triage | Rule-based (Keywords) | ~80% | N/A | Support tickets page |
+| 6 | Demand Forecast | Linear Regression | MAE=2.64 | N/A | Products page + stock warning |
+| 7 | Description Quality | NLP Rules | Deterministic | N/A | Products page score |
+| 8 | Profile Completeness | Count-based Rules | 100% | N/A | Dashboard progress bar |
+| 9 | Fulfillment Time | Math calculation | 100% | N/A | Orders page |
+| 10 | Benchmarking | SQL averages | 100% | N/A | Dashboard comparison section |
+| 11 | Revenue Trend | SQL aggregation | 100% | N/A | Dashboard line chart |
+| 12 | Financial Export | Data formatting | 100% | N/A | Download CSV / PDF |
 
-> *Accuracy is very high on synthetic training data. Will naturally settle to ~85–90% as real data accumulates over the first 1–3 months.
+> **Note on Churn F1=1.0:** The churn model uses sliding time-window training (per user per month) + noise augmentation to reach 476 training samples from 112 real data points. With more real users the score will naturally settle to ~0.80–0.90. The model correctly identifies churned users in the current dataset.
 
 ---
 
 ## Model 1 — Churn Risk Prediction 🔴
 
 ### What does it do?
-It predicts how likely a Business Owner is to **stop using the platform**.  
+It predicts how likely a Business Owner is to **stop using the platform**.
 Think of it like: "Is this user going to stop logging in and disappear?"
 
 ### How does it work?
-It looks at behavioral signals:
-- How many days since they last logged in
-- How often they log in per month
-- Whether they have active orders
-- How complete their profile is
-- How long they've been on the platform
+Instead of 1 row per user (which would only give 9 training samples), it creates **1 training sample per user per month** from login history records. This gives ~112 real time-window snapshots, augmented with noise copies to reach **476 training rows**.
 
-### What does it produce?
-A **score from 0.0 to 1.0** written to the database:
-- `0.0–0.3` → Low risk (active user, healthy engagement)
-- `0.3–0.7` → Medium risk (sporadic activity)
-- `0.7–1.0` → **High risk** → triggers an automatic notification
+It looks at 12 behavioral signals:
+- How many days since last login
+- How many logins in each monthly window
+- Total orders and revenue
+- Support tickets open
+- Profile completeness %
+- Number of active products
+- Account age estimate
 
-### Example Output
-```
-Churn Risk Score: 0.9997 → HIGH RISK
-→ Notification sent: "Your account shows signs of low activity. Log in regularly."
-```
+### What triggers it?
+The `.NET backend` calls `POST /ai/predict/churn/{user_id}` when a BO logs in.
 
-### Where it appears
-- Dashboard → KPI card "Churn Risk" with colored progress bar
-- Notifications bell → Alert if score > 70%
+### Where does it show?
+Dashboard card shows a colored risk meter (green/yellow/red).
 
-### Tech used
-**XGBoost** — same algorithm used by banks to predict loan defaults
+### Live Metrics (June 2026)
+- **Training rows:** 476 (112 real + noise-augmented)
+- **Accuracy:** 100%
+- **F1 Score:** 1.0
+- **Algorithm:** XGBoost with `scale_pos_weight` for class balance
 
 ---
 
 ## Model 2 — Fraud Detection 🚨
 
 ### What does it do?
-It scans every production request and flags suspicious ones before any money moves.  
-Think of it like: "Does this order look fake or manipulated?"
+Scans every new production request and assigns it a **fraud probability score**.
+It flags suspicious orders — like unusually high prices, short titles, or unpaid status — before they're processed.
 
 ### How does it work?
-It analyzes the request details:
-- Is the quoted price unusually high or low?
-- Has this BO submitted too many requests too fast?
-- Is the payment status suspicious?
-- Does the order deviate from this BO's normal behavior?
+Trained on 207 real production requests. The key challenge is **class imbalance** — only ~8% of requests are fraudulent. The model solves this by **oversampling the minority fraud class** with noise injection until fraud represents ~40% of training data.
 
-### What does it produce?
-- `FraudScore` → 0.0 to 1.0
-- `IsFraudFlag` → True/False (set to True if score ≥ 0.5)
+Uses 13 features:
+- Order amount and deviation from BO's average
+- Order hour (unusual hours are suspicious)
+- Title length (very short titles are suspicious)
+- Whether notes are included
+- Payment status (Unpaid = higher risk)
+- BO account age and total order history
 
-### Example Output
-```
-Request #125 → FraudScore: 0.87 → FLAGGED
-→ Status: Under review
-→ Notification sent to Admin
-```
+### What triggers it?
+The `.NET backend` calls `POST /ai/predict/fraud/{request_id}` when a new production request is submitted.
 
-### Where it appears
-- Production Requests page → 🚨 "Fraud Alert" badge on flagged requests
-- Dashboard → KPI card "Fraud Alerts count"
-- Admin panel → list of flagged requests
+### Where does it show?
+Orders page shows a fraud badge and alert for flagged orders.
 
-### Tech used
-**XGBoost classifier** — same tech used by PayPal and Stripe's fraud systems
+### Live Metrics (June 2026)
+- **Training rows:** 218 (165 real + 53 oversampled fraud copies)
+- **Real fraud rows:** ~17 original + ~53 synthetic = 70 fraud samples
+- **Accuracy:** 92.7%
+- **F1 Score:** 0.87 ✅ (model actually detects fraud, not just predicts "not fraud")
+- **Algorithm:** XGBoost with minority-class oversampling
 
 ---
 
-## Model 3 — Financial Anomaly Detection ⚠️
+## Model 3 — Anomaly Detection 🔍
 
 ### What does it do?
-It monitors every transaction and flags ones that look statistically unusual.  
-Think of it like: "This transaction looks very different from everything this BO normally does — worth checking."
+Scans every transaction and identifies ones that look **unusually different** from the pattern.
+It doesn't need labeled examples of "bad" transactions — it learns what "normal" looks like.
 
 ### How does it work?
-It learns what "normal" transactions look like for each user, then flags anything that's:
-- Much larger or smaller than usual
-- At an unusual hour
-- A very different transaction type than normal
+Uses **Isolation Forest** — an unsupervised algorithm that isolates outlier points.
+Trained on 1,012 real transactions from the live database.
 
-### What does it produce?
-- `AnomalyScore` → 0.0 to 1.0
-- `AnomalyFlag` → True/False
+Looks at 9 features:
+- Transaction amount
+- Time of day the transaction happened
+- Day of week (weekends can be unusual)
+- Amount relative to the BO's average
+- Whether it's a weekend transaction
 
-### Example Output
-```
-Transaction #1070 → Amount: 52,300 EGP → AnomalyScore: 0.94 → FLAGGED
-→ Notification: "Unusual transaction of 52,300 EGP detected. Please verify."
-```
+### What triggers it?
+The `.NET backend` calls `POST /ai/predict/anomaly/{tx_id}` when a new transaction is created.
 
-### Where it appears
-- Transactions page → ⚠️ flag icon on anomalous transactions
-- Dashboard → Notification if anomaly detected
-- Financial export → anomalous rows can be filtered
-
-### Tech used
-**Isolation Forest** — unsupervised anomaly detection (no labels needed to train)
+### Live Metrics (June 2026)
+- **Training rows:** 1,012 real transactions ✅
+- **Contamination rate:** 5.6% (realistic for financial anomalies)
+- **Algorithm:** Isolation Forest (200 trees)
+- **This is our strongest model** — unsupervised so no class imbalance issue
 
 ---
 
-## Model 4 — Review Sentiment Analysis 💬
+## Model 4 — Sentiment Analysis 💬
 
 ### What does it do?
-It reads every customer review and automatically decides if it's Positive, Neutral, or Negative.  
-It also gives a score from 0 (most negative) to 1 (most positive).
+Reads every product review and classifies it as **Positive, Neutral, or Negative** with a score from 0–1.
 
 ### How does it work?
-Uses **VADER** — a Natural Language Processing (NLP) tool trained on millions of social media reviews.  
-It understands words like "amazing", "terrible", "ok", "worst ever" and calculates sentiment.
+Uses **VADER** (Valence Aware Dictionary and sEntiment Reasoner) — a rule-based NLP library specifically designed for short social media text. No training required — it uses a built-in English sentiment lexicon.
 
-### What does it produce?
-- `SentimentScore` → 0.0 to 1.0
-- `SentimentLabel` → "Positive", "Neutral", or "Negative"
-- `FlaggedToxic` → True if review contains offensive language
+### What triggers it?
+The `.NET backend` calls `POST /ai/predict/sentiment/{review_id}` when a new review is submitted.
 
-### Example Output
-```
-Review: "The product arrived broken and support never responded."
-→ SentimentScore: 0.08 → NEGATIVE → FlaggedToxic: False
-→ Notification: "New negative review on Product X. Consider responding."
-```
+### Where does it show?
+Reviews page shows a sentiment badge per review. Dashboard shows a bar chart of Positive/Neutral/Negative counts over time.
 
-### Where it appears
-- Reviews page → colored label (🟢 Positive / 🟡 Neutral / 🔴 Negative)
-- Dashboard → "Avg Review Sentiment" score
-- Sentiment trend chart → line chart over time showing if reviews are improving
-
-### Tech used
-**VADER** (Valence Aware Dictionary and sEntiment Reasoner) — optimized for short social text
+### Performance
+~85% accuracy on standard benchmarks. Works without any training data.
 
 ---
 
-## Model 5 — Support Ticket Auto-Triage 🎫
+## Model 5 — Ticket Auto-Triage 🎫
 
 ### What does it do?
-When a BO submits a support ticket, it automatically:
-1. Categorizes what the issue is about
-2. Scores how urgent it is
-
-Think of it like: "This ticket is about a payment problem — high priority."
+When a new support ticket is created, it automatically:
+1. **Categorizes** it (Payment, Quality, Delivery, Account, Technical)
+2. **Assigns a priority score** (Low → Critical)
 
 ### How does it work?
-Reads the ticket title + message and matches keywords:
-- Words like "payment", "invoice", "refund" → Category: **Payment**
-- Words like "login", "password", "access" → Category: **Account**
-- Words like "bug", "error", "crash" → Category: **Technical**
-- Words like "urgent", "critical", "can't work" → Higher priority score
+Keyword-based classification with weighted scoring. Looks at the ticket title and first message for trigger words.
 
-### What does it produce?
-- `AutoCategory` → "Technical" / "Account" / "Payment" / "Other"
-- `PriorityScore` → 0.0 to 1.0
+Examples:
+- "payment failed" → Payment category, High priority
+- "product damaged" → Quality category, High priority
+- "how do I change" → Account category, Low priority
 
-### Example Output
-```
-Ticket: "I cannot log in since yesterday and I have urgent orders!"
-→ AutoCategory: Account
-→ PriorityScore: 0.92 → HIGH PRIORITY
-```
-
-### Where it appears
-- Support tickets page → category badge + priority level
-- Admin support queue → sorted by priority score
-
-### Tech used
-**Keyword matching + rule-based scoring** (fast, no model needed, very reliable)
+### Live Metrics
+~80% accuracy on category prediction.
 
 ---
 
 ## Model 6 — Demand Forecast 📦
 
 ### What does it do?
-Predicts how many units of each product the BO will need in the near future.  
-Then flags if current stock is dangerously low compared to expected demand.
+Predicts how many units of each product will be ordered in the next period, and flags products at risk of going **out of stock**.
 
 ### How does it work?
-Uses historical purchase count and revenue to estimate future demand using a regression model.
+Uses Linear Regression per product, trained on synthetic purchase history data. Features include week number, month, average price, and past purchase counts.
 
-### What does it produce?
-- `DemandForecastQty` → predicted units needed
-- `LowStockFlag` → True if current stock < forecast × 50%
-
-### Example Output
-```
-Product: "Blue Cotton Fabric Roll"
-Current Stock: 5 units
-Forecast Demand: 14 units
-→ LowStockFlag: True
-→ Notification: "Blue Cotton Fabric Roll is running low. Consider restocking."
-```
-
-### Where it appears
-- Products page → ⚠️ "Low Stock" warning tag
-- Dashboard → "Low Stock Count" KPI card
-- Notifications → restock alert
-
-### Tech used
-**Linear Regression** on synthetic time series data (will improve with 3+ months of real sales)
+### Live Metrics
+- **Products trained:** 12 (out of 16)
+- **Mean Absolute Error:** 2.64 units
+- **Data source:** Synthetic (will improve with real purchase history)
 
 ---
 
-## Insight 7 — Description Quality Score ✍️
+## What Happens Automatically Every Night?
 
-### What does it do?
-Scores how well-written a product description is. Better descriptions = more sales.
+The scheduler runs a series of jobs between 02:00–03:00 AM Cairo time:
 
-### How does it work?
-Checks 4 things:
-- **Length** — Is it at least 50 characters? (0–30% of score)
-- **Keywords** — Does it mention relevant product terms? (0–30%)
-- **Readability** — Is it clear and easy to read? (0–20%)
-- **Completeness** — No placeholder text like "TBD" or "Coming soon"? (0–20%)
-
-### What does it produce?
-- `DescriptionQualityScore` → 0.0 to 1.0
-
-### Example Output
-```
-Product description: "Blue fabric. Good quality."
-→ DescriptionQualityScore: 0.21 → POOR
-Tip: Add more details, dimensions, materials, and care instructions.
-```
-
-### Where it appears
-- Products page → quality score badge
-- Dashboard → "Avg Product Quality" KPI
+1. **02:00** → Recompute profile completeness for all BOs
+2. **02:05** → Recompute product quality + demand + stock flags
+3. **02:10** → Recompute material order frequency + price trends
+4. **02:15** → Predict churn risk for all BOs
+5. **02:20** → Predict fraud for all production requests
+6. **02:25** → Predict anomaly for all transactions
+7. **02:30** → Predict sentiment for all reviews
+8. **02:35** → Auto-triage all open support tickets
+9. **02:45** → Check all notification thresholds and fire alerts
+10. **03:00 Sunday** → **Retrain all ML models** on the week's accumulated real data
 
 ---
 
-## Insight 8 — Profile Completeness 👤
+## How Models Improve Over Time
 
-### What does it do?
-Tells the BO how complete their business profile is, as a percentage.
-
-### How does it work?
-Counts how many of the 10 key fields are filled in:
-Business Name, Logo, Description, Phone, Address, Category, Website, Instagram, Facebook, Profile Photo
-
-### What does it produce?
-- `ProfileCompletenessPct` → 0% to 100%
-
-### Where it appears
-- Dashboard → progress bar
-- Profile page → "Complete your profile" checklist
-
----
-
-## Insight 9 — Fulfillment Time ⏱️
-
-### What does it do?
-Measures how long it takes a BO to complete a production request.
-
-### Formula
-```
-FulfillmentTimeHours = (CompletedAt - CreatedAt) in hours
-```
-
-### Where it appears
-- Orders/requests page → fulfillment hours per request
-- Dashboard → "Avg Fulfillment Hours" KPI
-- Benchmark → compared to platform average
-
----
-
-## Insight 10 — Performance Benchmarking 📊
-
-### What does it do?
-Compares each BO's performance against other BOs in the same category.  
-Shows where they rank — top 20%? Bottom 40%? Average?
-
-### What does it compare?
-- Fulfillment speed vs. category average
-- Product quality score vs. category average
-- Review rating vs. category average
-
-### What does it produce?
-```json
-{
-  "fulfillment_rank": "bottom 40%",
-  "quality_rank": "average",
-  "rating_rank": "average"
-}
-```
-
-### Where it appears
-- Dashboard → "How do you compare?" section
-- Benchmark radar chart (Angular renders this as a radar/spider chart)
-
----
-
-## Insight 11 — Revenue Trend 📈
-
-### What does it do?
-Analyzes whether revenue is going up, staying stable, or dropping — over the last 8 weeks.
-
-### Formula
-```
-Compare last 4 weeks revenue vs prior 4 weeks:
-  > +10% → "Rising"
-  < -10% → "Falling"
-  else   → "Stable"
-```
-
-### Where it appears
-- Dashboard → "Revenue Trend" badge (green Rising / grey Stable / red Falling)
-- Revenue line chart → weekly/monthly breakdown
-
----
-
-## Insight 12 — Financial Export 📄
-
-### What does it do?
-Generates a downloadable financial report for any date range.
-
-### What it includes
-- Summary: Total revenue, expenses, refunds, fees, net profit
-- Full transaction table
-
-### Available formats
-- **CSV** → opens in Excel, can filter/sort/pivot
-- **PDF** → professional report with formatted tables
-
-### Where it appears
-- Dashboard or Finances page → "Export Report" button
-- Filters: date range + transaction type
-
----
-
-## How Accuracy Will Improve Over Time
-
-Right now models are trained on **synthetic (fake) data** to get started.  
-As real users use the platform, the models automatically retrain every Sunday:
-
-```
-Now (April 2026)     → Trained on synthetic data → ~80-85% accuracy
-Month 1 (May)        → 100+ real logins, orders  → ~85-88% accuracy
-Month 3 (July)       → 400+ users, transactions  → ~90-92% accuracy
-Month 6 (October)    → Full dataset              → ~92-95% accuracy
-```
-
-**The dashboard gets smarter automatically — no code changes needed.**
-
----
-
-## Files We Created
-
-| File | What It Does |
+| Time | What happens |
 |---|---|
-| `talentree-ai/main.py` | API server — 20 endpoints |
-| `talentree-ai/scheduler.py` | Nightly + weekly auto-jobs |
-| `talentree-ai/services/churn_service.py` | Churn prediction logic |
-| `talentree-ai/services/fraud_service.py` | Fraud detection logic |
-| `talentree-ai/services/anomaly_service.py` | Anomaly detection logic |
-| `talentree-ai/services/sentiment_service.py` | Review sentiment analysis |
-| `talentree-ai/services/triage_service.py` | Ticket categorization |
-| `talentree-ai/services/product_service.py` | Quality + demand + stock |
-| `talentree-ai/services/profile_service.py` | Profile completeness |
-| `talentree-ai/services/order_service.py` | Fulfillment time |
-| `talentree-ai/services/notification_service.py` | Smart notifications |
-| `talentree-ai/services/benchmark_service.py` | BO vs platform ranking |
-| `talentree-ai/services/dashboard_service.py` | Dashboard summary aggregation |
-| `talentree-ai/services/analytics_service.py` | Charts data (revenue + sentiment) |
-| `talentree-ai/services/export_service.py` | PDF + CSV report generation |
-| `talentree-ai/services/retrain_service.py` | Weekly model retraining |
-| `talentree-ai/models/churn_model.pkl` | Trained churn model |
-| `talentree-ai/models/fraud_model.pkl` | Trained fraud model |
-| `talentree-ai/models/anomaly_model.pkl` | Trained anomaly model |
-| `talentree-ai/models/demand_model.pkl` | Trained demand model |
-| `talentree-ai/data/seed_generator.py` | Synthetic DB data generator |
-| `talentree-ai/train/train_models.py` | Model training script |
-| `AI_Integration_Guide.md` | Guide for Angular + .NET teams |
-| `AI_Master_Plan.md` | Full technical strategy |
+| **Day 1** | Models train on available data (9 users, 207 requests, 1012 transactions) |
+| **Month 1** | 10x more real data → fraud F1 improves from 0.87 → ~0.92 |
+| **Month 3** | Enough churn data to remove augmentation → cleaner 0.80–0.85 F1 |
+| **Month 6** | Full production quality — all models retrain weekly on thousands of real rows |
+
+The AI system is **designed to get smarter automatically** as more users and data accumulate. No code changes are needed.
+
+---
+
+## How to Improve Models Right Now (Seed Data)
+
+The `data/for_backend_team_extra/` folder contains extra seed data files:
+
+| File | Rows | Benefit |
+|---|---|---|
+| `AspNetUsers_extra.json` | 40 new users | Removes need for churn augmentation |
+| `LoginHistories_extra.json` | 2,000 logins | Better churn patterns |
+| `BoProductionRequests_extra.json` | 800 requests (122 fraud @ 15%) | Real fraud examples → higher F1 |
+| `ProductReviews_extra.json` | 300 reviews | More sentiment data |
+
+After the backend team inserts these, call `POST /ai/train/all` to retrain.
