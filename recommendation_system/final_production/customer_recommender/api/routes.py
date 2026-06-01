@@ -20,6 +20,36 @@ async def health_check():
         "model_status": model_status
     }
 
+@router.get("/list")
+async def get_customers_list():
+    """Fetches a list of B2C customers from remote SQL database or local demo fallback."""
+    from shared.database.connection import engine
+    import pandas as pd
+    
+    if engine is not None:
+        try:
+            cust_query = """
+                SELECT u.Id as user_id, u.DisplayName as name
+                FROM AspNetUsers u 
+                JOIN AspNetUserRoles ur ON u.Id = ur.UserId 
+                WHERE ur.RoleId = '8cdb5170-bc99-483e-b7fc-b9e394e09c69'
+            """
+            df = pd.read_sql(cust_query, engine)
+            if len(df) > 0:
+                return df.to_dict(orient="records")
+        except Exception as e:
+            customer_logger.warning(f"Failed to query customers from SQL DB: {e}. Falling back to demo data.")
+            
+    # Local fallback demo list (with active pre-trained synthetic IDs and names)
+    return [
+        {"user_id": "123", "name": "Active Demo User #123 (Fashion enthusiast)"},
+        {"user_id": "456", "name": "Active Demo User #456 (Crafts lover)"},
+        {"user_id": "789", "name": "Active Demo User #789 (Natural beauty buyer)"},
+        {"user_id": "297", "name": "Demo User #297"},
+        {"user_id": "106", "name": "Demo User #106"},
+        {"user_id": "415", "name": "Demo User #415"},
+    ]
+
 @router.post("/recommend", response_model=CustomerRecommendResponse)
 async def get_customer_recommendations(request: CustomerRecommendRequest):
     """

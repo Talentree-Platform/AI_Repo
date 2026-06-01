@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // DOM Cache
     const btnRecommend = document.getElementById("btn-recommend");
     const btnRetrain = document.getElementById("btn-retrain");
-    const inputCustomerId = document.getElementById("input-customer-id");
+    const selectCustomerId = document.getElementById("select-customer-id");
     const inputTopK = document.getElementById("input-top-k");
     
     const statClass = document.getElementById("stat-class");
@@ -19,6 +19,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertMessage = document.getElementById("alert-message");
     
     const API_BASE = ""; // Relative paths since hosted on same server
+
+    // Fetch and populate customer dropdown list
+    async function loadCustomersList() {
+        try {
+            const res = await fetch(`${API_BASE}/customer/list`);
+            if (!res.ok) throw new Error("Failed to load customer list");
+            const customers = await res.json();
+            
+            selectCustomerId.innerHTML = "";
+            customers.forEach(cust => {
+                const opt = document.createElement("option");
+                opt.value = cust.user_id;
+                const displayId = cust.user_id.length > 8 ? `${cust.user_id.substring(0, 8)}...` : cust.user_id;
+                opt.textContent = `${cust.name} [${displayId}]`;
+                if (cust.user_id === "123") {
+                    opt.selected = true;
+                }
+                selectCustomerId.appendChild(opt);
+            });
+        } catch (err) {
+            console.error(err);
+            selectCustomerId.innerHTML = '<option value="123" selected>Active Demo User #123</option>';
+        }
+    }
 
     // Fetch and populate active model info
     async function loadModelStats() {
@@ -53,11 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger Recommendation Request
     async function getRecommendations() {
-        const customerId = parseInt(inputCustomerId.value);
+        const customerId = selectCustomerId.value;
         const topK = parseInt(inputTopK.value);
         
-        if (isNaN(customerId) || customerId < 1) {
-            showAlert("Please enter a valid numeric Customer ID.");
+        if (!customerId) {
+            showAlert("Please select a Customer Profile.");
             return;
         }
         if (isNaN(topK) || topK < 1 || topK > 50) {
@@ -83,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderRecommendations(data.recommendations);
         } catch (err) {
             console.error(err);
-            showAlert("Could not compute product recommendations. Verify that Customer ID has historical data.");
+            showAlert("Could not compute product recommendations. Verify that the selected Customer profile has interaction logs.");
             noResults.classList.remove("hidden");
         } finally {
             loader.classList.add("hidden");
@@ -157,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach Event Listeners
     btnRecommend.addEventListener("click", getRecommendations);
     btnRetrain.addEventListener("click", triggerRetraining);
-
     // Initial setups
     loadModelStats();
+    loadCustomersList();
 });

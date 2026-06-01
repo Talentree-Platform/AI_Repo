@@ -1,0 +1,291 @@
+{
+    "table_name": "Products",
+    "timestamp": "2026-05-31T18:30:50.679508",
+    "database_connected": true,
+    "columns": [
+        {
+            "name": "Id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Name",
+            "type": "NVARCHAR(100) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Description",
+            "type": "NVARCHAR(2000) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Price",
+            "type": "DECIMAL(18, 2)",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "CreatedAt",
+            "type": "DATETIME2",
+            "nullable": false,
+            "default": "(getutcdate())"
+        },
+        {
+            "name": "UpdatedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "CreatedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "UpdatedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "IsDeleted",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        },
+        {
+            "name": "DeletedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ApprovedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ApprovedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BusinessOwnerProfileId",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "CategoryId",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "RejectionReason",
+            "type": "NVARCHAR(1000) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "Status",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "StockQuantity",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "Tags",
+            "type": "NVARCHAR(500) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "AvgRating",
+            "type": "REAL",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "CartAddCount",
+            "type": "BIGINT",
+            "nullable": false,
+            "default": "(CONVERT([bigint],(0)))"
+        },
+        {
+            "name": "DemandForecastQty",
+            "type": "INTEGER",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "DemandForecastUpdatedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "DescriptionQualityScore",
+            "type": "REAL",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "LowStockFlag",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        },
+        {
+            "name": "PurchaseCount",
+            "type": "BIGINT",
+            "nullable": false,
+            "default": "(CONVERT([bigint],(0)))"
+        },
+        {
+            "name": "RevenueTotal",
+            "type": "DECIMAL(14, 2)",
+            "nullable": false,
+            "default": "((0.0))"
+        },
+        {
+            "name": "ViewCount",
+            "type": "BIGINT",
+            "nullable": false,
+            "default": "(CONVERT([bigint],(0)))"
+        },
+        {
+            "name": "DeletedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "IsVisible",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(1)))"
+        },
+        {
+            "name": "FeaturedOrder",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "IsFeatured",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        }
+    ],
+    "primary_keys": [
+        "Id"
+    ],
+    "foreign_keys": [
+        {
+            "constrained_columns": [
+                "BusinessOwnerProfileId"
+            ],
+            "referred_table": "BusinessOwnerProfile",
+            "referred_columns": [
+                "Id"
+            ]
+        },
+        {
+            "constrained_columns": [
+                "CategoryId"
+            ],
+            "referred_table": "Categories",
+            "referred_columns": [
+                "Id"
+            ]
+        }
+    ],
+    "indexes": [
+        {
+            "name": "IX_Product_CreatedAt",
+            "column_names": [
+                "CreatedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Product_CreatedBy_CreatedAt",
+            "column_names": [
+                "CreatedBy",
+                "CreatedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Product_IsDeleted",
+            "column_names": [
+                "IsDeleted"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Product_IsDeleted_DeletedAt",
+            "column_names": [
+                "IsDeleted",
+                "DeletedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Product_IsVisible",
+            "column_names": [
+                "IsVisible"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Products_BusinessOwnerProfileId",
+            "column_names": [
+                "BusinessOwnerProfileId"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Products_CategoryId",
+            "column_names": [
+                "CategoryId"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Products_Name",
+            "column_names": [
+                "Name"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Products_Price",
+            "column_names": [
+                "Price"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_Products_Status",
+            "column_names": [
+                "Status"
+            ],
+            "unique": false
+        }
+    ],
+    "source": "SQL Database Server"
+}

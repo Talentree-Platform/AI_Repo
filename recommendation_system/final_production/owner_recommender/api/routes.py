@@ -19,6 +19,37 @@ async def health_check():
         "model_status": model_status
     }
 
+@router.get("/list")
+async def get_owners_list():
+    """Fetches a list of business owners from remote SQL database or local demo fallback."""
+    from shared.database.connection import engine
+    import pandas as pd
+    
+    if engine is not None:
+        try:
+            owner_query = """
+                SELECT Id as owner_id, BusinessName as name 
+                FROM BusinessOwnerProfile 
+                WHERE IsDeleted = 0
+            """
+            df = pd.read_sql(owner_query, engine)
+            if len(df) > 0:
+                # Convert owner_id to string for uniform UI parsing
+                df["owner_id"] = df["owner_id"].astype(str)
+                return df.to_dict(orient="records")
+        except Exception as e:
+            owner_logger.warning(f"Failed to query owners from SQL DB: {e}. Falling back to demo data.")
+            
+    # Local fallback demo list (with active pre-trained synthetic IDs and names)
+    return [
+        {"owner_id": "1", "name": "Tech Galaxy (Owner #1)"},
+        {"owner_id": "2", "name": "Fashion House (Owner #2)"},
+        {"owner_id": "3", "name": "Fresh Mart (Owner #3)"},
+        {"owner_id": "33", "name": "Active Demo Owner #33"},
+        {"owner_id": "55", "name": "Active Demo Owner #55"},
+        {"owner_id": "76", "name": "Active Demo Owner #76"},
+    ]
+
 @router.post("/recommend", response_model=OwnerRecommendResponse)
 async def get_owner_recommendations(request: OwnerRecommendRequest):
     """

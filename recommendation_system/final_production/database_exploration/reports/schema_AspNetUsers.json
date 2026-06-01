@@ -1,0 +1,259 @@
+{
+    "table_name": "AspNetUsers",
+    "timestamp": "2026-05-29T18:44:24.733606",
+    "database_connected": true,
+    "columns": [
+        {
+            "name": "Id",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "DisplayName",
+            "type": "NVARCHAR(150) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "CreatedAt",
+            "type": "DATETIME2",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "LastLoginAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "IsActive",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(1)))"
+        },
+        {
+            "name": "UserName",
+            "type": "NVARCHAR(256) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "NormalizedUserName",
+            "type": "NVARCHAR(256) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "Email",
+            "type": "NVARCHAR(256) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "NormalizedEmail",
+            "type": "NVARCHAR(256) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "EmailConfirmed",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        },
+        {
+            "name": "PasswordHash",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "SecurityStamp",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ConcurrencyStamp",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "PhoneNumber",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "PhoneNumberConfirmed",
+            "type": "BIT",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "TwoFactorEnabled",
+            "type": "BIT",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "LockoutEnd",
+            "type": "DATETIMEOFFSET",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "LockoutEnabled",
+            "type": "BIT",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "AccessFailedCount",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "ChurnRiskScore",
+            "type": "REAL",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ChurnRiskUpdatedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "LoginCount",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "AccountStatus",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((1))"
+        },
+        {
+            "name": "BanReason",
+            "type": "NVARCHAR(500) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BannedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BannedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BlockReason",
+            "type": "NVARCHAR(500) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BlockedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BlockedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "IsBlocked",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        },
+        {
+            "name": "LoginAttempts",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "ProfilePhotoUrl",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "SuspendedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "SuspendedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "SuspensionReason",
+            "type": "NVARCHAR(500) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        }
+    ],
+    "primary_keys": [
+        "Id"
+    ],
+    "foreign_keys": [],
+    "indexes": [
+        {
+            "name": "EmailIndex",
+            "column_names": [
+                "NormalizedEmail"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_AppUser_AccountStatus",
+            "column_names": [
+                "AccountStatus"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_AppUser_IsBlocked",
+            "column_names": [
+                "IsBlocked"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_AppUser_LastLoginAt",
+            "column_names": [
+                "LastLoginAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "UserNameIndex",
+            "column_names": [
+                "NormalizedUserName"
+            ],
+            "unique": true
+        }
+    ],
+    "source": "SQL Database Server"
+}

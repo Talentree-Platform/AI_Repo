@@ -52,13 +52,15 @@
                 <div class="card control-panel">
                     <h3 class="card-title">🔍 Query Parameters</h3>
                     <div class="form-group">
-                        <label for="input-owner-id">Business Owner ID</label>
-                        <input type="number" id="input-owner-id" placeholder="Enter ID (e.g. 1 to 100)" value="55" min="1">
-                        <small class="helper-text">Select any business owner registered in synthetic logs.</small>
+                        <label for="select-owner-id">Business Owner Profile</label>
+                        <select id="select-owner-id">
+                            <option value="">Loading owner profiles...</option>
+                        </select>
+                        <small class="helper-text">Select a remote DB business owner or pre-trained active demo owner.</small>
                     </div>
                     <div class="form-group">
                         <label for="input-top-k">Recommendation Count (K)</label>
-                        <input type="number" id="input-top-k" placeholder="Number of items" value="5" min="1" max="20">
+                        <input type="number" id="input-top-k" placeholder="Number of items" value="6" min="1" max="20">
                     </div>
                     <button id="btn-recommend" class="btn btn-primary">
                         Get Procurement Plan

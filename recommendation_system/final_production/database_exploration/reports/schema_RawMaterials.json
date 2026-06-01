@@ -1,0 +1,202 @@
+{
+    "table_name": "RawMaterials",
+    "timestamp": "2026-05-31T18:32:41.609147",
+    "database_connected": true,
+    "columns": [
+        {
+            "name": "Id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Name",
+            "type": "NVARCHAR(200) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Description",
+            "type": "NVARCHAR(1000) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Price",
+            "type": "DECIMAL(18, 2)",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Unit",
+            "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "MinimumOrderQuantity",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((1))"
+        },
+        {
+            "name": "StockQuantity",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "IsAvailable",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(1)))"
+        },
+        {
+            "name": "Category",
+            "type": "NVARCHAR(100) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "PictureUrl",
+            "type": "NVARCHAR(500) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "SupplierId",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "CreatedAt",
+            "type": "DATETIME2",
+            "nullable": false,
+            "default": "(getutcdate())"
+        },
+        {
+            "name": "UpdatedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "CreatedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "UpdatedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "IsDeleted",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        },
+        {
+            "name": "DeletedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "DeletedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "OrderFrequency",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": "((0))"
+        },
+        {
+            "name": "PriceTrend",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": "(N'')"
+        }
+    ],
+    "primary_keys": [
+        "Id"
+    ],
+    "foreign_keys": [
+        {
+            "constrained_columns": [
+                "SupplierId"
+            ],
+            "referred_table": "Suppliers",
+            "referred_columns": [
+                "Id"
+            ]
+        }
+    ],
+    "indexes": [
+        {
+            "name": "IX_RawMaterial_CreatedAt",
+            "column_names": [
+                "CreatedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterial_CreatedBy_CreatedAt",
+            "column_names": [
+                "CreatedBy",
+                "CreatedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterial_IsDeleted",
+            "column_names": [
+                "IsDeleted"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterial_IsDeleted_DeletedAt",
+            "column_names": [
+                "IsDeleted",
+                "DeletedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterials_Category",
+            "column_names": [
+                "Category"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterials_IsAvailable",
+            "column_names": [
+                "IsAvailable"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterials_Price",
+            "column_names": [
+                "Price"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_RawMaterials_SupplierId",
+            "column_names": [
+                "SupplierId"
+            ],
+            "unique": false
+        }
+    ],
+    "source": "SQL Database Server"
+}

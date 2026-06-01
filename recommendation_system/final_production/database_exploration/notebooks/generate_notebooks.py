@@ -55,11 +55,19 @@ def create_notebook(filename: str, title: str, cells_data: list):
 
 def generate_all_notebooks():
     notebooks_dir = os.path.dirname(os.path.abspath(__file__))
-    os.makedirs(notebooks_dir, exist_ok=True)
+    
+    # Subdirectories for clean organization
+    db_exp_dir = os.path.join(notebooks_dir, "database_exploration")
+    cust_dir = os.path.join(notebooks_dir, "customer_recommender")
+    owner_dir = os.path.join(notebooks_dir, "owner_recommender")
+    
+    os.makedirs(db_exp_dir, exist_ok=True)
+    os.makedirs(cust_dir, exist_ok=True)
+    os.makedirs(owner_dir, exist_ok=True)
     
     # 1. 01_schema_exploration.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "01_schema_exploration.ipynb"),
+        os.path.join(db_exp_dir, "01_schema_exploration.ipynb"),
         "Schema Exploration",
         [
             ("markdown", [
@@ -107,7 +115,7 @@ def generate_all_notebooks():
 
     # 2. 02_interaction_analysis.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "02_interaction_analysis.ipynb"),
+        os.path.join(db_exp_dir, "02_interaction_analysis.ipynb"),
         "Interaction Analysis",
         [
             ("markdown", [
@@ -163,7 +171,7 @@ def generate_all_notebooks():
 
     # 3. 03_customer_behavior_analysis.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "03_customer_behavior_analysis.ipynb"),
+        os.path.join(cust_dir, "03_customer_behavior_analysis.ipynb"),
         "Customer Behavior Analysis",
         [
             ("markdown", [
@@ -218,7 +226,7 @@ def generate_all_notebooks():
 
     # 4. 04_owner_procurement_analysis.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "04_owner_procurement_analysis.ipynb"),
+        os.path.join(owner_dir, "04_owner_procurement_analysis.ipynb"),
         "Owner Procurement Analysis",
         [
             ("markdown", [
@@ -268,7 +276,7 @@ def generate_all_notebooks():
 
     # 5. 05_category_analysis.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "05_category_analysis.ipynb"),
+        os.path.join(db_exp_dir, "05_category_analysis.ipynb"),
         "Category Analysis",
         [
             ("markdown", [
@@ -306,7 +314,7 @@ def generate_all_notebooks():
 
     # 6. 06_seasonal_analysis.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "06_seasonal_analysis.ipynb"),
+        os.path.join(db_exp_dir, "06_seasonal_analysis.ipynb"),
         "Seasonal Analysis",
         [
             ("markdown", [
@@ -348,7 +356,7 @@ def generate_all_notebooks():
 
     # 7. 07_recommendation_signal_analysis.ipynb
     create_notebook(
-        os.path.join(notebooks_dir, "07_recommendation_signal_analysis.ipynb"),
+        os.path.join(db_exp_dir, "07_recommendation_signal_analysis.ipynb"),
         "Recommendation Signal Analysis",
         [
             ("markdown", [
@@ -388,7 +396,7 @@ def generate_all_notebooks():
         ]
     )
     
-    exp_logger.info("Successfully generated 7 bulletproof Jupyter notebooks in notebooks/ directory.")
+    exp_logger.info("Successfully generated 7 bulletproof Jupyter notebooks in organized subfolders.")
 
 if __name__ == "__main__":
     generate_all_notebooks()

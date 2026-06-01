@@ -30,8 +30,14 @@ class CustomerRecommenderService:
             self.model = None
             return False
             
-    def get_recommendations(self, customer_id: int, top_k: int = 5) -> List[Dict[str, Any]]:
+    def get_recommendations(self, customer_id: Any, top_k: int = 6) -> List[Dict[str, Any]]:
         """Fetches product recommendations for a customer, falling back to popularity if model is not loaded."""
+        # Cleanly try to cast numeric strings to int so pre-trained collaborative features match
+        try:
+            customer_id = int(customer_id)
+        except (ValueError, TypeError):
+            pass
+
         if self.model is None:
             customer_logger.warning("Recommendation model is not loaded. Yielding popularity fallback.")
             return self._get_fallback_popular_recommendations(top_k)
@@ -67,8 +73,8 @@ class CustomerRecommenderService:
             return datetime.fromtimestamp(mtime).isoformat()
         except Exception:
             return "Unknown"
-
-    def _get_fallback_popular_recommendations(self, top_k: int) -> List[Dict[str, Any]]:
+ 
+    def _get_fallback_popular_recommendations(self, top_k: int = 6) -> List[Dict[str, Any]]:
         """Mock fallback catalog recommendation helper when models are not yet compiled."""
         # Simple fallback product list matching the updated business model
         fallback_products = [
@@ -76,7 +82,8 @@ class CustomerRecommenderService:
             {"product_id": 2, "product_name": "Handcrafted Ceramic Mug Model C2", "category": "Handmade & Crafts", "price": 24.99, "description": "Highly demanded craft cup", "score": 0.5},
             {"product_id": 3, "product_name": "Organic Lavender Soap Model S3", "category": "Natural & Beauty Products", "price": 12.50, "description": "Sleek organic face soap", "score": 0.5},
             {"product_id": 4, "product_name": "Handwoven Woolen Scarf Model W4", "category": "Fashion & Accessories", "price": 45.00, "description": "Artisan weave winter wear", "score": 0.5},
-            {"product_id": 5, "product_name": "Rose Water Facial Mist Model R5", "category": "Natural & Beauty Products", "price": 18.00, "description": "Fresh herbal rose spray", "score": 0.5}
+            {"product_id": 5, "product_name": "Rose Water Facial Mist Model R5", "category": "Natural & Beauty Products", "price": 18.00, "description": "Fresh herbal rose spray", "score": 0.5},
+            {"product_id": 6, "product_name": "Bamboo Drinking Straws Model B6", "category": "Handmade & Crafts", "price": 8.99, "description": "Eco-friendly reusable bamboo straws", "score": 0.5}
         ]
         return fallback_products[:top_k]
 

@@ -30,8 +30,14 @@ class OwnerRecommenderService:
             self.model = None
             return False
             
-    def get_recommendations(self, owner_id: int, top_k: int = 5) -> List[Dict[str, Any]]:
+    def get_recommendations(self, owner_id: Any, top_k: int = 6) -> List[Dict[str, Any]]:
         """Fetches raw material recommendations for an owner, falling back to popularity if model is not loaded."""
+        # Cleanly try to cast numeric strings to int so pre-trained forecasting features match
+        try:
+            owner_id = int(owner_id)
+        except (ValueError, TypeError):
+            pass
+
         if self.model is None:
             owner_logger.warning("Recommendation model is not loaded. Yielding popularity fallback.")
             return self._get_fallback_popular_materials(top_k)
@@ -67,15 +73,16 @@ class OwnerRecommenderService:
             return datetime.fromtimestamp(mtime).isoformat()
         except Exception:
             return "Unknown"
-
-    def _get_fallback_popular_materials(self, top_k: int) -> List[Dict[str, Any]]:
+ 
+    def _get_fallback_popular_materials(self, top_k: int = 6) -> List[Dict[str, Any]]:
         """Mock fallback catalog recommendation helper when models are not yet compiled."""
         fallback_materials = [
             {"material_id": 1, "material_name": "Premium Cotton Yarn Grade-A", "category": "Fashion & Accessories", "price": 15.99, "description": "Highly demanded weaving thread", "predicted_demand_qty": 120.0, "urgency_days_elapsed": 5, "urgency_cycle_days": 14, "score": 0.5},
             {"material_id": 2, "material_name": "Refined Pottery Clay Sheet", "category": "Handmade & Crafts", "price": 8.50, "description": "High purity structural clay block", "predicted_demand_qty": 45.0, "urgency_days_elapsed": 8, "urgency_cycle_days": 21, "score": 0.5},
             {"material_id": 3, "material_name": "Organic Shea Butter Bulk Base", "category": "Natural & Beauty Products", "price": 48.00, "description": "Raw unrefined coconut oil base", "predicted_demand_qty": 95.0, "urgency_days_elapsed": 3, "urgency_cycle_days": 7, "score": 0.5},
             {"material_id": 4, "material_name": "Linen Fabric Roll Premium", "category": "Fashion & Accessories", "price": 32.50, "description": "Woven linen direct roll", "predicted_demand_qty": 350.0, "urgency_days_elapsed": 12, "urgency_cycle_days": 30, "score": 0.5},
-            {"material_id": 5, "material_name": "Natural Soy Wax Flakes Base", "category": "Handmade & Crafts", "price": 14.20, "description": "Artisan candle soy wax package", "predicted_demand_qty": 800.0, "urgency_days_elapsed": 6, "urgency_cycle_days": 14, "score": 0.5}
+            {"material_id": 5, "material_name": "Natural Soy Wax Flakes Base", "category": "Handmade & Crafts", "price": 14.20, "description": "Artisan candle soy wax package", "predicted_demand_qty": 800.0, "urgency_days_elapsed": 6, "urgency_cycle_days": 14, "score": 0.5},
+            {"material_id": 6, "material_name": "Sandalwood Essential Oil Extract", "category": "Natural & Beauty Products", "price": 75.50, "description": "Highly pure aromatic sandlewood essence", "predicted_demand_qty": 150.0, "urgency_days_elapsed": 4, "urgency_cycle_days": 10, "score": 0.5}
         ]
         return fallback_materials[:top_k]
 

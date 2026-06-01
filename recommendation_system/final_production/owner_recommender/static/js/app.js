@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // DOM Cache
     const btnRecommend = document.getElementById("btn-recommend");
     const btnRetrain = document.getElementById("btn-retrain");
-    const inputOwnerId = document.getElementById("input-owner-id");
+    const selectOwnerId = document.getElementById("select-owner-id");
     const inputTopK = document.getElementById("input-top-k");
     
     const statClass = document.getElementById("stat-class");
@@ -20,6 +20,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertMessage = document.getElementById("alert-message");
     
     const API_BASE = ""; // Host relative
+
+    // Fetch and populate owner dropdown list
+    async function loadOwnersList() {
+        try {
+            const res = await fetch(`${API_BASE}/owner/list`);
+            if (!res.ok) throw new Error("Failed to load owner list");
+            const owners = await res.json();
+            
+            selectOwnerId.innerHTML = "";
+            owners.forEach(owner => {
+                const opt = document.createElement("option");
+                opt.value = owner.owner_id;
+                opt.textContent = `${owner.name} [ID: ${owner.owner_id}]`;
+                if (owner.owner_id === "33" || owner.owner_id === "3") {
+                    opt.selected = true; // Pre-select a pre-trained active owner
+                }
+                selectOwnerId.appendChild(opt);
+            });
+        } catch (err) {
+            console.error(err);
+            selectOwnerId.innerHTML = '<option value="33" selected>Active Demo Owner #33</option>';
+        }
+    }
 
     // Fetch active model specs
     async function loadModelStats() {
@@ -53,11 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Fetch recommendations list
     async function getRecommendations() {
-        const ownerId = parseInt(inputOwnerId.value);
+        const ownerId = selectOwnerId.value;
         const topK = parseInt(inputTopK.value);
         
-        if (isNaN(ownerId) || ownerId < 1) {
-            showAlert("Please enter a valid numeric Business Owner ID.");
+        if (!ownerId) {
+            showAlert("Please select a Business Owner Profile.");
             return;
         }
         if (isNaN(topK) || topK < 1 || topK > 50) {
@@ -83,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             renderRecommendationsTable(data.recommendations);
         } catch (err) {
             console.error(err);
-            showAlert("Could not compute procurement plans. Verify that Owner ID has historical procurement data.");
+            showAlert("Could not compute procurement plans. Verify that selected Owner profile has historical procurement data.");
             noResults.classList.remove("hidden");
         } finally {
             loader.classList.add("hidden");
@@ -184,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Attach Event Listeners
     btnRecommend.addEventListener("click", getRecommendations);
     btnRetrain.addEventListener("click", triggerRetraining);
-
     // Startup
     loadModelStats();
+    loadOwnersList();
 });
