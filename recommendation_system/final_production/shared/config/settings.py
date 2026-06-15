@@ -8,12 +8,12 @@ class Settings(BaseSettings):
     ENV: str = "development"
     LOG_LEVEL: str = "INFO"
 
-    # SQL Server Database Settings
-    DB_USER: str = Field(default="sa")
-    DB_PASSWORD: str = Field(default="TalentreePassword123!")
-    DB_HOST: str = Field(default="localhost")
+    # SQL Server Database Settings (defaults match the live MonsterASP deployment)
+    DB_USER: str = Field(default="db52715")
+    DB_PASSWORD: str = Field(default="Kg4+5#hGcH=8")
+    DB_HOST: str = Field(default="db52715.public.databaseasp.net")
     DB_PORT: str = Field(default="1433")
-    DB_NAME: str = Field(default="recommendation_db")
+    DB_NAME: str = Field(default="db52715")
     
     # MLflow Settings
     MLFLOW_TRACKING_URI: str = Field(default="http://localhost:5000")

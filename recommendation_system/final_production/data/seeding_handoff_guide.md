@@ -101,54 +101,69 @@ public class Product
 }
 ```
 
-### Step B: Seeding Logic inside `OnModelCreating`
-The backend team can read these JSON files directly inside their `DbContext`:
+### Step B: Safe Seeding Logic (Handling ID Re-mapping)
+
+**CRITICAL ISSUE**: If your database already contains products/materials, SQL Server will assign **new IDs** to the seeded products. However, the `customer_interactions` and `owner_interactions` JSON files still reference the **old IDs** (1 to 200). If you don't remap these IDs, the interactions will point to the wrong items.
+
+Here is the recommended C# approach to seed the data safely while maintaining the relationships:
 
 ```csharp
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
-public class ApplicationDbContext : DbContext
+public async Task SeedDataSafelyAsync(ApplicationDbContext dbContext)
 {
-    public DbSet<Product> Products { get; set; }
-    public DbSet<RawMaterial> RawMaterials { get; set; }
+    // 1. Dictionaries to hold the mapping from Old JSON ID -> New Database ID
+    var productIdMap = new Dictionary<int, int>();
+    var materialIdMap = new Dictionary<int, int>();
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // 2. Seed Products safely
+    var productsJson = await File.ReadAllTextAsync("PathTo/products_db_seeding.json");
+    var mockProducts = JsonSerializer.Deserialize<List<Product>>(productsJson);
+    
+    foreach (var p in mockProducts)
     {
-        base.OnModelCreating(modelBuilder);
+        int oldId = p.Id;
+        p.Id = 0; // Reset ID so EF Core generates a new safe one
+        dbContext.Products.Add(p);
+        await dbContext.SaveChangesAsync(); // Save to get the new ID
+        
+        productIdMap[oldId] = p.Id; // Store the mapping
+    }
 
-        // 1. Seed Categories first (to satisfy Products FK)
-        modelBuilder.Entity<Category>().HasData(
-            new Category { Id = 1, Name = "Fashion & Accessories" },
-            new Category { Id = 2, Name = "Handmade & Crafts" },
-            new Category { Id = 3, Name = "Natural & Beauty Products" }
-        );
+    // 3. Seed Interactions safely using the Map
+    var interactionsJson = await File.ReadAllTextAsync("PathTo/customer_interactions_db_seeding.json");
+    var interactions = JsonSerializer.Deserialize<List<UserInteraction>>(interactionsJson);
 
-        // 2. Seed Products
-        var productsJson = File.ReadAllText("PathTo/products_db_seeding.json");
-        var products = JsonSerializer.Deserialize<List<Product>>(productsJson);
-        if (products != null)
+    // Get a list of valid User IDs currently in the database to map interactions to real users
+    var realUserIds = dbContext.Users.Select(u => u.Id).ToList();
+    var random = new Random();
+
+    foreach (var interaction in interactions)
+    {
+        // Fix Item ID
+        if (productIdMap.TryGetValue(interaction.ItemId, out int newProductId))
         {
-            modelBuilder.Entity<Product>().HasData(products);
+            interaction.ItemId = newProductId;
         }
 
-        // 3. Seed Raw Materials
-        var materialsJson = File.ReadAllText("PathTo/raw_materials_db_seeding.json");
-        var materials = JsonSerializer.Deserialize<List<RawMaterial>>(materialsJson);
-        if (materials != null)
+        // Fix User ID (assign to a random existing real user)
+        if (realUserIds.Any())
         {
-            modelBuilder.Entity<RawMaterial>().HasData(materials);
+            interaction.UserId = realUserIds[random.Next(realUserIds.Count)];
         }
     }
+
+    // High-performance bulk insert for interactions
+    dbContext.UserInteractions.AddRange(interactions);
+    await dbContext.SaveChangesAsync();
 }
 ```
 
 > [!TIP]
-> **Identity Insert Rule**
-> When executing seed migrations, Entity Framework Core automatically handles enabling `IDENTITY_INSERT` on SQL Server since explicit values for `Id` are provided in the HasData configuration. If seeding using raw SQL or custom seed scripts, the backend team must issue `SET IDENTITY_INSERT TableName ON;` before running insert queries.
+> For the 1.1 million interactions, `dbContext.AddRange()` might be too slow. We highly recommend passing the updated `interactions` list to a `SqlBulkCopy` utility in C# after the in-memory remapping is complete.
 
 ---
 

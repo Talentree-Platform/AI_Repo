@@ -167,6 +167,67 @@ def run_self_validation(products: list, raw_materials: list):
             
     print("[SUCCESS] All raw materials successfully passed database schema validation.")
 
+# ---------------------------------------------------------------------------
+# Enum integer maps — mirror the backend C# enums exactly
+# ---------------------------------------------------------------------------
+_USER_TYPE_INT   = {"customer": 0, "owner": 1, "supplier": 2}
+_ITEM_TYPE_INT   = {"product": 0, "raw_material": 1}
+_ACTION_TYPE_INT = {"view": 0, "click": 1, "purchase": 2, "reorder": 3}
+
+
+def convert_interactions_for_seeding(source_path: str, target_path: str):
+    """
+    Converts an internal AI interactions JSON file to the real backend
+    UserInteractions table schema:
+      - string user_type  → int  (customer=0, owner=1)
+      - string item_type  → int  (product=0, raw_material=1)
+      - string action     → int  (view=0, click=1, purchase=2, reorder=3)
+      - snake_case keys   → PascalCase column names
+      - adds CreatedAt timestamp
+    """
+    print(f"\nReading interactions from: {source_path}")
+    with open(source_path, "r", encoding="utf-8") as f:
+        records = json.load(f)
+
+    created_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    converted = []
+
+    for r in records:
+        user_type_str   = r.get("user_type", "customer")
+        item_type_str   = r.get("item_type",  "product")
+        action_type_str = r.get("interaction_type", "view")
+
+        user_type_int   = _USER_TYPE_INT.get(user_type_str.lower())
+        item_type_int   = _ITEM_TYPE_INT.get(item_type_str.lower())
+        action_type_int = _ACTION_TYPE_INT.get(action_type_str.lower())
+
+        if user_type_int is None:
+            raise ValueError(f"Unknown user_type '{user_type_str}'")
+        if item_type_int is None:
+            raise ValueError(f"Unknown item_type '{item_type_str}'")
+        if action_type_int is None:
+            raise ValueError(f"Unknown interaction_type '{action_type_str}'")
+
+        converted.append({
+            "UserId":               int(r["user_id"]),
+            "UserType":             user_type_int,
+            "ItemId":               int(r["item_id"]),
+            "ItemType":             item_type_int,
+            "ActionType":           action_type_int,
+            "Category":             str(r["category"]),
+            "Quantity":             int(r["quantity"]),
+            "Price":                float(r["price"]),
+            "InteractionTimestamp": str(r["interaction_timestamp"]),
+            "CreatedAt":            created_at,
+        })
+
+    print(f"Converted {len(converted)} interaction records.")
+    with open(target_path, "w", encoding="utf-8") as f:
+        json.dump(converted, f, indent=2, ensure_ascii=False)
+    print(f"Wrote seeding interactions to: {target_path}")
+    return converted
+
+
 if __name__ == "__main__":
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     data_dir = os.path.join(project_root, "data")
@@ -176,11 +237,24 @@ if __name__ == "__main__":
     
     src_materials = os.path.join(data_dir, "raw_materials.json")
     tgt_materials = os.path.join(data_dir, "raw_materials_db_seeding.json")
+
+    src_customer = os.path.join(data_dir, "customer_interactions.json")
+    tgt_customer = os.path.join(data_dir, "customer_interactions_db_seeding.json")
+
+    src_owner = os.path.join(data_dir, "owner_interactions.json")
+    tgt_owner = os.path.join(data_dir, "owner_interactions_db_seeding.json")
     
-    # Run conversion
+    # --- Products & Raw Materials ---
     converted_prods = convert_products_for_seeding(src_products, tgt_products)
-    converted_mats = convert_raw_materials_for_seeding(src_materials, tgt_materials)
-    
-    # Run validation
+    converted_mats  = convert_raw_materials_for_seeding(src_materials, tgt_materials)
     run_self_validation(converted_prods, converted_mats)
-    print("\n--- Seeding Files Ready for Delivery to Backend Team! ---")
+
+    # --- Interactions ---
+    convert_interactions_for_seeding(src_customer, tgt_customer)
+    convert_interactions_for_seeding(src_owner, tgt_owner)
+
+    print("\n=== All 4 seeding files ready for the BE team! ===")
+    print(f"  {tgt_products}")
+    print(f"  {tgt_materials}")
+    print(f"  {tgt_customer}")
+    print(f"  {tgt_owner}")

@@ -30,7 +30,7 @@ def run_owner_retraining_pipeline() -> bool:
             db = SessionLocal()
             
             # Fetch interactions
-            query_inter = db.query(Interaction).filter(Interaction.user_type == "owner")
+            query_inter = db.query(Interaction).filter(Interaction.user_type == 1)  # 1 = Owner
             interactions = [item.to_dict() for item in query_inter.all()]
             
             # Fetch raw materials catalog

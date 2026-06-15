@@ -31,7 +31,7 @@ def run_retraining_pipeline() -> bool:
             db = SessionLocal()
             
             # Fetch interactions
-            query_inter = db.query(Interaction).filter(Interaction.user_type == "customer")
+            query_inter = db.query(Interaction).filter(Interaction.user_type == 0)  # 0 = Customer
             interactions = [item.to_dict() for item in query_inter.all()]
             
             # Fetch products catalog

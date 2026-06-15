@@ -1,7 +1,7 @@
 import os
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Add root folder to sys.path so we can import shared modules
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -24,8 +24,7 @@ def seed_owner_data(file_path="data/owner_interactions.json", batch_size=2000):
         sys.exit(1)
 
     db_logger.info(f"Reading interactions from {file_path}...")
-    with open(file_path, "w+" if not os.path.exists(file_path) else "r") as f:
-        # Just standard read
+    with open(file_path, "r") as f:
         interactions_data = json.load(f)
 
     db_logger.info(f"Loaded {len(interactions_data)} owner interactions. Beginning seeding process in batches...")
@@ -46,7 +45,8 @@ def seed_owner_data(file_path="data/owner_interactions.json", batch_size=2000):
                 category=item["category"],
                 quantity=item["quantity"],
                 price=item["price"],
-                interaction_timestamp=ts
+                interaction_timestamp=ts,
+                created_at=datetime.now(timezone.utc)
             )
             batch.append(interaction)
             
