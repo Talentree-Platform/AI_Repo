@@ -1,0 +1,52 @@
+# This workflow will build and push a Python application to an Azure Container App when a commit is pushed to the feature/bo-dashboard branch.
+#
+# To use this workflow, you will need to configure the following secrets in your GitHub repository settings (Settings -> Secrets and variables -> Actions):
+# - AZURE_CREDENTIALS: The JSON output of the Azure Service Principal creation command:
+#   `az ad sp create-for-rbac --name "talentree-ai-deployer" --role contributor --scopes /subscriptions/<sub-id>/resourceGroups/<rg-name> --sdk-auth`
+# - AZURE_REGISTRY_URL: The login server of your Azure Container Registry (e.g., crtalentreeai.azurecr.io)
+# - AZURE_REGISTRY_USERNAME: The username of your Azure Container Registry admin account
+# - AZURE_REGISTRY_PASSWORD: The password of your Azure Container Registry admin account
+# - AZURE_CONTAINER_APP_NAME: The name of your Azure Container App (e.g., talentree-ai-service)
+# - AZURE_RESOURCE_GROUP: The name of the Azure Resource Group (e.g., rg-talentree-ai)
+
+name: Build and Deploy to Azure Container Apps
+
+on:
+  push:
+    branches:
+      - feature/bo-dashboard # Triggers deployment when pushing to this branch
+  workflow_dispatch: # Allows manual triggering from the GitHub Actions UI
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Log in to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Build and Deploy Container App
+        uses: azure/container-apps-deploy-action@v2
+        with:
+          # Context path points to the talentree-ai subdirectory
+          appSource: ${{ github.workspace }}/talentree-ai
+          # Path to Dockerfile relative to appSource (so ./Dockerfile inside talentree-ai)
+          dockerfilePath: Dockerfile
+          
+          registryUrl: ${{ secrets.AZURE_REGISTRY_URL }}
+          registryUsername: ${{ secrets.AZURE_REGISTRY_USERNAME }}
+          registryPassword: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+          containerAppName: ${{ secrets.AZURE_CONTAINER_APP_NAME || 'talentree-ai-service' }}
+          resourceGroup: ${{ secrets.AZURE_RESOURCE_GROUP || 'rg-talentree-ai' }}
+          
+          # We tag the image with the GitHub commit SHA for versioning
+          imageToBuild: ${{ secrets.AZURE_REGISTRY_URL }}/talentree-ai:${{ github.sha }}
