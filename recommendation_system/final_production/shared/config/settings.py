@@ -21,7 +21,13 @@ class Settings(BaseSettings):
     # Model Directories
     MODEL_DIR: str = Field(default="./trained_models")
     FEATURE_STORE_DIR: str = Field(default="./data/processed")
-    
+
+    # JWT Authentication — must match the ASP.NET Talentree main API config
+    JWT_SECRET_KEY: str = Field(default="CHANGE_ME_SET_IN_RAILWAY_ENV")
+    JWT_ALGORITHM:  str = Field(default="HS256")
+    JWT_ISSUER:     str = Field(default="TalentreeApi")
+    JWT_AUDIENCE:   str = Field(default="TalentreeClient")
+
     # Server settings
     HOST: str = "0.0.0.0"
     PORT: int = 8000
