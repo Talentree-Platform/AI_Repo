@@ -7,6 +7,7 @@ from customer_recommender.api.schemas import (
 from customer_recommender.services.recommender_service import customer_service
 from customer_recommender.retraining.pipeline import run_retraining_pipeline
 from shared.utils.logger import customer_logger
+from shared.auth.dependencies import get_current_user_id
 
 router = APIRouter(prefix="/customer", tags=["Customer Recommendation System"])
 
@@ -51,16 +52,20 @@ async def get_customers_list():
     ]
 
 @router.post("/recommend", response_model=CustomerRecommendResponse)
-async def get_customer_recommendations(request: CustomerRecommendRequest):
+async def get_customer_recommendations(
+    request: CustomerRecommendRequest,
+    customer_id: str = Depends(get_current_user_id)
+):
     """
     Computes hybrid user-item and content-based recommendation lists for a customer.
+    The customer identity is extracted server-side from the validated JWT Bearer token.
     Falls back to global popular products if user is not in database.
     """
-    customer_logger.info(f"API request: customer_id={request.customer_id}, top_k={request.top_k}")
+    customer_logger.info(f"API request: customer_id={customer_id}, top_k={request.top_k}")
     
     try:
         recs = customer_service.get_recommendations(
-            customer_id=request.customer_id, 
+            customer_id=customer_id, 
             top_k=request.top_k
         )
         
@@ -68,12 +73,12 @@ async def get_customer_recommendations(request: CustomerRecommendRequest):
         model_ver = info.get("last_modified", "v1")
         
         return CustomerRecommendResponse(
-            customer_id=request.customer_id,
+            customer_id=customer_id,
             recommendations=recs,
             model_version=str(model_ver)
         )
     except Exception as e:
-        customer_logger.error(f"Error computing recommendations for customer {request.customer_id}: {e}")
+        customer_logger.error(f"Error computing recommendations for customer {customer_id}: {e}")
         raise HTTPException(status_code=500, detail="Internal recommendation compilation failure")
 
 @router.get("/model-info")
