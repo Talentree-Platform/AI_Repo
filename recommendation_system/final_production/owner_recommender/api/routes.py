@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, BackgroundTasks
+from fastapi import APIRouter, HTTPException, BackgroundTasks, Depends
 from owner_recommender.api.schemas import (
     OwnerRecommendRequest, 
     OwnerRecommendResponse
@@ -6,6 +6,7 @@ from owner_recommender.api.schemas import (
 from owner_recommender.services.recommender_service import owner_service
 from owner_recommender.retraining.pipeline import run_owner_retraining_pipeline
 from shared.utils.logger import owner_logger
+from shared.auth.dependencies import get_current_user_id
 
 router = APIRouter(prefix="/owner", tags=["Business Owner Procurement Recommendation System"])
 
@@ -51,16 +52,20 @@ async def get_owners_list():
     ]
 
 @router.post("/recommend", response_model=OwnerRecommendResponse)
-async def get_owner_recommendations(request: OwnerRecommendRequest):
+async def get_owner_recommendations(
+    request: OwnerRecommendRequest,
+    owner_id: str = Depends(get_current_user_id)
+):
     """
     Computes procurement recommendations for a business owner.
+    The owner identity is extracted server-side from the validated JWT Bearer token.
     Ranks items based on cyclic interval calendars, demand quantity forecasting regressors, and history.
     """
-    owner_logger.info(f"API request: owner_id={request.owner_id}, top_k={request.top_k}")
+    owner_logger.info(f"API request: owner_id={owner_id}, top_k={request.top_k}")
     
     try:
         recs = owner_service.get_recommendations(
-            owner_id=request.owner_id, 
+            owner_id=owner_id, 
             top_k=request.top_k
         )
         
@@ -68,12 +73,12 @@ async def get_owner_recommendations(request: OwnerRecommendRequest):
         model_ver = info.get("last_modified", "v1")
         
         return OwnerRecommendResponse(
-            owner_id=request.owner_id,
+            owner_id=owner_id,
             recommendations=recs,
             model_version=str(model_ver)
         )
     except Exception as e:
-        owner_logger.error(f"Error computing recommendations for owner {request.owner_id}: {e}")
+        owner_logger.error(f"Error computing recommendations for owner {owner_id}: {e}")
         raise HTTPException(status_code=500, detail="Internal recommendation compilation failure")
 
 @router.get("/model-info")
