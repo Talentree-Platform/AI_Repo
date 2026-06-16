@@ -269,9 +269,9 @@ async def main_landing(request: Request):
 @app.get("/customer-ui", response_class=HTMLResponse)
 async def serve_customer_ui(request: Request):
     """Serves the Customer Dashboard Jinja2 HTML page."""
-    return customer_templates.TemplateResponse("customer_ui.html", {"request": request})
+    return customer_templates.TemplateResponse(request=request, name="customer_ui.html")
 
 @app.get("/owner-ui", response_class=HTMLResponse)
 async def serve_owner_ui(request: Request):
     """Serves the Business Owner Dashboard Jinja2 HTML page."""
-    return owner_templates.TemplateResponse("owner_ui.html", {"request": request})
+    return owner_templates.TemplateResponse(request=request, name="owner_ui.html")
