@@ -13,13 +13,14 @@ _password = os.getenv("DB_PASSWORD",   "Kg4+5#hGcH=8")
 # ── Legacy pyodbc connection string (kept for reference / fallback) ────────────
 DB_CONNECTION = (
     f"DRIVER={{ODBC Driver 17 for SQL Server}};"
-    f"Server={_server};"
-    f"Database={_name};"
+    f"SERVER=tcp:{_server},1433;"   # tcp: prefix forces TCP (not Named Pipes) — required for remote connections
+    f"DATABASE={_name};"
     f"UID={_user};"
     f"PWD={_password};"
     f"Encrypt=yes;"
     f"TrustServerCertificate=yes;"
     f"MultipleActiveResultSets=True;"
+    f"Connection Timeout=30;"
 )
 
 # ── SQLAlchemy connection URL (mssql + pyodbc driver) ─────────────────────────
