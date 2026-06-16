@@ -1,0 +1,47 @@
+# Dependency directories
+node_modules/
+/jspm_packages/
+
+# Build outputs
+dist/
+build/
+bin/
+obj/
+out/
+
+# Environment files
+.env
+!.env.example
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python caches and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Media uploads and generated files (keep directories via .gitkeep but ignore content)
+backend/media/uploads/*
+backend/media/generated/*
+!backend/media/uploads/.gitkeep
+!backend/media/generated/.gitkeep
+
+# IDE and system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
