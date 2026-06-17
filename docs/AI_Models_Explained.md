@@ -2,7 +2,7 @@
 > **Audience:** Everyone on the team (developers, designers, PMs, stakeholders)
 > **Written by:** AI Engineer
 > **Last Updated:** June 1, 2026
-> **Live API:** https://memo620-talentree-ai.hf.space/docs
+> **Live API:** https://talentree-ai-service.azurewebsites.net/docs
 
 ---
 

@@ -21,9 +21,9 @@ short_description: AI microservice for the Talentree Business Owner Dashboard
 
 | Environment | URL |
 |---|---|
-| **HF Space (Production)** | https://memo620-talentree-ai.hf.space |
-| **Swagger UI (API Docs)** | https://memo620-talentree-ai.hf.space/docs |
-| **Health Check** | https://memo620-talentree-ai.hf.space/ai/status |
+| **HF Space (Production)** | https://talentree-ai-service.azurewebsites.net |
+| **Swagger UI (API Docs)** | https://talentree-ai-service.azurewebsites.net/docs |
+| **Health Check** | https://talentree-ai-service.azurewebsites.net/ai/status |
 
 ---
 
@@ -112,7 +112,7 @@ The service **automatically trains all missing models** when it starts:
 ```
 You can also trigger manually:
 ```bash
-curl -X POST https://memo620-talentree-ai.hf.space/ai/train/all
+curl -X POST https://talentree-ai-service.azurewebsites.net/ai/train/all
 ```
 
 ---

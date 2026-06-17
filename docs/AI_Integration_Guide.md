@@ -1,8 +1,8 @@
 # Talentree AI Service — Frontend & Backend Integration Guide
 > **For:** Angular Frontend Team & .NET Backend Team
-> **AI Service Base URL (Production):** `https://memo620-talentree-ai.hf.space`
+> **AI Service Base URL (Production):** `https://talentree-ai-service.azurewebsites.net`
 > **AI Service Base URL (Local):** `http://localhost:8000`
-> **Swagger Docs:** `https://memo620-talentree-ai.hf.space/docs`
+> **Swagger Docs:** `https://talentree-ai-service.azurewebsites.net/docs`
 > **Last Updated:** June 1, 2026
 
 ---
@@ -423,19 +423,19 @@ All 23 endpoints are tested and passing on the live HF Space.
 
 ```bash
 # Health check
-curl https://memo620-talentree-ai.hf.space/ai/status
+curl https://talentree-ai-service.azurewebsites.net/ai/status
 
 # Dashboard for BO 1
-curl https://memo620-talentree-ai.hf.space/ai/dashboard/11111111-1111-1111-1111-111111111101
+curl https://talentree-ai-service.azurewebsites.net/ai/dashboard/11111111-1111-1111-1111-111111111101
 
 # Trigger fraud prediction for request ID 1
-curl -X POST https://memo620-talentree-ai.hf.space/ai/predict/fraud/1
+curl -X POST https://talentree-ai-service.azurewebsites.net/ai/predict/fraud/1
 
 # Download CSV financial report
-curl -OJ "https://memo620-talentree-ai.hf.space/ai/export/financial/11111111-1111-1111-1111-111111111101?format=csv"
+curl -OJ "https://talentree-ai-service.azurewebsites.net/ai/export/financial/11111111-1111-1111-1111-111111111101?format=csv"
 
 # Retrain all models (after inserting extra seed data)
-curl -X POST https://memo620-talentree-ai.hf.space/ai/train/all
+curl -X POST https://talentree-ai-service.azurewebsites.net/ai/train/all
 ```
 
 ### Test User IDs (Live DB)

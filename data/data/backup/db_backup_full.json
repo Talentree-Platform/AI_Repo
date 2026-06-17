@@ -1,0 +1,14 @@
+{
+  "_meta": {
+    "exported_at": "2026-05-19T00:56:20.113134",
+    "database": "db52715",
+    "server": "db52715.public.databaseasp.net",
+    "purpose": "Talentree AI seeded data backup for restore"
+  },
+  "Transactions": [
+    {
+      "Id": 1002,
+      "BusinessOwnerId": "c07bfde7-e0fd-40ee-905f-7deca56fe4f6",
+      "Type": "Sale",
+      "Description": "Sale transaction",
+      "Amount": 

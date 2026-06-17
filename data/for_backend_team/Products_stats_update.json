@@ -1,0 +1,146 @@
+[
+  {
+    "Id": 1,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 1406,
+    "CartAddCount": 63,
+    "PurchaseCount": 12,
+    "RevenueTotal": 3045.24,
+    "AvgRating": 4.1
+  },
+  {
+    "Id": 2,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 436,
+    "CartAddCount": 364,
+    "PurchaseCount": 104,
+    "RevenueTotal": 3267.56,
+    "AvgRating": 4.4
+  },
+  {
+    "Id": 3,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 928,
+    "CartAddCount": 100,
+    "PurchaseCount": 96,
+    "RevenueTotal": 4789.33,
+    "AvgRating": 4.2
+  },
+  {
+    "Id": 4,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 2603,
+    "CartAddCount": 43,
+    "PurchaseCount": 150,
+    "RevenueTotal": 2771.06,
+    "AvgRating": 4.7
+  },
+  {
+    "Id": 5,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 327,
+    "CartAddCount": 236,
+    "PurchaseCount": 13,
+    "RevenueTotal": 1360.54,
+    "AvgRating": 4.7
+  },
+  {
+    "Id": 6,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 1061,
+    "CartAddCount": 166,
+    "PurchaseCount": 133,
+    "RevenueTotal": 3815.2,
+    "AvgRating": 4.7
+  },
+  {
+    "Id": 7,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 441,
+    "CartAddCount": 60,
+    "PurchaseCount": 57,
+    "RevenueTotal": 721.7,
+    "AvgRating": 4.2
+  },
+  {
+    "Id": 8,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 250,
+    "CartAddCount": 352,
+    "PurchaseCount": 45,
+    "RevenueTotal": 4567.79,
+    "AvgRating": 4.8
+  },
+  {
+    "Id": 9,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 2711,
+    "CartAddCount": 205,
+    "PurchaseCount": 94,
+    "RevenueTotal": 3660.04,
+    "AvgRating": 4.7
+  },
+  {
+    "Id": 10,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 2993,
+    "CartAddCount": 371,
+    "PurchaseCount": 45,
+    "RevenueTotal": 3166.43,
+    "AvgRating": 3.7
+  },
+  {
+    "Id": 11,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 294,
+    "CartAddCount": 257,
+    "PurchaseCount": 49,
+    "RevenueTotal": 1162.25,
+    "AvgRating": 3.6
+  },
+  {
+    "Id": 12,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 988,
+    "CartAddCount": 144,
+    "PurchaseCount": 105,
+    "RevenueTotal": 3811.89,
+    "AvgRating": 3.7
+  },
+  {
+    "Id": 13,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 1068,
+    "CartAddCount": 315,
+    "PurchaseCount": 148,
+    "RevenueTotal": 3277.79,
+    "AvgRating": 4.0
+  },
+  {
+    "Id": 14,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 582,
+    "CartAddCount": 377,
+    "PurchaseCount": 40,
+    "RevenueTotal": 4807.88,
+    "AvgRating": 4.4
+  },
+  {
+    "Id": 15,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 2689,
+    "CartAddCount": 318,
+    "PurchaseCount": 137,
+    "RevenueTotal": 3933.94,
+    "AvgRating": 4.2
+  },
+  {
+    "Id": 16,
+    "_note": "UPDATE only — do not INSERT. These are stats to apply to existing Products rows.",
+    "ViewCount": 1147,
+    "CartAddCount": 297,
+    "PurchaseCount": 127,
+    "RevenueTotal": 3207.26,
+    "AvgRating": 4.2
+  }
+]
