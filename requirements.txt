@@ -21,5 +21,9 @@ apscheduler>=3.10.0
 # ── Export ──
 reportlab>=4.1.0
 
+# ── Admin Module ──
+openpyxl>=3.1.0          # Multi-sheet Excel export  (/admin/export/kpis?format=xlsx)
+python-dateutil>=2.9.0   # Date arithmetic for revenue forecast (relativedelta)
+
 # ── Misc ──
 python-multipart>=0.0.9

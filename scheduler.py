@@ -186,6 +186,44 @@ def job_retrain_all():
         cur.close(); conn.close()
 
 
+# ── Admin Weekly Jobs ─────────────────────────────────────────────────────────
+
+def job_admin_forecast():
+    """WEEKLY: Retrain revenue forecast model (Model 8) on latest Transactions."""
+    log.info("WEEKLY (ADMIN): Retraining revenue forecast model...")
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        from services import admin_forecast_service
+        result = admin_forecast_service.train_forecast_model(cur)
+        conn.commit()
+        log.info(f"  Forecast model: {result}")
+    except Exception as e:
+        conn.rollback(); log.error(f"  ERROR (forecast): {e}")
+    finally:
+        cur.close(); conn.close()
+
+
+def job_admin_rfm_segment():
+    """WEEKLY: Re-cluster B2C customers with RFM K-Means (Model 9) and write segments to DB."""
+    log.info("WEEKLY (ADMIN): Running RFM customer segmentation...")
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        from services import admin_rfm_service
+        # 1. Retrain clusters on latest order data
+        train_result = admin_rfm_service.train_rfm_model(cur)
+        log.info(f"  RFM train: {train_result}")
+        # 2. Score all customers and write RfmSegment back to DB
+        seg_result = admin_rfm_service.segment_all_customers(cur)
+        conn.commit()
+        log.info(f"  RFM segments: {seg_result}")
+    except Exception as e:
+        conn.rollback(); log.error(f"  ERROR (rfm): {e}")
+    finally:
+        cur.close(); conn.close()
+
+
 # ── Scheduler Setup ──────────────────────────────────────────────────────────
 
 def create_scheduler() -> BackgroundScheduler:
@@ -205,9 +243,15 @@ def create_scheduler() -> BackgroundScheduler:
     scheduler.add_job(job_notify_all,         CronTrigger(hour=2, minute=45))
 
     # WEEKLY RETRAIN — Sunday 03:00 Cairo
-    scheduler.add_job(job_retrain_all, CronTrigger(day_of_week="sun", hour=3, minute=0))
+    scheduler.add_job(job_retrain_all,        CronTrigger(day_of_week="sun", hour=3, minute=0))
 
-    log.info("Scheduler configured: 10 nightly jobs + 1 weekly retrain")
+    # ADMIN WEEKLY JOBS — Sunday 03:30 & 03:45 Cairo (after BO retrain)
+    scheduler.add_job(job_admin_forecast,     CronTrigger(day_of_week="sun", hour=3, minute=30),
+                      id="admin_forecast",     replace_existing=True)
+    scheduler.add_job(job_admin_rfm_segment,  CronTrigger(day_of_week="sun", hour=3, minute=45),
+                      id="admin_rfm_segment",  replace_existing=True)
+
+    log.info("Scheduler configured: 10 nightly jobs + 1 weekly retrain + 2 admin weekly jobs")
     return scheduler
 
 

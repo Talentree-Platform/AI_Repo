@@ -480,3 +480,263 @@ def export_financial(
     finally:
         cur.close(); conn.close()
 
+
+# ════════════════════════════════════════════════════════════════════════════════
+# ADMIN MODULE — /admin/* routes
+# ════════════════════════════════════════════════════════════════════════════════
+
+from services import (
+    admin_dashboard_service,
+    admin_kpi_service,
+    admin_analytics_service,
+    admin_seller_service,
+    admin_customer_service,
+    admin_category_service,
+    admin_export_service,
+    admin_forecast_service,
+    admin_rfm_service,
+)
+
+
+# ── 1. Admin Dashboard (FR-AD-01) ─────────────────────────────────────────────
+
+@app.get("/admin/dashboard", tags=["Admin"])
+def get_admin_dashboard():
+    """
+    Platform-wide overview: metric cards, pending actions,
+    4 alert feeds (low-stock, awaiting approval, overdue complaints, anomalies),
+    and recent activity feed.
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_dashboard_service.get_admin_dashboard(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 2. Platform KPIs & Health Score (FR-AD-02) ────────────────────────────────
+
+@app.get("/admin/kpis", tags=["Admin"])
+def get_admin_kpis():
+    """
+    9 platform KPIs + composite Platform Health Score (0–100).
+    Reads pre-computed ML columns — no live inference.
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_kpi_service.get_platform_kpis(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 3. Platform Analytics & Trends (FR-AD-18) ─────────────────────────────────
+
+@app.get("/admin/analytics", tags=["Admin"])
+def get_admin_analytics(period: str = Query("monthly", enum=["weekly", "monthly"])):
+    """
+    Chart-ready trend data: revenue, user growth, order volume,
+    category distribution, B2B status split, sentiment breakdown.
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_analytics_service.get_platform_analytics(cur, period)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 4. Revenue Forecast (Model 8 — NEW) ──────────────────────────────────────
+
+@app.get("/admin/analytics/forecast", tags=["Admin"])
+def get_admin_revenue_forecast():
+    """
+    3-month forward revenue forecast using LinearRegression (Model 8).
+    Returns actuals (last 6 months) + predicted (next 3 months).
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_forecast_service.get_revenue_forecast(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 5. Seller Performance Report (FR-AD-19) ───────────────────────────────────
+
+@app.get("/admin/sellers", tags=["Admin"])
+def get_admin_sellers(sort_by: str = Query("revenue", enum=["revenue", "rating", "risk", "orders"])):
+    """
+    All sellers ranked with AI risk flags (churn score, fraud score).
+    sort_by: revenue | rating | risk | orders
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_seller_service.get_sellers_report(cur, sort_by)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+@app.get("/admin/sellers/{seller_id}", tags=["Admin"])
+def get_admin_seller_detail(seller_id: str):
+    """Full performance profile for a single seller including 6-month revenue trend."""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        result = admin_seller_service.get_seller_detail(cur, seller_id)
+        if "error" in result:
+            raise HTTPException(404, result["error"])
+        return result
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 6. Customer Insights (FR-AD-20) ───────────────────────────────────────────
+
+@app.get("/admin/customers", tags=["Admin"])
+def get_admin_customers():
+    """
+    B2C customer cohort analysis: CLV segments, inactive customers,
+    peak shopping hours, top wishlisted products, category preferences.
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_customer_service.get_customer_insights(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 7. RFM Segments (Model 9 — NEW) ──────────────────────────────────────────
+
+@app.get("/admin/customers/segments", tags=["Admin"])
+def get_admin_rfm_segments():
+    """
+    Customer RFM segment distribution (Champion / Loyal / At Risk / Lost).
+    Reads from AspNetUsers.RfmSegment if column exists, else computes live.
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_rfm_service.get_rfm_segments(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 8. Category Performance (FR-AD-21) ────────────────────────────────────────
+
+@app.get("/admin/categories", tags=["Admin"])
+def get_admin_categories():
+    """
+    All product categories with: counts, pricing, purchases, revenue,
+    average rating, quality score, low-stock alerts, and seller count.
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_category_service.get_category_analytics(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+@app.get("/admin/categories/{category_id}/trend", tags=["Admin"])
+def get_admin_category_trend(
+    category_id: int,
+    period: str = Query("monthly", enum=["weekly", "monthly"]),
+):
+    """Revenue trend for a single category (last 6 months monthly / 3 months weekly)."""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_category_service.get_category_trend(cur, category_id, period)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── 9. Data Export (FR-AD-02 export) ─────────────────────────────────────────
+
+@app.get("/admin/export/kpis", tags=["Admin"])
+def export_admin_kpis(format: str = Query("csv", enum=["csv", "xlsx"])):
+    """
+    Download platform KPI report.
+    format=csv  → flat CSV file
+    format=xlsx → styled 3-sheet Excel workbook (KPIs, Sellers, Categories)
+    """
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        if format == "xlsx":
+            data      = admin_export_service.export_kpis_xlsx(cur)
+            media     = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            filename  = "talentree_admin_report.xlsx"
+        else:
+            data      = admin_export_service.export_kpis_csv(cur)
+            media     = "text/csv"
+            filename  = "talentree_admin_report.csv"
+
+        return StreamingResponse(
+            io.BytesIO(data),
+            media_type=media,
+            headers={"Content-Disposition": f"attachment; filename={filename}"},
+        )
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+# ── Admin: Trigger RFM retrain manually ───────────────────────────────────────
+
+@app.post("/admin/train/rfm", tags=["Admin"])
+def train_admin_rfm():
+    """Manually trigger RFM K-Means retrain + write segments to DB."""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        train = admin_rfm_service.train_rfm_model(cur)
+        seg   = admin_rfm_service.segment_all_customers(cur)
+        conn.commit()
+        return {"train": train, "segmentation": seg}
+    except Exception as e:
+        conn.rollback(); raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+@app.post("/admin/train/forecast", tags=["Admin"])
+def train_admin_forecast():
+    """Manually trigger revenue forecast model retrain."""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        result = admin_forecast_service.train_forecast_model(cur)
+        conn.commit()
+        return result
+    except Exception as e:
+        conn.rollback(); raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
