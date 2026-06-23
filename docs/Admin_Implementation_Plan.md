@@ -3,7 +3,7 @@
 > **Author:** AI Engineer
 > **Date:** June 2026
 > **Branch:** `feature/admin-dashboard` (branched from `feature/bo-dashboard`)
-> **Deployment:** Azure App Service → `https://talentree-ai-service.azurewebsites.net`
+> **Deployment:** Azure App Service → `http://20.244.32.232:8000`
 
 ---
 
@@ -347,8 +347,8 @@ python-dateutil>=2.9.0 # Date arithmetic for forecast month labels
 
 ### Azure App Service (Current)
 The service is deployed as a Docker container via Azure:
-- **URL:** `https://talentree-ai-service.azurewebsites.net`
-- **Docs:** `https://talentree-ai-service.azurewebsites.net/docs`
+- **URL:** `http://20.244.32.232:8000`
+- **Docs:** `http://20.244.32.232:8000/docs`
 - **Port:** 8000 (internal) → 443 (Azure HTTPS)
 
 ### Deploy Steps
@@ -362,8 +362,8 @@ git push origin feature/admin-dashboard
 # OR: docker compose up --build in Azure SSH
 
 # 3. Verify
-curl https://talentree-ai-service.azurewebsites.net/admin/dashboard
-curl https://talentree-ai-service.azurewebsites.net/docs  # check Admin tag appears
+curl http://20.244.32.232:8000/admin/dashboard
+curl http://20.244.32.232:8000/docs  # check Admin tag appears
 ```
 
 ---

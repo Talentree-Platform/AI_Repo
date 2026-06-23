@@ -1,8 +1,8 @@
 # Admin Dashboard — Integration Guide
 > **For:** Angular Frontend Team & .NET Backend Team
-> **AI Service Base URL (Production):** `https://talentree-ai-service.azurewebsites.net`
+> **AI Service Base URL (Production):** `http://20.244.32.232:8000`
 > **AI Service Base URL (Local):** `http://localhost:8000`
-> **Swagger Docs:** `https://talentree-ai-service.azurewebsites.net/docs` → scroll to **Admin** section
+> **Swagger Docs:** `http://20.244.32.232:8000/docs` → scroll to **Admin** section
 > **Last Updated:** June 2026
 
 ---
@@ -40,7 +40,7 @@ export const environment = {
 export const environment = {
   production: true,
   apiUrl: 'https://api.talentree.com',
-  aiUrl:  'https://talentree-ai-service.azurewebsites.net',
+  aiUrl:  'http://20.244.32.232:8000',
 };
 ```
 
@@ -656,27 +656,27 @@ The admin reads data already scored by the existing BO nightly jobs.
 All admin endpoints are testable directly in Swagger UI:
 
 ```
-https://talentree-ai-service.azurewebsites.net/docs
+http://20.244.32.232:8000/docs
 ```
 
 Scroll to the **Admin** section (after the Business Owner section). Click any endpoint → **Try it out** → **Execute**.
 
 ```bash
 # Health check
-curl https://talentree-ai-service.azurewebsites.net/ai/status
+curl http://20.244.32.232:8000/ai/status
 
 # Admin dashboard
-curl https://talentree-ai-service.azurewebsites.net/admin/dashboard
+curl http://20.244.32.232:8000/admin/dashboard
 
 # KPIs
-curl https://talentree-ai-service.azurewebsites.net/admin/kpis
+curl http://20.244.32.232:8000/admin/kpis
 
 # 3-month forecast
-curl https://talentree-ai-service.azurewebsites.net/admin/analytics/forecast
+curl http://20.244.32.232:8000/admin/analytics/forecast
 
 # Sellers ranked by risk
-curl "https://talentree-ai-service.azurewebsites.net/admin/sellers?sort_by=risk"
+curl "http://20.244.32.232:8000/admin/sellers?sort_by=risk"
 
 # Download Excel report
-curl -OJ "https://talentree-ai-service.azurewebsites.net/admin/export/kpis?format=xlsx"
+curl -OJ "http://20.244.32.232:8000/admin/export/kpis?format=xlsx"
 ```

@@ -3,7 +3,7 @@
 > **Written by:** AI Engineer
 > **Last Updated:** June 2026
 > **Dashboard:** Admin Dashboard only (platform-wide, not per-seller)
-> **Live API:** https://talentree-ai-service.azurewebsites.net/docs
+> **Live API:** http://20.244.32.232:8000/docs
 
 ---
 

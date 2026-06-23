@@ -560,7 +560,7 @@ def get_admin_status():
         "service_version": "2.0.0",
         "admin_endpoints": 13,
         "new_models": ["revenue_forecast (Model 8)", "rfm_segmentation (Model 9)"],
-        "docs": "https://talentree-ai-service.azurewebsites.net/docs#/Admin",
+        "docs": "http://20.244.32.232:8000/docs#/Admin",
     }
 
 

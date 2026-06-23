@@ -1,7 +1,7 @@
 # Talentree BO Dashboard — AI Engineer Master Plan
 > **Strategy: Synthetic Pre-train → Connect DB → Retrain on Real Data → Improve with ML Techniques**
 > **DB**: db52715.public.databaseasp.net | **Updated**: June 1, 2026
-> **Live Space**: https://talentree-ai-service.azurewebsites.net
+> **Live Space**: http://20.244.32.232:8000
 
 ---
 

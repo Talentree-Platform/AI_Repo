@@ -10,9 +10,9 @@
 
 | Environment | URL |
 |---|---|
-| **Production (Azure)** | https://talentree-ai-service.azurewebsites.net |
-| **Swagger UI (API Docs)** | https://talentree-ai-service.azurewebsites.net/docs |
-| **Health Check** | https://talentree-ai-service.azurewebsites.net/ai/status |
+| **Production (Azure)** | http://20.244.32.232:8000 |
+| **Swagger UI (API Docs)** | http://20.244.32.232:8000/docs |
+| **Health Check** | http://20.244.32.232:8000/ai/status |
 
 ---
 

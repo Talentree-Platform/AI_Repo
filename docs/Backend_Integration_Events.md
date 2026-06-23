@@ -1,7 +1,7 @@
 # Talentree AI Service — Backend Integration Guide
 ## For: .NET Backend Team
-**AI Service URL:** https://talentree-ai-service.azurewebsites.net
-**Swagger UI:** https://talentree-ai-service.azurewebsites.net/docs
+**AI Service URL:** http://20.244.32.232:8000
+**Swagger UI:** http://20.244.32.232:8000/docs
 **Date:** June 2026
 
 ---
@@ -23,7 +23,7 @@ User Action → .NET saves to DB → .NET fires AI call (background) → AI upda
 ### 1. BO Logs In
 **Trigger:** After `LoginHistory` record is saved to DB
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/predict/churn/{bo_user_id}
+POST http://20.244.32.232:8000/ai/predict/churn/{bo_user_id}
 ```
 **Effect:** Updates `AspNetUsers.ChurnRiskScore` + `ChurnRiskUpdatedAt`
 
@@ -32,7 +32,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/predict/churn/{bo_user_id
 ### 2. BO Saves / Updates Profile
 **Trigger:** After `BusinessOwnerProfile` UPDATE is committed
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/compute/profile/{bo_user_id}
+POST http://20.244.32.232:8000/ai/compute/profile/{bo_user_id}
 ```
 **Effect:** Updates `BusinessOwnerProfile.ProfileCompletenessPct`
 
@@ -41,7 +41,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/compute/profile/{bo_user_
 ### 3. BO Creates a New Product
 **Trigger:** After `Products` INSERT is committed
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/compute/product/{product_id}
+POST http://20.244.32.232:8000/ai/compute/product/{product_id}
 ```
 **Effect:** Updates `Products.DescriptionQualityScore`, `DemandForecastQty`, `LowStockFlag`
 
@@ -50,7 +50,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/compute/product/{product_
 ### 4. BO Updates a Product (title, description, price, stock)
 **Trigger:** After `Products` UPDATE is committed
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/compute/product/{product_id}
+POST http://20.244.32.232:8000/ai/compute/product/{product_id}
 ```
 **Effect:** Same as above — recalculates quality + demand + stock flag
 
@@ -59,7 +59,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/compute/product/{product_
 ### 5. New Production Request Submitted
 **Trigger:** After `BoProductionRequests` INSERT — before admin reviews it
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/predict/fraud/{request_id}
+POST http://20.244.32.232:8000/ai/predict/fraud/{request_id}
 ```
 **Effect:** Updates `BoProductionRequests.FraudScore` + `IsFraudFlag`
 
@@ -68,7 +68,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/predict/fraud/{request_id
 ### 6. Production Request Status → Completed
 **Trigger:** After status UPDATE to `Completed`
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/compute/request/{request_id}
+POST http://20.244.32.232:8000/ai/compute/request/{request_id}
 ```
 **Effect:** Updates `BoProductionRequests.FulfillmentHours` + re-checks fraud score
 
@@ -77,7 +77,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/compute/request/{request_
 ### 7. Customer Submits a Product Review
 **Trigger:** After `ProductReviews` INSERT
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/predict/sentiment/{review_id}
+POST http://20.244.32.232:8000/ai/predict/sentiment/{review_id}
 ```
 **Effect:** Updates `ProductReviews.SentimentScore` + `SentimentLabel`
 Labels: `"Positive"`, `"Neutral"`, `"Negative"`
@@ -87,7 +87,7 @@ Labels: `"Positive"`, `"Neutral"`, `"Negative"`
 ### 8. Support Ticket Opened
 **Trigger:** After `SupportTickets` INSERT
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/predict/triage/{ticket_id}
+POST http://20.244.32.232:8000/ai/predict/triage/{ticket_id}
 ```
 **Effect:** Updates `SupportTickets.AutoCategory` + `PriorityScore`
 Categories: `Payment`, `ProductQuality`, `Delivery`, `Account`, `Technical`
@@ -98,7 +98,7 @@ Priority: `Low`, `Medium`, `High`, `Critical`
 ### 9. Financial Transaction Recorded
 **Trigger:** After `Transactions` INSERT
 ```
-POST https://talentree-ai-service.azurewebsites.net/ai/predict/anomaly/{tx_id}
+POST http://20.244.32.232:8000/ai/predict/anomaly/{tx_id}
 ```
 **Effect:** Updates `Transactions.AnomalyScore` + `AnomalyFlag`
 
@@ -111,7 +111,7 @@ POST https://talentree-ai-service.azurewebsites.net/ai/predict/anomaly/{tx_id}
 public class AiServiceClient
 {
     private readonly HttpClient _http;
-    private const string AI_BASE = "https://talentree-ai-service.azurewebsites.net";
+    private const string AI_BASE = "http://20.244.32.232:8000";
 
     public AiServiceClient(HttpClient http)
     {
