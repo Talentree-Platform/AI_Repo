@@ -55,17 +55,29 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Auto-train models if pkl files are missing (e.g. first boot / HF Space restart)
+# Auto-train models if pkl files are missing (ephemeral storage on Azure/HF restarts)
 def _ensure_models():
-    """Train any missing models synchronously using the retrain service.
-    HF Spaces uses ephemeral storage — models must be re-trained on every restart.
+    """
+    Train any missing models synchronously on startup.
+    Azure App Service containers can restart at any time — this guarantees
+    all 9 models are always ready without manual intervention.
     """
     import os
     models_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
-    required = ["churn_model.pkl", "fraud_model.pkl", "anomaly_model.pkl", "demand_model.pkl"]
-    missing  = [m for m in required if not os.path.exists(os.path.join(models_dir, m))]
+
+    # BO models (7) + Admin models (2)
+    required = [
+        "churn_model.pkl",           # Model 1 — BO
+        "fraud_model.pkl",           # Model 2 — BO
+        "anomaly_model.pkl",         # Model 3 — BO
+        "demand_model.pkl",          # Model 6 — BO
+        "admin_forecast_model.pkl",  # Model 8 — Admin (Revenue Forecast)
+        "admin_rfm_model.pkl",       # Model 9 — Admin (RFM Segmentation)
+    ]
+    missing = [m for m in required if not os.path.exists(os.path.join(models_dir, m))]
+
     if not missing:
-        print("[STARTUP] All model files present.")
+        print("[STARTUP] All 9 model files present — skipping retrain.")
         return
 
     print(f"[STARTUP] Missing models: {missing} — retraining from DB ...")
@@ -74,18 +86,41 @@ def _ensure_models():
         from services import retrain_service
         conn = get_conn()
         cur  = conn.cursor()
+
+        # Retrain all BO models
         result = retrain_service.retrain_all(cur)
         conn.commit()
+        print(f"[STARTUP] BO retrain result: {result}")
+
+        # Retrain admin Model 8 — Revenue Forecast
+        if "admin_forecast_model.pkl" in missing:
+            try:
+                r = admin_forecast_service.train_forecast_model(cur)
+                conn.commit()
+                print(f"[STARTUP] Admin forecast model: {r}")
+            except Exception as ef:
+                print(f"[STARTUP] Forecast model skipped: {ef}")
+
+        # Retrain admin Model 9 — RFM Segmentation
+        if "admin_rfm_model.pkl" in missing:
+            try:
+                r = admin_rfm_service.train_rfm_model(cur)
+                conn.commit()
+                print(f"[STARTUP] Admin RFM model: {r}")
+            except Exception as er:
+                print(f"[STARTUP] RFM model skipped: {er}")
+
         cur.close()
         conn.close()
-        print(f"[STARTUP] Retrain result: {result}")
-        # demand model: reuse train_models.py only for demand (XGBoost regressor)
+
+        # demand model fallback via train_models.py
         demand_path = os.path.join(models_dir, "demand_model.pkl")
         if not os.path.exists(demand_path):
             import subprocess, sys
             train_script = os.path.join(os.path.dirname(os.path.abspath(__file__)), "train", "train_models.py")
             subprocess.run([sys.executable, train_script], capture_output=True)
             print("[STARTUP] Demand model trained via train_models.py")
+
     except Exception as e:
         print(f"[STARTUP] Auto-train failed: {e}")
 
@@ -120,9 +155,10 @@ def root():
 
 # ── Health ──────────────────────────────────────────────────────────────────
 
-@app.get("/ai/status")
+@app.get("/ai/status", tags=["Health"])
 def status():
-    return {"status": "ok", "service": "Talentree AI", "version": "1.0.0"}
+    """Service health check. version=2.0.0 confirms admin module is loaded."""
+    return {"status": "ok", "service": "Talentree AI", "version": "2.0.0"}
 
 
 # ── Dashboard Summary (FR-BO-05) ────────────────────────────────────────────
