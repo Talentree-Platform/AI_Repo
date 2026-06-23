@@ -1,6 +1,7 @@
 # ============================================================
-# Talentree BO Dashboard — Docker Compose
-# One command: docker compose up
+# Talentree AI Service — Docker Compose (Local Dev)
+# Covers: BO Dashboard + Admin Dashboard
+# One command: docker compose up --build
 # ============================================================
 version: "3.9"
 
