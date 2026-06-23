@@ -1,7 +1,9 @@
 """
 Talentree AI — FastAPI Microservice
 ====================================
-All AI endpoints for the Business Owner Dashboard.
+AI endpoints for:
+  - Business Owner (BO) Dashboard  →  /ai/*
+  - Admin Dashboard                →  /admin/*
 Run: uvicorn main:app --reload --port 8000
 """
 
@@ -11,6 +13,8 @@ from fastapi.responses import StreamingResponse, RedirectResponse
 import io
 
 from db.connection import get_conn
+
+# ── BO Services ───────────────────────────────────────────────────────────────
 from services import (
     churn_service, fraud_service, anomaly_service,
     product_service, profile_service, order_service,
@@ -20,10 +24,28 @@ from services import (
     export_service, retrain_service,
 )
 
+# ── Admin Services ────────────────────────────────────────────────────────────
+from services import (
+    admin_dashboard_service,
+    admin_kpi_service,
+    admin_analytics_service,
+    admin_seller_service,
+    admin_customer_service,
+    admin_category_service,
+    admin_export_service,
+    admin_forecast_service,
+    admin_rfm_service,
+)
+
 app = FastAPI(
     title="Talentree AI Service",
-    description="AI computation microservice for the Business Owner Dashboard",
-    version="1.0.0",
+    description=(
+        "AI computation microservice powering the Talentree platform.\n\n"
+        "**BO Dashboard** (`/ai/*`) — Per-seller predictions: churn, fraud, anomaly, sentiment, demand, quality, triage.\n\n"
+        "**Admin Dashboard** (`/admin/*`) — Platform-wide analytics: KPIs, health score, seller ranking, "
+        "customer RFM segmentation, revenue forecasting, and data export."
+    ),
+    version="2.0.0",
 )
 
 app.add_middleware(
@@ -483,19 +505,27 @@ def export_financial(
 
 # ════════════════════════════════════════════════════════════════════════════════
 # ADMIN MODULE — /admin/* routes
+# (Services imported at top of file)
 # ════════════════════════════════════════════════════════════════════════════════
 
-from services import (
-    admin_dashboard_service,
-    admin_kpi_service,
-    admin_analytics_service,
-    admin_seller_service,
-    admin_customer_service,
-    admin_category_service,
-    admin_export_service,
-    admin_forecast_service,
-    admin_rfm_service,
-)
+
+# ── 0. Admin Status (deployment health check) ─────────────────────────────────
+
+@app.get("/admin/status", tags=["Admin"])
+def get_admin_status():
+    """
+    Confirm the admin module is loaded and running.
+    Returns version, available endpoints count, and scheduler job count.
+    Use this to verify a fresh Azure deployment has the admin routes active.
+    """
+    return {
+        "status": "ok",
+        "module": "admin",
+        "service_version": "2.0.0",
+        "admin_endpoints": 13,
+        "new_models": ["revenue_forecast (Model 8)", "rfm_segmentation (Model 9)"],
+        "docs": "https://talentree-ai-service.azurewebsites.net/docs#/Admin",
+    }
 
 
 # ── 1. Admin Dashboard (FR-AD-01) ─────────────────────────────────────────────
