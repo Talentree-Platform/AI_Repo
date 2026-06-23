@@ -1,0 +1,18 @@
+name: Update GitHub Production Environment URL
+
+on:
+  push:
+    branches:
+      - feature/admin-dashboard
+  workflow_dispatch:
+
+jobs:
+  update-environment:
+    runs-on: ubuntu-latest
+    environment:
+      name: 'Production'
+      url: 'http://20.244.32.232:8000/docs'
+
+    steps:
+      - name: 'Update Production URL'
+        run: echo "Updating the GitHub Production Environment URL to the new live VM at http://20.244.32.232:8000"
