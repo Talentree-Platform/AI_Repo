@@ -35,6 +35,9 @@ from services import (
     admin_export_service,
     admin_forecast_service,
     admin_rfm_service,
+    admin_health_service,
+    admin_price_anomaly_service,
+    admin_category_forecast_service,
 )
 
 app = FastAPI(
@@ -601,6 +604,19 @@ def get_admin_kpis():
         cur.close(); conn.close()
 
 
+@app.get("/admin/platform/health", tags=["Admin"])
+def get_platform_health():
+    """Live Platform Health Score (Model 11)"""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_health_service.get_platform_health_score(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
 # ── 3. Platform Analytics & Trends (FR-AD-18) ─────────────────────────────────
 
 @app.get("/admin/analytics", tags=["Admin"])
@@ -737,6 +753,32 @@ def get_admin_category_trend(
     cur = conn.cursor()
     try:
         return admin_category_service.get_category_trend(cur, category_id, period)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+@app.get("/admin/products/price-anomalies", tags=["Admin"])
+def get_price_anomalies():
+    """Detects products with anomalous pricing via Isolation Forest (Model 12)."""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_price_anomaly_service.get_price_anomalies(cur)
+    except Exception as e:
+        raise HTTPException(500, str(e))
+    finally:
+        cur.close(); conn.close()
+
+
+@app.get("/admin/categories/forecast", tags=["Admin"])
+def get_category_demand_forecast():
+    """Predicts 3-month forward demand per category via Linear Regression (Model 13)."""
+    conn = get_conn()
+    cur = conn.cursor()
+    try:
+        return admin_category_forecast_service.get_category_demand_forecast(cur)
     except Exception as e:
         raise HTTPException(500, str(e))
     finally:

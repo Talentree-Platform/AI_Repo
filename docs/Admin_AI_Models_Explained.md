@@ -9,14 +9,18 @@
 
 ## Overview
 
-The Admin Dashboard introduces **2 new AI models** (Models 8 and 9) on top of the 7 existing BO models.
+The Admin Dashboard introduces **5 new AI models** (Models 8, 9, 11, 12, 13) on top of the 7 existing BO models.
 
-Unlike the BO models which give each **seller** insight about their own business, these 2 models give **super-admins** platform-wide intelligence:
+Unlike the BO models which give each **seller** insight about their own business, these 5 models give **super-admins** platform-wide intelligence:
 
 | # | What | For Who | Answers |
 |---|---|---|---|
 | 8 | Revenue Forecasting | Platform admins | "How much will we earn next quarter?" |
 | 9 | Customer RFM Segmentation | Platform admins | "Which customers are our best, and which are we losing?" |
+| 11 | Platform Health Score | Platform admins | "How healthy is the platform right now overall?" |
+| 12 | Price Anomaly Detection | Platform admins | "Are any sellers pricing items unusually high/low?" |
+| 13 | Category Demand Forecast | Platform admins | "Which product categories will grow next month?" |
+
 
 The admin dashboard also **reuses all 7 existing BO model outputs** — it reads the AI-scored columns already written to the DB and aggregates them into platform-wide metrics.
 
@@ -223,7 +227,7 @@ K-Means is the **industry standard** for RFM segmentation because:
 
 ---
 
-## Platform Health Score — How It's Calculated
+## Model 11 — Platform Health Score
 
 The **Platform Health Score** is a composite KPI (0–100) that gives admins a single number representing platform wellness:
 
@@ -242,3 +246,37 @@ Health Score =
 | 60–79 | Good 🟡 |
 | 40–59 | Fair 🟠 |
 | 0–39 | Needs Attention 🔴 |
+
+---
+
+## Model 12 — Price Anomaly Detection 🚨
+
+### What does it do?
+Scans all active products and identifies items that are priced significantly higher or lower than the average for their specific category.
+
+### How does it work?
+Uses **Isolation Forest**, an unsupervised machine learning algorithm.
+1. Groups all products by `CategoryId`
+2. Computes the Z-score (standardized price) for each product relative to its category peers
+3. Runs the Isolation Forest across the standardized prices to find severe outliers
+4. Identifies anomalies "on-the-fly" and returns a severity score.
+
+### Database Impact
+**Zero.** No new database columns are needed. Anomalies are detected dynamically when the admin loads the dashboard.
+
+---
+
+## Model 13 — Category Demand Forecast 📊
+
+### What does it do?
+Predicts the 3-month forward demand (order quantity) per product category. Helps the admin identify which categories are trending upward or downward.
+
+### How does it work?
+Uses **Linear Regression** trained on the last 12 months of `CustomerOrderItems` history.
+1. Groups historical order quantities by month and category
+2. Fits a unique trendline for every category using Linear Regression
+3. Predicts the next 3 months of quantity demand
+4. Calculates the projected growth percentage for each category
+
+### Database Impact
+**Zero.** Forecasts are computed on-the-fly and returned as JSON for rendering in the admin dashboard charts.
