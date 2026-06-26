@@ -651,7 +651,94 @@ The admin reads data already scored by the existing BO nightly jobs.
 
 ---
 
-## 12. Swagger Testing
+## 13. Platform Health Score — `GET /admin/platform/health`
+
+### Request
+```http
+GET /admin/platform/health
+Accept: application/json
+```
+
+### Response Shape
+```typescript
+export interface PlatformHealth {
+  health_score: number;
+  label: string;
+  components: {
+    avg_rating: number;
+    conversion_rate_pct: number;
+    churn_rate_pct: number;
+    fraud_rate_pct: number;
+    anomaly_rate_pct: number;
+  };
+}
+```
+
+---
+
+## 14. Price Anomaly Detection — `GET /admin/products/price-anomalies`
+
+### Request
+```http
+GET /admin/products/price-anomalies
+Accept: application/json
+```
+
+### Response Shape
+```typescript
+export interface PriceAnomaliesResponse {
+  status: string;
+  total_products_scanned: number;
+  anomalies_detected: number;
+  anomalies: PriceAnomaly[];
+}
+
+export interface PriceAnomaly {
+  product_id: number;
+  name: string;
+  seller: string;
+  category: string;
+  price: number;
+  category_avg_price: number;
+  anomaly_severity: number;
+  reason: string;
+}
+```
+
+---
+
+## 15. Category Demand Forecast — `GET /admin/categories/forecast`
+
+### Request
+```http
+GET /admin/categories/forecast
+Accept: application/json
+```
+
+### Response Shape
+```typescript
+export interface CategoryForecastResponse {
+  status: string;
+  categories_forecasted: number;
+  forecasts: CategoryForecast[];
+}
+
+export interface CategoryForecast {
+  category_id: number;
+  category_name: string;
+  historical_months_used: number;
+  trend_r2_score: number;
+  projected_growth_pct: number;
+  forecast: {
+    month: string;
+    forecasted_qty: number;
+  }[];
+}
+```
+
+---
+
+## 16. Swagger Testing
 
 All admin endpoints are testable directly in Swagger UI:
 
