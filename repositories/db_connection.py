@@ -18,13 +18,17 @@ def get_db_connection():
     Appends the ODBC driver for SQL Server automatically depending on availability.
     """
     conn_str = CONN_STR
+    # Collapse all whitespace and newlines to a single space
+    conn_str = " ".join(conn_str.split())
+    
     # Normalize boolean values to yes/no for ODBC driver compatibility
     conn_str = conn_str.replace("Encrypt=True", "Encrypt=yes").replace("Encrypt=true", "Encrypt=yes")
     conn_str = conn_str.replace("TrustServerCertificate=True", "TrustServerCertificate=yes").replace("TrustServerCertificate=true", "TrustServerCertificate=yes")
     
-    # Normalize attribute names to Uid and Pwd for ODBC driver compatibility
-    conn_str = conn_str.replace("User Id=", "Uid=").replace("User ID=", "Uid=").replace("user id=", "Uid=")
-    conn_str = conn_str.replace("Password=", "Pwd=").replace("password=", "Pwd=")
+    # Normalize attribute names to UID and PWD for ODBC driver compatibility
+    import re
+    conn_str = re.sub(r'(?i)\buser\s+id\b', 'UID', conn_str)
+    conn_str = re.sub(r'(?i)\bpassword\b', 'PWD', conn_str)
     
     if "Driver=" not in conn_str:
         # Resolve which driver is installed
