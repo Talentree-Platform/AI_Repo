@@ -9,9 +9,9 @@ llm_fast = HuggingFaceEndpoint(
 )
 chat_fast = ChatHuggingFace(llm=llm_fast)
 
-# Meta-Llama-3.3-70B for creative generation (marketing, copywriting, branding, pricing)
+# Meta-Llama-3.1-8B for creative generation (marketing, copywriting, branding, pricing)
 llm_creative = HuggingFaceEndpoint(
-    repo_id="meta-llama/Llama-3.3-70B-Instruct",
+    repo_id="meta-llama/Llama-3.1-8B-Instruct",
     max_new_tokens=1000,
     temperature=0.7,
 )
