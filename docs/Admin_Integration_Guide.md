@@ -1,7 +1,7 @@
 # Admin Dashboard — Integration Guide
 > **For:** Angular Frontend Team & .NET Backend Team
 > **AI Service Base URL (Production):** `http://20.244.32.232:8000`
-> **AI Service Base URL (Local):** `http://localhost:8000`
+> **AI Service Base URL (Local):** `http://20.244.32.232:8000`
 > **Swagger Docs:** `http://20.244.32.232:8000/docs` → scroll to **Admin** section
 > **Last Updated:** June 2026
 
@@ -33,7 +33,7 @@ The Admin Dashboard calls the **same AI microservice** as the BO Dashboard — j
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:5000',       // .NET backend
-  aiUrl:  'http://localhost:8000',       // AI microservice
+  aiUrl:  'http://20.244.32.232:8000',       // AI microservice
 };
 
 // environment.prod.ts

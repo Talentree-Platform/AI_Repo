@@ -135,7 +135,7 @@ cd AI_Repo
 pip install -r talentree-ai/requirements.txt
 cp .env.example .env
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-# API: http://localhost:8000/docs
+# API: http://20.244.32.232:8000/docs
 ```
 
 ### Models: Auto-Trained on Startup

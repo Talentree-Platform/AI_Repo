@@ -1,7 +1,7 @@
 # Talentree AI Service — Frontend & Backend Integration Guide
 > **For:** Angular Frontend Team & .NET Backend Team
 > **AI Service Base URL (Production):** `http://20.244.32.232:8000`
-> **AI Service Base URL (Local):** `http://localhost:8000`
+> **AI Service Base URL (Local):** `http://20.244.32.232:8000`
 > **Swagger Docs:** `http://20.244.32.232:8000/docs`
 > **Last Updated:** June 1, 2026
 
@@ -404,7 +404,7 @@ export interface BenchmarkResult {
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:5000',         // .NET backend
-  aiUrl: 'http://localhost:8000',          // AI microservice
+  aiUrl: 'http://20.244.32.232:8000',          // AI microservice
 };
 ```
 
@@ -419,7 +419,7 @@ const AI_BASE = environment.aiUrl;
 
 ## 11. Testing the Live API
 
-All 23 endpoints are tested and passing on the live HF Space.
+All 23 endpoints are tested and passing on the live Azure VM.
 
 ```bash
 # Health check
