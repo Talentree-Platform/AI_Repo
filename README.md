@@ -21,7 +21,7 @@ short_description: AI microservice for the Talentree Business Owner Dashboard
 
 | Environment | URL |
 |---|---|
-| **Azure VM.244.32.232:8000 |
+| **Azure VM (Production)** | http://20.244.32.232:8000 |
 | **Swagger UI (API Docs)** | http://20.244.32.232:8000/docs |
 | **Health Check** | http://20.244.32.232:8000/ai/status |
 
@@ -55,7 +55,11 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 ```
 ┌──────────────────┐     JSON/REST      ┌───────────────────────────────┐
 │  Angular Frontend │ ─────────────────► │  Talentree AI Service         │
-│  (Charts, Cards)  │                    │  FastAPI  :8000 (Azure VM.NET Backend     │ ─────────────────► │  ├─ anomaly_service           │
+│  (Charts, Cards)  │                    │  FastAPI  :8000 (Azure VM)   │
+└──────────────────┘                     │                               │
+                                         │  ┌─ churn_service             │
+┌──────────────────┐     HTTP calls      │  ├─ fraud_service             │
+│  .NET Backend     │ ─────────────────► │  ├─ anomaly_service           │
 │  (Event triggers) │                    │  ├─ sentiment_service         │     ┌───────────────────────┐
 └──────────────────┘                     │  ├─ triage_service            │────►│  SQL Server           │
                                          │  ├─ product_service           │     │  db52715.public.      │
@@ -70,7 +74,18 @@ This is the **AI brain** of the Talentree Business Owner (BO) Dashboard. It runs
 | Decision | Why |
 |---|---|
 | **SQLAlchemy `creator` pattern** | Handles special characters in DB password (`+`, `#`, `=`) — pyodbc alone fails |
-| **`await _ensure_models()` on startup** | Azure VM.com/Talentree-Platform/AI_Repo.git
+| **`await _ensure_models()` on startup** | HF Spaces uses ephemeral storage; pkl files are wiped on restart so models retrain automatically |
+| **No pkl files in git** | HF rejects binary files — models train from live DB on startup |
+| **Sliding time-window churn training** | 9 users → 9 rows would fail; windowing gives 100+ real training samples |
+| **Minority-class oversampling for fraud** | Only ~8% of requests are fraud; oversampling to ~40% gives model enough fraud examples |
+
+---
+
+## 🚀 Quick Start
+
+### Option 1 — Docker (Recommended)
+```bash
+git clone -b feature/bo-dashboard https://github.com/Talentree-Platform/AI_Repo.git
 cd AI_Repo
 cp .env.example .env
 # Edit .env with your DB credentials
