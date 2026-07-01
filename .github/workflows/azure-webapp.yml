@@ -1,4 +1,4 @@
-name: Build and Deploy Python app to Azure Web App - talentree-ai-service
+name: Deploy to Azure VM - talentree-ai-service
 
 on:
   push:
@@ -7,49 +7,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python version
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Zip artifact for deployment
-        run: |
-          zip release.zip ./* -r
-
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v4
-        with:
-          name: python-app
-          path: release.zip
-
   deploy:
     runs-on: ubuntu-latest
-    needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+      url: 'http://20.244.32.232:8000'
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v4
-        with:
-          name: python-app
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
-
-      - name: 'Deploy to Azure Web App'
-        uses: azure/webapps-deploy@v3
-        id: deploy-to-webapp
+      - name: Deploy to Azure VM via SSH
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          app-name: 'talentree-ai-service'
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          port: 22
+          script: |
+            set -e
+
+            # Pull latest code
+            cd /home/${{ secrets.VM_USER }}/talentree-ai
+            git fetch origin feature/bo-dashboard
+            git reset --hard origin/feature/bo-dashboard
+
+            # Install/update dependencies
+            source venv/bin/activate
+            pip install -r requirements.txt --quiet
+
+            # Restart the service
+            sudo systemctl restart talentree-ai
+            echo "✅ Deployment complete — http://20.244.32.232:8000"
