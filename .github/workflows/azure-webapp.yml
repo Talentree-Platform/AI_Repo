@@ -29,9 +29,10 @@ jobs:
 
             REPO_DIR="/home/${{ secrets.VM_USER }}/talentree-ai"
 
-            # Clone repo if it doesn't exist yet
+            # Clone repo if it doesn't exist or isn't a valid git repo
             if [ ! -d "$REPO_DIR/.git" ]; then
-              echo ">>> Repo not found — cloning..."
+              echo ">>> Not a valid git repo — removing and cloning fresh..."
+              rm -rf "$REPO_DIR"
               git clone -b feature/bo-dashboard https://github.com/Talentree-Platform/AI_Repo.git "$REPO_DIR"
             fi
 
