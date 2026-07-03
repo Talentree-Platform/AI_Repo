@@ -337,27 +337,28 @@ def compute_materials():
 
 
 @app.post("/ai/compute/all")
-def compute_all():
-    """Run ALL AI computations across the entire DB. Takes a few minutes."""
-    conn = get_conn()
-    cur = conn.cursor()
-    summary = {}
-    try:
-        summary["profiles"] = profile_service.compute_all_profiles(cur); conn.commit()
-        summary["products"] = product_service.compute_all_products(cur); conn.commit()
-        summary["fulfillment"] = order_service.compute_all_fulfillment(cur); conn.commit()
-        summary["materials"] = material_service.compute_material_stats(cur); conn.commit()
-        summary["churn"] = churn_service.predict_churn_all(cur); conn.commit()
-        summary["fraud"] = fraud_service.predict_fraud_all(cur); conn.commit()
-        summary["anomaly"] = anomaly_service.predict_anomaly_all(cur); conn.commit()
-        summary["sentiment"] = sentiment_service.predict_sentiment_all(cur); conn.commit()
-        summary["triage"] = triage_service.triage_all_tickets(cur); conn.commit()
-        summary["notifications"] = notification_service.check_and_notify_all(cur); conn.commit()
-        return {"status": "complete", "summary": {k: len(v) if isinstance(v, list) else v for k, v in summary.items()}}
-    except Exception as e:
-        conn.rollback(); raise HTTPException(500, str(e))
-    finally:
-        cur.close(); conn.close()
+def compute_all(background_tasks: BackgroundTasks):
+    """Run ALL AI computations in background (returns immediately). Takes 3-5 minutes."""
+    def _run():
+        conn = get_conn()
+        cur = conn.cursor()
+        try:
+            profile_service.compute_all_profiles(cur); conn.commit()
+            product_service.compute_all_products(cur); conn.commit()
+            order_service.compute_all_fulfillment(cur); conn.commit()
+            material_service.compute_material_stats(cur); conn.commit()
+            churn_service.predict_churn_all(cur); conn.commit()
+            fraud_service.predict_fraud_all(cur); conn.commit()
+            anomaly_service.predict_anomaly_all(cur); conn.commit()
+            sentiment_service.predict_sentiment_all(cur); conn.commit()
+            triage_service.triage_all_tickets(cur); conn.commit()
+            notification_service.check_and_notify_all(cur); conn.commit()
+        except Exception:
+            conn.rollback()
+        finally:
+            cur.close(); conn.close()
+    background_tasks.add_task(_run)
+    return {"status": "started", "message": "Full platform recomputation started in background. Will complete in 3-5 minutes."}
 
 
 # ── Notification & Benchmark ────────────────────────────────────────────────
@@ -493,18 +494,20 @@ def train_anomaly():
 
 
 @app.post("/ai/train/all")
-def train_all():
-    """Retrain all models on real DB data (skips if not enough rows)."""
-    conn = get_conn()
-    cur = conn.cursor()
-    try:
-        result = retrain_service.retrain_all(cur)
-        conn.commit()
-        return result
-    except Exception as e:
-        conn.rollback(); raise HTTPException(500, str(e))
-    finally:
-        cur.close(); conn.close()
+def train_all(background_tasks: BackgroundTasks):
+    """Retrain all models in the background (returns immediately)."""
+    def _run():
+        conn = get_conn()
+        cur = conn.cursor()
+        try:
+            retrain_service.retrain_all(cur)
+            conn.commit()
+        except Exception:
+            conn.rollback()
+        finally:
+            cur.close(); conn.close()
+    background_tasks.add_task(_run)
+    return {"status": "started", "message": "Training started in background. Models will be updated in 1-3 minutes."}
 
 
 # ── Financial Export (FR-BO-23) ──────────────────────────────────────────────
@@ -821,31 +824,35 @@ def export_admin_kpis(format: str = Query("csv", enum=["csv", "xlsx"])):
 # ── Admin: Trigger RFM retrain manually ───────────────────────────────────────
 
 @app.post("/admin/train/rfm", tags=["Admin"])
-def train_admin_rfm():
-    """Manually trigger RFM K-Means retrain + write segments to DB."""
-    conn = get_conn()
-    cur = conn.cursor()
-    try:
-        train = admin_rfm_service.train_rfm_model(cur)
-        seg   = admin_rfm_service.segment_all_customers(cur)
-        conn.commit()
-        return {"train": train, "segmentation": seg}
-    except Exception as e:
-        conn.rollback(); raise HTTPException(500, str(e))
-    finally:
-        cur.close(); conn.close()
+def train_admin_rfm(background_tasks: BackgroundTasks):
+    """Manually trigger RFM K-Means retrain in background (returns immediately)."""
+    def _run():
+        conn = get_conn()
+        cur = conn.cursor()
+        try:
+            admin_rfm_service.train_rfm_model(cur)
+            admin_rfm_service.segment_all_customers(cur)
+            conn.commit()
+        except Exception:
+            conn.rollback()
+        finally:
+            cur.close(); conn.close()
+    background_tasks.add_task(_run)
+    return {"status": "started", "message": "RFM retraining started in background. Segments will update in ~1 minute."}
 
 
 @app.post("/admin/train/forecast", tags=["Admin"])
-def train_admin_forecast():
-    """Manually trigger revenue forecast model retrain."""
-    conn = get_conn()
-    cur = conn.cursor()
-    try:
-        result = admin_forecast_service.train_forecast_model(cur)
-        conn.commit()
-        return result
-    except Exception as e:
-        conn.rollback(); raise HTTPException(500, str(e))
-    finally:
-        cur.close(); conn.close()
+def train_admin_forecast(background_tasks: BackgroundTasks):
+    """Manually trigger revenue forecast model retrain in background (returns immediately)."""
+    def _run():
+        conn = get_conn()
+        cur = conn.cursor()
+        try:
+            admin_forecast_service.train_forecast_model(cur)
+            conn.commit()
+        except Exception:
+            conn.rollback()
+        finally:
+            cur.close(); conn.close()
+    background_tasks.add_task(_run)
+    return {"status": "started", "message": "Forecast retraining started in background. Data will update in ~1 minute."}
