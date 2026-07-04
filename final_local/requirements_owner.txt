@@ -1,0 +1,15 @@
+# Core Configuration
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+loguru==0.7.2
+
+# Gradio Frontend UI
+gradio>=4.0.0
+
+# Machine Learning & Data Processing (Owner Model)
+prophet==1.1.5
+scikit-learn==1.3.2
+numpy<2.0.0
+pandas==2.1.3
+pyarrow==14.0.1

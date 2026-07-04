@@ -1,0 +1,29 @@
+2025-12-06 18:17:47 | INFO     | main:lifespan:41 - Starting Recommendation System API...
+2025-12-06 18:17:47 | INFO     | main:lifespan:49 - Loading customer recommendation model...
+2025-12-06 18:17:47 | INFO     | main:lifespan:51 - Customer model loaded successfully
+2025-12-06 18:17:47 | INFO     | main:lifespan:59 - Loading owner recommendation model...
+2025-12-06 18:17:47 | INFO     | main:lifespan:61 - Owner model loaded successfully
+2025-12-06 18:17:47 | INFO     | main:lifespan:67 - API startup complete
+2025-12-06 18:18:03 | INFO     | main:health_check:123 - Health check requested
+2025-12-06 18:18:05 | INFO     | main:recommend_customer_products:147 - Customer recommendation request: customer_id=1, top_k=5
+2025-12-06 18:18:05 | INFO     | main:recommend_customer_products:164 - Generated 5 recommendations for customer 1
+2025-12-06 18:18:07 | INFO     | main:recommend_raw_materials:191 - Owner recommendation request: owner_id=1, top_k=5
+2025-12-06 18:18:07 | INFO     | main:recommend_raw_materials:208 - Generated 5 recommendations for owner 1
+2025-12-06 18:21:18 | INFO     | main:recommend_customer_products:147 - Customer recommendation request: customer_id=24, top_k=5
+2025-12-06 18:21:18 | INFO     | main:recommend_customer_products:164 - Generated 5 recommendations for customer 24
+2025-12-06 18:22:26 | INFO     | main:recommend_raw_materials:191 - Owner recommendation request: owner_id=12, top_k=3
+2025-12-06 18:22:26 | INFO     | main:recommend_raw_materials:208 - Generated 3 recommendations for owner 12
+2025-12-06 18:25:00 | INFO     | main:recommend_raw_materials:191 - Owner recommendation request: owner_id=12, top_k=3
+2025-12-06 18:25:00 | INFO     | main:recommend_raw_materials:208 - Generated 3 recommendations for owner 12
+2025-12-06 18:41:13 | INFO     | main:recommend_customer_products:147 - Customer recommendation request: customer_id=50, top_k=5
+2025-12-06 18:41:13 | INFO     | main:recommend_customer_products:164 - Generated 5 recommendations for customer 50
+2025-12-06 18:47:16 | INFO     | main:recommend_raw_materials:191 - Owner recommendation request: owner_id=25, top_k=5
+2025-12-06 18:47:16 | INFO     | main:recommend_raw_materials:208 - Generated 5 recommendations for owner 25
+2025-12-06 18:47:30 | INFO     | main:recommend_raw_materials:191 - Owner recommendation request: owner_id=25, top_k=5
+2025-12-06 18:47:30 | INFO     | main:recommend_raw_materials:208 - Generated 5 recommendations for owner 25
+2025-12-06 19:12:04 | INFO     | main:lifespan:41 - Starting Recommendation System API...
+2025-12-06 19:12:04 | INFO     | main:lifespan:49 - Loading customer recommendation model...
+2025-12-06 19:12:04 | INFO     | main:lifespan:51 - Customer model loaded successfully
+2025-12-06 19:12:04 | INFO     | main:lifespan:59 - Loading owner recommendation model...
+2025-12-06 19:12:04 | INFO     | main:lifespan:61 - Owner model loaded successfully
+2025-12-06 19:12:04 | INFO     | main:lifespan:67 - API startup complete
