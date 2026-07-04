@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard | AI Product Recommendations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/customer-static/css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">🛒</span>
+                <span class="brand-text">Talentree B2C</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="/" class="nav-item">
+                    <span class="icon">🏠</span> Portal Home
+                </a>
+                <a href="/customer-ui" class="nav-item active">
+                    <span class="icon">📊</span> Customer Console
+                </a>
+                <a href="/owner-ui" class="nav-item">
+                    <span class="icon">💼</span> Owner Console
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <span class="tag">B2C Hybrid CF</span>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="header">
+                <div class="header-title">
+                    <h1>Customer Recommender</h1>
+                    <p>Hybrid collaborative content-based product personalization console</p>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-retrain" class="btn btn-secondary">
+                        <span class="btn-icon">⚡</span> Retrain Pipeline
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Control Panel Card -->
+                <div class="card control-panel">
+                    <h3 class="card-title">🔍 Query Parameters</h3>
+                    <div class="form-group">
+                        <label for="select-customer-id">Customer Profile</label>
+                        <select id="select-customer-id">
+                            <option value="">Loading customer profiles...</option>
+                        </select>
+                        <small class="helper-text">Select a remote DB customer or pre-trained active demo customer.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-top-k">Recommendation Count (K)</label>
+                        <input type="number" id="input-top-k" placeholder="Number of items" value="6" min="1" max="20">
+                    </div>
+                    <button id="btn-recommend" class="btn btn-primary">
+                        Get Recommendations
+                    </button>
+                </div>
+
+                <!-- Model Stats Card -->
+                <div class="card stats-panel">
+                    <h3 class="card-title">⚙️ Active Model Specs</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Model Engine</span>
+                            <span id="stat-class" class="stat-value">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Alpha Weight</span>
+                            <span id="stat-alpha" class="stat-value">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Users Profiled</span>
+                            <span id="stat-users" class="stat-value">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Last Updated</span>
+                            <span id="stat-updated" class="stat-value">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loader State -->
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Computing recommendations via serving matrix layer...</p>
+            </div>
+
+            <!-- Notification Banner -->
+            <div id="retrain-banner" class="banner hidden">
+                <span class="banner-close" onclick="document.getElementById('retrain-banner').classList.add('hidden')">×</span>
+                <span class="banner-text">Retraining successfully initiated in the background! Uptime is uninterrupted.</span>
+            </div>
+
+            <!-- Recommendations Grid -->
+            <section class="results-section">
+                <h2 class="section-title">✨ Recommended Products</h2>
+                <div id="no-results" class="empty-state">
+                    <span class="empty-icon">💡</span>
+                    <p>Enter a Customer ID above and click recommend to generate predictive catalogs.</p>
+                </div>
+                <div id="results-grid" class="results-grid hidden">
+                    <!-- Recommendation cards injected via JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Alert Dialog -->
+    <div id="alert-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 class="modal-title">⚠️ Operation Alert</h3>
+            <p id="alert-message">Error processing recommendations.</p>
+            <button class="btn btn-primary" onclick="document.getElementById('alert-modal').classList.add('hidden')">Dismiss</button>
+        </div>
+    </div>
+
+    <script src="/customer-static/js/app.js"></script>
+</body>
+</html>

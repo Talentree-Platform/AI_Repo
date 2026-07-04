@@ -1,0 +1,114 @@
+[2026-05-23 12:39:25] INFO [customer_recommender:train.py:18] - Starting Customer Product Recommender Offline Training...
+[2026-05-23 12:43:26] INFO [customer_recommender:train.py:18] - Starting Customer Product Recommender Offline Training...
+[2026-05-23 12:46:28] INFO [customer_recommender:train.py:20] - Starting Customer Product Recommender Offline Training...
+[2026-05-23 12:46:32] WARNING [customer_recommender:train.py:27] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=customer_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x2a3180ee9c0>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-23 12:49:55] INFO [customer_recommender:train.py:20] - Starting Customer Product Recommender Offline Training...
+[2026-05-23 12:49:59] WARNING [customer_recommender:train.py:27] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=customer_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x139cd8a3620>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-23 12:50:00] INFO [customer_recommender:train.py:42] - Loaded 200 products and 60000 customer interactions.
+[2026-05-23 12:50:00] INFO [customer_recommender:train.py:53] - Train split size: 51000, Test split size: 9000
+[2026-05-23 12:50:00] INFO [customer_recommender:train.py:58] - Hybrid recommender training complete.
+[2026-05-23 12:50:00] INFO [customer_recommender:train.py:77] - Evaluating model on 997 active test users...
+[2026-05-23 12:50:07] INFO [customer_recommender:train.py:82] - Evaluation Metrics: {'precision_at_5': 0.06258776328986962, 'recall_at_5': 0.069906581215508, 'ndcg_at_5': 0.07006016393139557, 'precision_at_10': 0.05887662988966901, 'recall_at_10': 0.1270352543923256, 'ndcg_at_10': 0.09406831324529737}
+[2026-05-23 12:50:08] INFO [customer_recommender:train.py:99] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-23 12:50:08] INFO [customer_recommender:train.py:117] - Saved versioned model to ./trained_models\customer\v1\customer_model.joblib
+[2026-05-23 12:50:08] INFO [customer_recommender:train.py:118] - Saved latest production model to ./trained_models\customer\latest\customer_model.joblib
+[2026-05-23 12:52:33] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-23 12:52:35] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-23 12:53:01] INFO [customer_recommender:routes.py:29] - API request: customer_id=123, top_k=3
+[2026-05-23 15:07:13] INFO [customer_recommender:train.py:20] - Starting Customer Product Recommender Offline Training...
+[2026-05-23 15:07:17] WARNING [customer_recommender:train.py:27] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=customer_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x2aaffeee8a0>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-23 15:07:18] INFO [customer_recommender:train.py:42] - Loaded 200 products and 60000 customer interactions.
+[2026-05-23 15:07:18] INFO [customer_recommender:train.py:53] - Train split size: 51000, Test split size: 9000
+[2026-05-23 15:07:18] INFO [customer_recommender:train.py:58] - Hybrid recommender training complete.
+[2026-05-23 15:07:18] INFO [customer_recommender:train.py:77] - Evaluating model on 993 active test users...
+[2026-05-23 15:07:25] INFO [customer_recommender:train.py:82] - Evaluation Metrics: {'precision_at_5': 0.04551863041289023, 'recall_at_5': 0.04751154909765181, 'ndcg_at_5': 0.049790517327364954, 'precision_at_10': 0.04320241691842901, 'recall_at_10': 0.09110011058651543, 'ndcg_at_10': 0.06769881272167942}
+[2026-05-23 15:07:25] INFO [customer_recommender:train.py:99] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-23 15:07:26] INFO [customer_recommender:train.py:117] - Saved versioned model to ./trained_models\customer\v1\customer_model.joblib
+[2026-05-23 15:07:26] INFO [customer_recommender:train.py:118] - Saved latest production model to ./trained_models\customer\latest\customer_model.joblib
+[2026-05-23 15:10:30] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-23 15:10:32] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-23 15:10:40] INFO [customer_recommender:routes.py:29] - API request: customer_id=123, top_k=3
+[2026-05-23 22:07:33] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-23 22:07:33] INFO [customer_recommender:pipeline.py:21] - Triggered Customer Online Retraining Pipeline.
+[2026-05-23 22:07:37] WARNING [customer_recommender:pipeline.py:63] - SQL Server not reachable. Relying entirely on local cache JSON files under data/.
+[2026-05-23 22:07:37] INFO [customer_recommender:pipeline.py:68] - Assessing currently loaded production model metrics...
+[2026-05-23 22:07:37] INFO [customer_recommender:pipeline.py:71] - Active model info: {'status': 'active', 'alpha': 0.4, 'trained_users_count': 1000, 'trained_items_count': 200, 'popular_items_count': 50, 'model_class': 'CustomerHybridRecommender', 'last_modified': '2026-05-23T15:07:26.099461'}
+[2026-05-23 22:07:37] INFO [customer_recommender:train.py:20] - Starting Customer Product Recommender Offline Training...
+[2026-05-23 22:07:37] WARNING [customer_recommender:train.py:27] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to endpoint /api/2.0/mlflow/experiments/get-by-name failed with error code 404 != 200. Response body: '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/2.0/mlflow/experiments/get-by-name</pre>
+</body>
+</html>
+'
+[2026-05-23 22:07:37] INFO [customer_recommender:train.py:42] - Loaded 200 products and 60000 customer interactions.
+[2026-05-23 22:07:38] INFO [customer_recommender:train.py:53] - Train split size: 51000, Test split size: 9000
+[2026-05-23 22:07:38] INFO [customer_recommender:train.py:58] - Hybrid recommender training complete.
+[2026-05-23 22:07:38] INFO [customer_recommender:train.py:77] - Evaluating model on 993 active test users...
+[2026-05-23 22:07:47] INFO [customer_recommender:train.py:82] - Evaluation Metrics: {'precision_at_5': 0.04551863041289023, 'recall_at_5': 0.04751154909765181, 'ndcg_at_5': 0.049790517327364954, 'precision_at_10': 0.04320241691842901, 'recall_at_10': 0.09110011058651543, 'ndcg_at_10': 0.06769881272167942}
+[2026-05-23 22:07:48] INFO [customer_recommender:train.py:99] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-23 22:07:48] INFO [customer_recommender:train.py:117] - Saved versioned model to ./trained_models\customer\v1\customer_model.joblib
+[2026-05-23 22:07:48] INFO [customer_recommender:train.py:118] - Saved latest production model to ./trained_models\customer\latest\customer_model.joblib
+[2026-05-23 22:07:48] INFO [customer_recommender:pipeline.py:83] - Candidate Model Precision@5: 0.0455 vs Production Baseline: 0.0100
+[2026-05-23 22:07:48] INFO [customer_recommender:pipeline.py:87] - Gated Check Passed: Candidate model outperforms or matches active model. Promoting candidate to production!
+[2026-05-23 22:07:48] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-23 22:07:48] INFO [customer_recommender:pipeline.py:102] - Successfully reloaded new production model in FastAPI server memory!
+[2026-05-29 13:46:16] INFO [customer_recommender:train.py:24] - Starting Customer Product Recommender Offline Training...
+[2026-05-29 13:46:21] WARNING [customer_recommender:train.py:31] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=customer_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x23e07628470>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-29 13:46:42] INFO [customer_recommender:train.py:40] - Loaded 200 products and 60000 customer interactions.
+[2026-05-29 13:46:42] INFO [customer_recommender:train.py:51] - Train split size: 51000 raw rows, Test split size: 9000
+[2026-05-29 13:46:42] INFO [customer_recommender:customer_feature_builder.py:15] - Starting Customer Feature Engineering Pipeline...
+[2026-05-29 13:46:43] INFO [customer_recommender:customer_feature_builder.py:77] - Customer feature compilation complete. Created 41938 feature rows.
+[2026-05-29 13:46:43] INFO [customer_recommender:train.py:63] - Persisted training features to Parquet Feature Store (version 1)
+[2026-05-29 13:46:43] INFO [customer_recommender:train.py:68] - Hybrid recommender training complete.
+[2026-05-29 13:46:43] INFO [customer_recommender:train.py:87] - Evaluating model on 993 active test users...
+[2026-05-29 13:46:52] INFO [customer_recommender:train.py:92] - Evaluation Metrics: {'precision_at_5': 0.04451158106747231, 'recall_at_5': 0.046223165331926656, 'ndcg_at_5': 0.049132519527190284, 'precision_at_10': 0.04300100704934542, 'recall_at_10': 0.09263110169454582, 'ndcg_at_10': 0.0680586943387675}
+[2026-05-29 13:46:52] INFO [customer_recommender:train.py:111] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-29 13:46:53] INFO [customer_recommender:train.py:129] - Saved versioned model to ./trained_models\customer\v1\customer_model.joblib
+[2026-05-29 13:46:53] INFO [customer_recommender:train.py:130] - Saved latest production model to ./trained_models\customer\latest\customer_model.joblib
+[2026-05-29 19:02:27] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-29 19:02:33] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-29 19:02:35] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-29 19:03:27] INFO [customer_recommender:routes.py:59] - API request: customer_id=2b32d2a4-c2f4-41aa-a954-5e5efe11619c, top_k=6
+[2026-05-29 19:03:27] ERROR [customer_recommender:routes.py:76] - Error computing recommendations for customer 2b32d2a4-c2f4-41aa-a954-5e5efe11619c: 1 validation error for CustomerRecommendResponse
+customer_id
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='2b32d2a4-c2f4-41aa-a954-5e5efe11619c', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing
+[2026-05-29 19:03:42] INFO [customer_recommender:routes.py:59] - API request: customer_id=5c061e2c-5199-4b59-b1d0-d339ed517e9c, top_k=6
+[2026-05-29 19:03:42] ERROR [customer_recommender:routes.py:76] - Error computing recommendations for customer 5c061e2c-5199-4b59-b1d0-d339ed517e9c: 1 validation error for CustomerRecommendResponse
+customer_id
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='5c061e2c-5199-4b59-b1d0-d339ed517e9c', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing
+[2026-05-31 16:42:58] INFO [customer_recommender:routes.py:90] - Online retraining triggered via API endpoint.
+[2026-05-31 16:42:58] INFO [customer_recommender:pipeline.py:21] - Triggered Customer Online Retraining Pipeline.
+[2026-05-31 16:42:59] INFO [customer_recommender:pipeline.py:29] - SQL Server database is active. Fetching latest customer interactions and products from SQL tables...
+[2026-05-31 16:43:00] ERROR [customer_recommender:pipeline.py:61] - Error fetching data from SQL Server: (pymssql.exceptions.ProgrammingError) (208, b"Invalid object name 'interactions'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: SELECT interactions.interaction_id AS interactions_interaction_id, interactions.user_type AS interactions_user_type, interactions.user_id AS interactions_user_id, interactions.item_id AS interactions_item_id, interactions.item_type AS interactions_item_type, interactions.interaction_type AS interactions_interaction_type, interactions.category AS interactions_category, interactions.quantity AS interactions_quantity, interactions.price AS interactions_price, interactions.interaction_timestamp AS interactions_interaction_timestamp 
+FROM interactions 
+WHERE interactions.user_type = %(user_type_1)s]
+[parameters: {'user_type_1': 'customer'}]
+(Background on this error at: https://sqlalche.me/e/20/f405). Falling back entirely to local flat files.
+[2026-05-31 16:43:00] INFO [customer_recommender:pipeline.py:68] - Assessing currently loaded production model metrics...
+[2026-05-31 16:43:00] INFO [customer_recommender:pipeline.py:71] - Active model info: {'status': 'active', 'alpha': 0.4, 'trained_users_count': 1000, 'trained_items_count': 200, 'popular_items_count': 50, 'model_class': 'CustomerHybridRecommender', 'last_modified': '2026-05-29T13:46:53.059251'}
+[2026-05-31 16:43:00] INFO [customer_recommender:train.py:24] - Starting Customer Product Recommender Offline Training...
+[2026-05-31 16:43:07] WARNING [customer_recommender:train.py:31] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=customer_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x27026c43590>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-31 16:43:11] INFO [customer_recommender:train.py:40] - Loaded 16 products and 60000 customer interactions.
+[2026-05-31 16:43:11] INFO [customer_recommender:train.py:51] - Train split size: 51000 raw rows, Test split size: 9000
+[2026-05-31 16:43:11] INFO [customer_recommender:customer_feature_builder.py:15] - Starting Customer Feature Engineering Pipeline...
+[2026-05-31 16:43:11] ERROR [customer_recommender:pipeline.py:112] - Failed to complete retraining pipeline: "None of [Index(['product_id', 'category', 'price'], dtype='object')] are in the [columns]"
+[2026-05-31 16:44:00] INFO [customer_recommender:routes.py:59] - API request: customer_id=eb6998eb-aae8-4574-8ce1-fb2b2a08e48f, top_k=3
+[2026-05-31 16:44:00] ERROR [customer_recommender:routes.py:76] - Error computing recommendations for customer eb6998eb-aae8-4574-8ce1-fb2b2a08e48f: 1 validation error for CustomerRecommendResponse
+customer_id
+  Input should be a valid integer, unable to parse string as an integer [type=int_parsing, input_value='eb6998eb-aae8-4574-8ce1-fb2b2a08e48f', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/int_parsing
+[2026-05-31 16:46:39] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-31 16:46:41] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-31 16:46:50] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-31 16:46:52] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-31 16:50:53] INFO [customer_recommender:routes.py:59] - API request: customer_id=2b32d2a4-c2f4-41aa-a954-5e5efe11619c, top_k=6
+[2026-05-31 18:38:31] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.
+[2026-05-31 18:38:34] INFO [customer_recommender:recommender_service.py:26] - Customer recommendation model loaded successfully from ./trained_models\customer\latest\customer_model.joblib.

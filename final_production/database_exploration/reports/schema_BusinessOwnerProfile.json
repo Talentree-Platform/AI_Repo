@@ -1,0 +1,229 @@
+{
+    "table_name": "BusinessOwnerProfile",
+    "timestamp": "2026-05-29T18:44:52.532065",
+    "database_connected": true,
+    "columns": [
+        {
+            "name": "Id",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "UserId",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "BusinessName",
+            "type": "NVARCHAR(200) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "BusinessDescription",
+            "type": "NVARCHAR(2000) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "BusinessCategory",
+            "type": "NVARCHAR(100) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "TaxId",
+            "type": "NVARCHAR(50) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "Status",
+            "type": "INTEGER",
+            "nullable": false,
+            "default": null
+        },
+        {
+            "name": "ApprovedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ApprovedBy",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "RejectionReason",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "AutoApprovalDeadline",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "CreatedAt",
+            "type": "DATETIME2",
+            "nullable": false,
+            "default": "(getutcdate())"
+        },
+        {
+            "name": "UpdatedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "CreatedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "UpdatedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "IsDeleted",
+            "type": "BIT",
+            "nullable": false,
+            "default": "(CONVERT([bit],(0)))"
+        },
+        {
+            "name": "DeletedAt",
+            "type": "DATETIME2",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BusinessAddress",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "FacebookLink",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "InstagramLink",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "WebsiteLink",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "DeletedBy",
+            "type": "NVARCHAR(450) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "BusinessLogoUrl",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "PhoneNumber",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ProfilePhotoUrl",
+            "type": "NVARCHAR COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "ProfileCompletenessPct",
+            "type": "TINYINT",
+            "nullable": false,
+            "default": "(CONVERT([tinyint],(0)))"
+        },
+        {
+            "name": "BrandTone",
+            "type": "NVARCHAR(200) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        },
+        {
+            "name": "TargetAudience",
+            "type": "NVARCHAR(500) COLLATE \"SQL_Latin1_General_CP1_CI_AS\"",
+            "nullable": true,
+            "default": null
+        }
+    ],
+    "primary_keys": [
+        "Id"
+    ],
+    "foreign_keys": [
+        {
+            "constrained_columns": [
+                "UserId"
+            ],
+            "referred_table": "AspNetUsers",
+            "referred_columns": [
+                "Id"
+            ]
+        }
+    ],
+    "indexes": [
+        {
+            "name": "IX_BusinessOwnerProfile_CreatedAt",
+            "column_names": [
+                "CreatedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_BusinessOwnerProfile_CreatedBy_CreatedAt",
+            "column_names": [
+                "CreatedBy",
+                "CreatedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_BusinessOwnerProfile_IsDeleted",
+            "column_names": [
+                "IsDeleted"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_BusinessOwnerProfile_IsDeleted_DeletedAt",
+            "column_names": [
+                "IsDeleted",
+                "DeletedAt"
+            ],
+            "unique": false
+        },
+        {
+            "name": "IX_BusinessOwnerProfile_UserId",
+            "column_names": [
+                "UserId"
+            ],
+            "unique": true
+        }
+    ],
+    "source": "SQL Database Server"
+}
