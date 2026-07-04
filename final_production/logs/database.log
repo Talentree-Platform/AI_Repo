@@ -1,0 +1,77 @@
+[2026-05-23 12:52:39] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-23 12:52:44] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-23 15:10:36] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-23 22:06:30] ERROR [database_service:connection.py:18] - Error creating SQLAlchemy engine: No module named 'pymssql'
+[2026-05-23 22:07:05] ERROR [database_service:connection.py:18] - Error creating SQLAlchemy engine: No module named 'pymssql'
+[2026-05-23 22:07:37] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-23 22:13:00] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (localhost)\nNet-Lib error during Unknown error (10061)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-29 13:36:11] ERROR [database_service:connection.py:18] - Error creating SQLAlchemy engine: No module named 'pymssql'
+[2026-05-29 13:46:42] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-29 13:46:42] WARNING [database_service:data_source_factory.py:20] - Database offline. Falling back to JSON data source.
+[2026-05-29 13:46:42] INFO [database_service:json_data_source.py:40] - Loading product catalog from JSON file fallback...
+[2026-05-29 13:46:42] INFO [database_service:json_data_source.py:42] - Successfully loaded 200 products from JSON.
+[2026-05-29 13:46:42] INFO [database_service:json_data_source.py:26] - Loading B2C customer interactions from JSON file fallback...
+[2026-05-29 13:46:42] INFO [database_service:json_data_source.py:28] - Successfully loaded 60000 customer interactions from JSON.
+[2026-05-29 13:46:43] INFO [database_service:validator.py:14] - Validating Customer Features...
+[2026-05-29 13:46:43] INFO [database_service:validator.py:45] - Customer Features validation passed successfully!
+[2026-05-29 13:46:43] INFO [database_service:parquet_store.py:14] - Initialized Parquet Feature Store at: ./data/processed
+[2026-05-29 13:46:43] INFO [database_service:parquet_store.py:31] - Saving 'customer_features' features version 1 to ./data/processed\customer_features_v1.parquet...
+[2026-05-29 13:46:43] INFO [database_service:parquet_store.py:36] - Successfully saved 41938 feature rows to parquet.
+[2026-05-29 15:23:00] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-29 15:23:00] WARNING [database_service:data_source_factory.py:20] - Database offline. Falling back to JSON data source.
+[2026-05-29 15:23:00] INFO [database_service:json_data_source.py:46] - Loading raw materials catalog from JSON file fallback...
+[2026-05-29 15:23:01] INFO [database_service:json_data_source.py:48] - Successfully loaded 100 raw materials from JSON.
+[2026-05-29 15:23:01] INFO [database_service:json_data_source.py:32] - Loading B2B owner interactions from JSON file fallback...
+[2026-05-29 15:23:01] INFO [database_service:json_data_source.py:36] - Successfully loaded 40000 owner interactions from JSON.
+[2026-05-29 15:23:01] INFO [database_service:validator.py:51] - Validating Owner Features...
+[2026-05-29 15:23:01] INFO [database_service:validator.py:77] - Owner Features validation passed successfully!
+[2026-05-29 15:23:01] INFO [database_service:parquet_store.py:14] - Initialized Parquet Feature Store at: ./data/processed
+[2026-05-29 15:23:01] INFO [database_service:parquet_store.py:31] - Saving 'owner_features' features version 1 to ./data/processed\owner_features_v1.parquet...
+[2026-05-29 15:23:01] INFO [database_service:parquet_store.py:36] - Successfully saved 1043 feature rows to parquet.
+[2026-05-29 15:26:07] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-29 15:26:07] WARNING [database_service:data_source_factory.py:20] - Database offline. Falling back to JSON data source.
+[2026-05-29 15:26:07] INFO [database_service:json_data_source.py:46] - Loading raw materials catalog from JSON file fallback...
+[2026-05-29 15:26:07] INFO [database_service:json_data_source.py:48] - Successfully loaded 100 raw materials from JSON.
+[2026-05-29 15:26:07] INFO [database_service:json_data_source.py:32] - Loading B2B owner interactions from JSON file fallback...
+[2026-05-29 15:26:07] INFO [database_service:json_data_source.py:36] - Successfully loaded 40000 owner interactions from JSON.
+[2026-05-29 15:26:08] INFO [database_service:validator.py:51] - Validating Owner Features...
+[2026-05-29 15:26:08] INFO [database_service:validator.py:77] - Owner Features validation passed successfully!
+[2026-05-29 15:26:08] INFO [database_service:parquet_store.py:14] - Initialized Parquet Feature Store at: ./data/processed
+[2026-05-29 15:26:08] INFO [database_service:parquet_store.py:31] - Saving 'owner_features' features version 2 to ./data/processed\owner_features_v2.parquet...
+[2026-05-29 15:26:08] INFO [database_service:parquet_store.py:36] - Successfully saved 1043 feature rows to parquet.
+[2026-05-29 15:26:08] INFO [database_service:forecaster.py:86] - Fitting Owner Demand Forecaster using engineered Feature Store columns...
+[2026-05-29 15:27:12] ERROR [database_service:connection.py:45] - Database health check failed: (pymssql.exceptions.OperationalError) (20009, b'DB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\nDB-Lib error message 20009, severity 9:\nUnable to connect: Adaptive Server is unavailable or does not exist (db52715.databaseasp.net)\nNet-Lib error during Unknown error (10060)\n')
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+[2026-05-29 15:27:12] WARNING [database_service:data_source_factory.py:20] - Database offline. Falling back to JSON data source.
+[2026-05-29 15:27:12] INFO [database_service:json_data_source.py:46] - Loading raw materials catalog from JSON file fallback...
+[2026-05-29 15:27:12] INFO [database_service:json_data_source.py:48] - Successfully loaded 100 raw materials from JSON.
+[2026-05-29 15:27:12] INFO [database_service:json_data_source.py:32] - Loading B2B owner interactions from JSON file fallback...
+[2026-05-29 15:27:12] INFO [database_service:json_data_source.py:36] - Successfully loaded 40000 owner interactions from JSON.
+[2026-05-29 15:27:12] INFO [database_service:validator.py:51] - Validating Owner Features...
+[2026-05-29 15:27:12] INFO [database_service:validator.py:77] - Owner Features validation passed successfully!
+[2026-05-29 15:27:12] INFO [database_service:parquet_store.py:14] - Initialized Parquet Feature Store at: ./data/processed
+[2026-05-29 15:27:12] INFO [database_service:parquet_store.py:31] - Saving 'owner_features' features version 3 to ./data/processed\owner_features_v3.parquet...
+[2026-05-29 15:27:12] INFO [database_service:parquet_store.py:36] - Successfully saved 1043 feature rows to parquet.
+[2026-05-29 15:27:12] INFO [database_service:forecaster.py:86] - Fitting Owner Demand Forecaster using engineered Feature Store columns...
+[2026-05-29 18:44:11] ERROR [database_service:connection.py:18] - Error creating SQLAlchemy engine: No module named 'pymssql'
+[2026-05-31 16:43:08] INFO [database_service:data_source_factory.py:18] - SQL database connected successfully. Initialized SQL Data Source.
+[2026-05-31 16:43:08] INFO [database_service:sql_data_source.py:37] - Loading product catalog from SQL database...
+[2026-05-31 16:43:09] INFO [database_service:sql_data_source.py:39] - Successfully loaded 16 products from database.
+[2026-05-31 16:43:09] INFO [database_service:sql_data_source.py:25] - Loading B2C customer interactions from SQL database...
+[2026-05-31 16:43:10] ERROR [database_service:sql_data_source.py:21] - SQL database query failed: (pymssql.exceptions.ProgrammingError) (208, b"Invalid object name 'interactions'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: SELECT * FROM interactions WHERE user_type = 'customer']
+(Background on this error at: https://sqlalche.me/e/20/f405)
+[2026-05-31 16:43:10] WARNING [database_service:data_source_factory.py:32] - Error loading customer interactions from SQL: (pymssql.exceptions.ProgrammingError) (208, b"Invalid object name 'interactions'.DB-Lib error message 20018, severity 16:\nGeneral SQL Server error: Check messages from the SQL Server\n")
+[SQL: SELECT * FROM interactions WHERE user_type = 'customer']
+(Background on this error at: https://sqlalche.me/e/20/f405). Falling back to data/customer_interactions.json
+[2026-05-31 16:43:10] INFO [database_service:json_data_source.py:26] - Loading B2C customer interactions from JSON file fallback...
+[2026-05-31 16:43:11] INFO [database_service:json_data_source.py:28] - Successfully loaded 60000 customer interactions from JSON.
+[2026-06-15 17:55:32] ERROR [database_service:connection.py:18] - Error creating SQLAlchemy engine: No module named 'pymssql'

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard | B2B Procurement Planning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/owner-static/css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon">💼</span>
+                <span class="brand-text">Talentree B2B</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="/" class="nav-item">
+                    <span class="icon">🏠</span> Portal Home
+                </a>
+                <a href="/customer-ui" class="nav-item">
+                    <span class="icon">🛒</span> Customer Console
+                </a>
+                <a href="/owner-ui" class="nav-item active">
+                    <span class="icon">📊</span> Owner Console
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <span class="tag">B2B Supply Chain</span>
+            </div>
+        </aside>
+
+        <!-- Main Body -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="header">
+                <div class="header-title">
+                    <h1>Procurement Recommender</h1>
+                    <p>Demand forecasting and cyclic inventory procurement planning</p>
+                </div>
+                <div class="header-actions">
+                    <button id="btn-retrain" class="btn btn-secondary">
+                        <span class="btn-icon">⚡</span> Retrain Pipeline
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- Control Panel Card -->
+                <div class="card control-panel">
+                    <h3 class="card-title">🔍 Query Parameters</h3>
+                    <div class="form-group">
+                        <label for="select-owner-id">Business Owner Profile</label>
+                        <select id="select-owner-id">
+                            <option value="">Loading owner profiles...</option>
+                        </select>
+                        <small class="helper-text">Select a remote DB business owner or pre-trained active demo owner.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-top-k">Recommendation Count (K)</label>
+                        <input type="number" id="input-top-k" placeholder="Number of items" value="6" min="1" max="20">
+                    </div>
+                    <button id="btn-recommend" class="btn btn-primary">
+                        Get Procurement Plan
+                    </button>
+                </div>
+
+                <!-- Model Stats Card -->
+                <div class="card stats-panel">
+                    <h3 class="card-title">⚙️ AI Forecaster Specs</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Regressor Engine</span>
+                            <span id="stat-class" class="stat-value">Ridge Regressor</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Procurements Tracked</span>
+                            <span id="stat-cycles" class="stat-value">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Material Catalog Size</span>
+                            <span id="stat-materials" class="stat-value">Loading...</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Last Updated</span>
+                            <span id="stat-updated" class="stat-value">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loader State -->
+            <div id="loader" class="loader-container hidden">
+                <div class="spinner"></div>
+                <p>Aggregating procurement schedules and running Ridge Demand forecaster...</p>
+            </div>
+
+            <!-- Notification Banner -->
+            <div id="retrain-banner" class="banner hidden">
+                <span class="banner-close" onclick="document.getElementById('retrain-banner').classList.add('hidden')">×</span>
+                <span class="banner-text">Owner retraining successfully initiated in the background! Core serving continues uninterrupted.</span>
+            </div>
+
+            <!-- Recommendations List -->
+            <section class="results-section">
+                <h2 class="section-title">✨ Recommended Raw Materials</h2>
+                <div id="no-results" class="empty-state">
+                    <span class="empty-icon">💡</span>
+                    <p>Enter a Business Owner ID above and click recommend to generate procurement plans.</p>
+                </div>
+                
+                <div id="results-table-container" class="results-table-container hidden">
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Raw Material</th>
+                                <th>Category</th>
+                                <th>Unit Price</th>
+                                <th>Predicted Demand</th>
+                                <th>Urgency Status</th>
+                                <th>Reorder Cycle</th>
+                                <th>Procurement Score</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-table-body">
+                            <!-- Table rows injected via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Alert Dialog -->
+    <div id="alert-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 class="modal-title">⚠️ Operation Alert</h3>
+            <p id="alert-message">Error processing recommendations.</p>
+            <button class="btn btn-primary" onclick="document.getElementById('alert-modal').classList.add('hidden')">Dismiss</button>
+        </div>
+    </div>
+
+    <script src="/owner-static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+[2026-05-23 12:50:33] INFO [owner_recommender:train.py:19] - Starting Business Owner Raw Material Recommender Offline Training...
+[2026-05-23 12:50:37] WARNING [owner_recommender:train.py:26] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=owner_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x2aeffdd7680>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-23 12:50:38] INFO [owner_recommender:train.py:41] - Loaded 100 raw materials and 40000 owner procurement records.
+[2026-05-23 12:50:38] INFO [owner_recommender:train.py:52] - Train split size: 34000, Test split size: 6000
+[2026-05-23 12:50:44] INFO [owner_recommender:train.py:57] - Raw material recommender and forecaster training complete.
+[2026-05-23 12:50:47] INFO [owner_recommender:train.py:87] - Forecasting metrics: {'demand_forecast_rmse': 757.1466700712616, 'demand_forecast_mae': 615.34}
+[2026-05-23 12:51:58] INFO [owner_recommender:train.py:104] - Procurement recommendation metrics: {'owner_precision_at_5': 1.0, 'owner_recall_at_5': 0.5724732212232212}
+[2026-05-23 12:51:58] INFO [owner_recommender:train.py:120] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-23 12:51:58] INFO [owner_recommender:train.py:137] - Saved versioned owner model to ./trained_models\owner\v1\owner_model.joblib
+[2026-05-23 12:51:58] INFO [owner_recommender:train.py:138] - Saved latest production owner model to ./trained_models\owner\latest\owner_model.joblib
+[2026-05-23 12:52:35] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-23 12:52:35] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-23 12:54:09] INFO [owner_recommender:routes.py:28] - API request: owner_id=55, top_k=3
+[2026-05-23 15:07:44] INFO [owner_recommender:train.py:19] - Starting Business Owner Raw Material Recommender Offline Training...
+[2026-05-23 15:07:48] WARNING [owner_recommender:train.py:26] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=owner_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x198ffb8d640>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-23 15:07:48] INFO [owner_recommender:train.py:41] - Loaded 100 raw materials and 40000 owner procurement records.
+[2026-05-23 15:07:48] INFO [owner_recommender:train.py:52] - Train split size: 34000, Test split size: 6000
+[2026-05-23 15:07:54] INFO [owner_recommender:train.py:57] - Raw material recommender and forecaster training complete.
+[2026-05-23 15:07:57] INFO [owner_recommender:train.py:87] - Forecasting metrics: {'demand_forecast_rmse': 757.9692825790062, 'demand_forecast_mae': 620.92}
+[2026-05-23 15:09:00] INFO [owner_recommender:train.py:104] - Procurement recommendation metrics: {'owner_precision_at_5': 0.998, 'owner_recall_at_5': 0.5465452047952049}
+[2026-05-23 15:09:00] INFO [owner_recommender:train.py:120] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-23 15:09:00] INFO [owner_recommender:train.py:137] - Saved versioned owner model to ./trained_models\owner\v1\owner_model.joblib
+[2026-05-23 15:09:00] INFO [owner_recommender:train.py:138] - Saved latest production owner model to ./trained_models\owner\latest\owner_model.joblib
+[2026-05-23 15:10:32] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-23 15:10:32] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-23 15:10:57] INFO [owner_recommender:routes.py:28] - API request: owner_id=55, top_k=3
+[2026-05-23 22:12:56] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-23 22:12:56] INFO [owner_recommender:pipeline.py:21] - Triggered Business Owner Online Retraining Pipeline.
+[2026-05-23 22:13:00] WARNING [owner_recommender:pipeline.py:62] - SQL Server not reachable. Relying entirely on local cache JSON files under data/.
+[2026-05-23 22:13:00] INFO [owner_recommender:pipeline.py:66] - Assessing currently loaded production model metrics...
+[2026-05-23 22:13:00] INFO [owner_recommender:pipeline.py:68] - Active model info: {'status': 'active', 'forecaster_class': 'OwnerDemandForecaster', 'trained_materials_count': 100, 'reorder_cycles_tracked': 1043, 'popular_materials_count': 20, 'model_class': 'OwnerRawMaterialRecommender', 'last_modified': '2026-05-23T15:09:00.911251'}
+[2026-05-23 22:13:00] INFO [owner_recommender:train.py:19] - Starting Business Owner Raw Material Recommender Offline Training...
+[2026-05-23 22:13:00] WARNING [owner_recommender:train.py:26] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to endpoint /api/2.0/mlflow/experiments/get-by-name failed with error code 404 != 200. Response body: '<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Cannot GET /api/2.0/mlflow/experiments/get-by-name</pre>
+</body>
+</html>
+'
+[2026-05-23 22:13:00] INFO [owner_recommender:train.py:41] - Loaded 100 raw materials and 40000 owner procurement records.
+[2026-05-23 22:13:01] INFO [owner_recommender:train.py:52] - Train split size: 34000, Test split size: 6000
+[2026-05-23 22:13:07] INFO [owner_recommender:train.py:57] - Raw material recommender and forecaster training complete.
+[2026-05-23 22:13:10] INFO [owner_recommender:train.py:87] - Forecasting metrics: {'demand_forecast_rmse': 757.9692825790062, 'demand_forecast_mae': 620.92}
+[2026-05-23 22:14:24] INFO [owner_recommender:train.py:104] - Procurement recommendation metrics: {'owner_precision_at_5': 0.998, 'owner_recall_at_5': 0.5465452047952049}
+[2026-05-23 22:14:25] INFO [owner_recommender:train.py:120] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-23 22:14:25] INFO [owner_recommender:train.py:137] - Saved versioned owner model to ./trained_models\owner\v1\owner_model.joblib
+[2026-05-23 22:14:25] INFO [owner_recommender:train.py:138] - Saved latest production owner model to ./trained_models\owner\latest\owner_model.joblib
+[2026-05-23 22:14:25] INFO [owner_recommender:pipeline.py:79] - Candidate Model Precision@5: 0.9980 vs Production Baseline: 0.0100
+[2026-05-23 22:14:25] INFO [owner_recommender:pipeline.py:83] - Gated Check Passed: Candidate model outperforms or matches active model. Promoting candidate to production!
+[2026-05-23 22:14:25] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-23 22:14:25] INFO [owner_recommender:pipeline.py:98] - Successfully reloaded new production model in FastAPI server memory!
+[2026-05-29 15:22:35] INFO [owner_recommender:train.py:23] - Starting Business Owner Raw Material Recommender Offline Training...
+[2026-05-29 15:22:39] WARNING [owner_recommender:train.py:30] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=owner_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x1ebb3856780>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-29 15:23:01] INFO [owner_recommender:train.py:39] - Loaded 100 raw materials and 40000 owner procurement records.
+[2026-05-29 15:23:01] INFO [owner_recommender:train.py:50] - Train split size: 34000 raw rows, Test split size: 6000
+[2026-05-29 15:23:01] INFO [owner_recommender:owner_feature_builder.py:21] - Starting Business Owner Feature Engineering Pipeline...
+[2026-05-29 15:23:01] INFO [owner_recommender:owner_feature_builder.py:101] - Business owner feature engineering complete. Created 1043 feature rows.
+[2026-05-29 15:23:01] INFO [owner_recommender:train.py:62] - Persisted training features to Parquet Feature Store (version 1)
+[2026-05-29 15:25:42] INFO [owner_recommender:train.py:23] - Starting Business Owner Raw Material Recommender Offline Training...
+[2026-05-29 15:25:46] WARNING [owner_recommender:train.py:30] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=owner_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x2e13a2bb440>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-29 15:26:07] INFO [owner_recommender:train.py:39] - Loaded 100 raw materials and 40000 owner procurement records.
+[2026-05-29 15:26:08] INFO [owner_recommender:train.py:50] - Train split size: 34000 raw rows, Test split size: 6000
+[2026-05-29 15:26:08] INFO [owner_recommender:owner_feature_builder.py:21] - Starting Business Owner Feature Engineering Pipeline...
+[2026-05-29 15:26:08] INFO [owner_recommender:owner_feature_builder.py:101] - Business owner feature engineering complete. Created 1043 feature rows.
+[2026-05-29 15:26:08] INFO [owner_recommender:train.py:62] - Persisted training features to Parquet Feature Store (version 2)
+[2026-05-29 15:26:08] INFO [owner_recommender:train.py:67] - Raw material recommender and forecaster training complete.
+[2026-05-29 15:26:12] INFO [owner_recommender:train.py:98] - Forecasting metrics: {'demand_forecast_rmse': 554.8822800217102, 'demand_forecast_mae': 398.0961610100947}
+[2026-05-29 15:26:46] INFO [owner_recommender:train.py:23] - Starting Business Owner Raw Material Recommender Offline Training...
+[2026-05-29 15:26:51] WARNING [owner_recommender:train.py:30] - Could not connect to MLflow server at http://localhost:5000. Falling back to local file logging. Error: API request to http://localhost:5000/api/2.0/mlflow/experiments/get-by-name failed with timeout exception HTTPConnectionPool(host='localhost', port=5000): Max retries exceeded with url: /api/2.0/mlflow/experiments/get-by-name?experiment_name=owner_recommender_experiment (Caused by ConnectTimeoutError(<HTTPConnection(host='localhost', port=5000) at 0x27133f63a40>, 'Connection to localhost timed out. (connect timeout=2)')). To increase the timeout, set the environment variable MLFLOW_HTTP_REQUEST_TIMEOUT (default: 120) to a larger value.
+[2026-05-29 15:27:12] INFO [owner_recommender:train.py:39] - Loaded 100 raw materials and 40000 owner procurement records.
+[2026-05-29 15:27:12] INFO [owner_recommender:train.py:50] - Train split size: 34000 raw rows, Test split size: 6000
+[2026-05-29 15:27:12] INFO [owner_recommender:owner_feature_builder.py:21] - Starting Business Owner Feature Engineering Pipeline...
+[2026-05-29 15:27:12] INFO [owner_recommender:owner_feature_builder.py:101] - Business owner feature engineering complete. Created 1043 feature rows.
+[2026-05-29 15:27:12] INFO [owner_recommender:train.py:62] - Persisted training features to Parquet Feature Store (version 3)
+[2026-05-29 15:27:12] INFO [owner_recommender:train.py:67] - Raw material recommender and forecaster training complete.
+[2026-05-29 15:27:16] INFO [owner_recommender:train.py:98] - Forecasting metrics: {'demand_forecast_rmse': 700.8042956261926, 'demand_forecast_mae': 550.6146139965326}
+[2026-05-29 15:27:27] INFO [owner_recommender:train.py:115] - Procurement recommendation metrics: {'owner_precision_at_5': 1.0, 'owner_recall_at_5': 0.5485452047952049}
+[2026-05-29 15:27:28] INFO [owner_recommender:train.py:133] - Logged parameters and metrics to MLflow tracking server.
+[2026-05-29 15:27:28] INFO [owner_recommender:train.py:150] - Saved versioned owner model to ./trained_models\owner\v1\owner_model.joblib
+[2026-05-29 15:27:28] INFO [owner_recommender:train.py:151] - Saved latest production owner model to ./trained_models\owner\latest\owner_model.joblib
+[2026-05-29 19:02:29] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-29 19:02:35] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-29 19:02:35] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-29 19:43:27] INFO [owner_recommender:routes.py:59] - API request: owner_id=3, top_k=6
+[2026-05-31 16:46:41] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-31 16:46:41] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-31 16:46:52] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-31 16:46:52] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-31 17:23:57] INFO [owner_recommender:routes.py:59] - API request: owner_id=6, top_k=6
+[2026-05-31 18:38:34] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.
+[2026-05-31 18:38:34] INFO [owner_recommender:recommender_service.py:26] - Owner recommendation model loaded successfully from ./trained_models\owner\latest\owner_model.joblib.

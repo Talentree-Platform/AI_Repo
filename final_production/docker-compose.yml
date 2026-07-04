@@ -1,0 +1,54 @@
+version: "3.8"
+
+services:
+  # 1. MLflow Tracking Server (kept for experiment tracking & model versioning)
+  mlflow:
+    image: python:3.11-slim
+    container_name: recommendation_mlflow
+    command: >
+      sh -c "pip install --no-cache-dir mlflow && mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri /mlflow/mlruns --default-artifact-root /mlflow/artifacts"
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+    restart: unless-stopped
+
+  # 2. FastAPI Recommendation Service
+  #    Connects to the live remote MonsterASP SQL Server — no local DB container needed.
+  app:
+    build: .
+    container_name: recommendation_app
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=Enterprise Recommendation System
+      - ENV=production
+      - LOG_LEVEL=INFO
+
+      # --- Live Remote SQL Server (MonsterASP) ---
+      - DB_USER=db52715
+      - DB_PASSWORD=Kg4+5#hGcH=8
+      - DB_HOST=db52715.public.databaseasp.net
+      - DB_PORT=1433
+      - DB_NAME=db52715
+
+      # --- MLflow ---
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+
+      # --- Filesystem Paths ---
+      - MODEL_DIR=./trained_models
+      - FEATURE_STORE_DIR=./data/processed
+
+    volumes:
+      - trained_models_data:/app/trained_models
+      - logs_data:/app/logs
+      - datasets_data:/app/data
+    depends_on:
+      - mlflow
+    restart: unless-stopped
+
+volumes:
+  mlflow_data:
+  trained_models_data:
+  logs_data:
+  datasets_data:
