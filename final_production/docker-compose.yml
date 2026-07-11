@@ -5,6 +5,8 @@ services:
   mlflow:
     image: python:3.11-slim
     container_name: recommendation_mlflow
+    environment:
+      - MLFLOW_ALLOW_FILE_STORE=true
     command: >
       sh -c "pip install --no-cache-dir mlflow && mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri /mlflow/mlruns --default-artifact-root /mlflow/artifacts"
     ports:
